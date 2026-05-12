@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Planetary Distance from Earth</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: #050a14;
+      color: #e0eaff;
+      font-family: 'Segoe UI', system-ui, sans-serif;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 28px 16px 40px;
+    }
+
+    h1 {
+      font-size: 1.5rem;
+      font-weight: 300;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #8ab4f8;
+      margin-bottom: 6px;
+    }
+
+    .subtitle {
+      font-size: 0.78rem;
+      color: #5a7da0;
+      letter-spacing: 0.06em;
+      margin-bottom: 28px;
+    }
+
+    .layout {
+      display: flex;
+      gap: 28px;
+      width: 100%;
+      max-width: 1100px;
+      align-items: flex-start;
+      flex-wrap: wrap;
+    }
+
+    /* ── Orbital diagram ── */
+    .orbit-panel {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+      flex-shrink: 0;
+    }
+
+    #orbitCanvas {
+      border-radius: 50%;
+      background: radial-gradient(circle at 50% 50%, #0a1628 60%, #050a14 100%);
+      border: 1px solid #1c3050;
+    }
+
+    .planet-readouts {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      width: 100%;
+      padding: 0 4px;
+    }
+
+    .readout {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 0.82rem;
+    }
+
+    .readout-dot {
+      width: 10px; height: 10px;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    .readout-label {
+      flex: 1;
+      color: #8ab4f8;
+    }
+
+    .readout-value {
+      font-variant-numeric: tabular-nums;
+      color: #cde;
+      min-width: 62px;
+      text-align: right;
+    }
+
+    /* ── Chart panel ── */
+    .chart-panel {
+      flex: 1;
+      min-width: 320px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .chart-wrap {
+      position: relative;
+      background: #07111f;
+      border: 1px solid #1c3050;
+      border-radius: 10px;
+      padding: 16px;
+    }
+
+    #distChart { width: 100% !important; }
+
+    /* ── Slider ── */
+    .slider-row {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 0 4px;
+    }
+
+    .slider-label {
+      font-size: 0.78rem;
+      color: #5a7da0;
+      white-space: nowrap;
+      min-width: 90px;
+    }
+
+    input[type=range] {
+      flex: 1;
+      -webkit-appearance: none;
+      height: 4px;
+      border-radius: 2px;
+      background: #1c3050;
+      outline: none;
+      cursor: pointer;
+    }
+
+    input[type=range]::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      width: 16px; height: 16px;
+      border-radius: 50%;
+      background: #8ab4f8;
+      border: 2px solid #050a14;
+      box-shadow: 0 0 6px #8ab4f880;
+    }
+
+    input[type=range]::-moz-range-thumb {
+      width: 16px; height: 16px;
+      border-radius: 50%;
+      background: #8ab4f8;
+      border: 2px solid #050a14;
+      cursor: pointer;
+    }
+
+    .angle-display {
+      font-size: 0.85rem;
+      font-variant-numeric: tabular-nums;
+      color: #8ab4f8;
+      min-width: 40px;
+      text-align: right;
+    }
+
+    /* ── Play button ── */
+    .controls-row {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 0 4px;
+    }
+
+    button {
+      background: #112240;
+      border: 1px solid #1c3050;
+      color: #8ab4f8;
+      padding: 7px 18px;
+      border-radius: 6px;
+      font-size: 0.82rem;
+      cursor: pointer;
+      letter-spacing: 0.05em;
+      transition: background 0.2s;
+    }
+
+    button:hover { background: #1c3a60; }
+
+    .legend {
+      display: flex;
+      gap: 20px;
+      font-size: 0.78rem;
+      padding: 0 4px;
+      flex-wrap: wrap;
+    }
+
+    .legend-item {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      color: #8ab4f8;
+    }
+
+    .legend-swatch {
+      width: 20px; height: 3px;
+      border-radius: 2px;
+    }
+
+    .note {
+      font-size: 0.72rem;
+      color: #3a5070;
+      text-align: center;
+      margin-top: 18px;
+      max-width: 700px;
+    }
+  </style>
+</head>
+<body>
+
+<h1>Planetary Distance from Earth</h1>
+<p class="subtitle">Earth fixed at 12 o'clock &mdash; circular orbits &mdash; distances in AU</p>
+
+<div class="layout">
+
+  <!-- Orbital diagram -->
+  <div class="orbit-panel">
+    <canvas id="orbitCanvas" width="280" height="280"></canvas>
+    <div class="planet-readouts">
+      <div class="readout">
+        <div class="readout-dot" style="background:#a8c8f0"></div>
+        <span class="readout-label">Mercury</span>
+        <span class="readout-value" id="dMercury">— AU</span>
+      </div>
+      <div class="readout">
+        <div class="readout-dot" style="background:#f4a261"></div>
+        <span class="readout-label">Venus</span>
+        <span class="readout-value" id="dVenus">— AU</span>
+      </div>
+      <div class="readout">
+        <div class="readout-dot" style="background:#e05c5c"></div>
+        <span class="readout-label">Mars</span>
+        <span class="readout-value" id="dMars">— AU</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Chart + controls -->
+  <div class="chart-panel">
+    <div class="chart-wrap">
+      <canvas id="distChart"></canvas>
+    </div>
+
+    <div class="slider-row">
+      <span class="slider-label">Orbital angle</span>
+      <input type="range" id="angleSlider" min="0" max="360" step="1" value="0" />
+      <span class="angle-display" id="angleDisplay">0°</span>
+    </div>
+
+    <div class="controls-row">
+      <button id="playBtn">&#9654; Animate</button>
+      <div class="legend">
+        <div class="legend-item">
+          <div class="legend-swatch" style="background:#a8c8f0"></div> Mercury
+        </div>
+        <div class="legend-item">
+          <div class="legend-swatch" style="background:#f4a261"></div> Venus
+        </div>
+        <div class="legend-item">
+          <div class="legend-swatch" style="background:#e05c5c"></div> Mars
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<p class="note">
+  X-axis: angular position of each planet in its orbit (0° = 12 o'clock, aligned with Earth).
+  Y-axis: straight-line distance between Earth and the planet in Astronomical Units (AU).
+  Assumes circular orbits: Mercury 0.387 AU, Venus 0.723 AU, Earth 1.000 AU, Mars 1.524 AU from the Sun.
+</p>
+
+<script>
+// ── Orbital data ──────────────────────────────────────────────────────────────
+const PLANETS = [
+  { key: 'mercury', name: 'Mercury', r: 0.387, color: '#a8c8f0', fill: 'rgba(168,200,240,0.07)' },
+  { key: 'venus',   name: 'Venus',   r: 0.723, color: '#f4a261', fill: 'rgba(244,162, 97,0.07)' },
+  { key: 'mars',    name: 'Mars',    r: 1.524, color: '#e05c5c', fill: 'rgba(224, 92, 92,0.07)' },
+];
+
+const EARTH_R = 1.0;   // AU
+const DEGREES = Array.from({ length: 361 }, (_, i) => i);
+
+function dist(r, deg) {
+  const rad = deg * Math.PI / 180;
+  return Math.sqrt(r * r - 2 * r * Math.cos(rad) + 1);
+}
+
+// ── Build chart datasets ──────────────────────────────────────────────────────
+const datasets = PLANETS.map(p => ({
+  label: p.name,
+  data: DEGREES.map(d => ({ x: d, y: dist(p.r, d) })),
+  borderColor: p.color,
+  backgroundColor: p.fill,
+  borderWidth: 2,
+  pointRadius: 0,
+  pointHoverRadius: 5,
+  fill: false,
+  tension: 0.3,
+}));
+
+// Add a vertical "angle marker" line dataset
+const markerDataset = {
+  label: '_marker',
+  data: [{ x: 0, y: 0 }, { x: 0, y: 3.2 }],
+  borderColor: 'rgba(138,180,248,0.45)',
+  borderWidth: 1.5,
+  borderDash: [4, 4],
+  pointRadius: 0,
+  fill: false,
+  tension: 0,
+};
+
+const ctx = document.getElementById('distChart').getContext('2d');
+const chart = new Chart(ctx, {
+  type: 'line',
+  data: { datasets: [...datasets, markerDataset] },
+  options: {
+    animation: false,
+    responsive: true,
+    interaction: { mode: 'index', intersect: false },
+    scales: {
+      x: {
+        type: 'linear',
+        min: 0, max: 360,
+        title: { display: true, text: 'Orbital angle (°)', color: '#5a7da0', font: { size: 11 } },
+        ticks: {
+          color: '#5a7da0',
+          stepSize: 45,
+          callback: v => v + '°',
+        },
+        grid: { color: '#0d2040' },
+      },
+      y: {
+        min: 0, max: 3.0,
+        title: { display: true, text: 'Distance (AU)', color: '#5a7da0', font: { size: 11 } },
+        ticks: { color: '#5a7da0' },
+        grid: { color: '#0d2040' },
+      },
+    },
+    plugins: {
+      legend: { display: false },
+      tooltip: {
+        filter: item => item.dataset.label !== '_marker',
+        callbacks: {
+          title: items => `Angle: ${items[0].parsed.x}°`,
+          label: item => ` ${item.dataset.label}: ${item.parsed.y.toFixed(3)} AU`,
+        },
+        backgroundColor: '#07111f',
+        borderColor: '#1c3050',
+        borderWidth: 1,
+        titleColor: '#8ab4f8',
+        bodyColor: '#cde',
+        padding: 10,
+      },
+    },
+  },
+});
+
+// ── Orbital diagram ───────────────────────────────────────────────────────────
+const oc = document.getElementById('orbitCanvas');
+const octx = oc.getContext('2d');
+const CX = oc.width / 2;
+const CY = oc.height / 2;
+const SCALE = 85; // px per AU
+
+function drawOrbit(angle) {
+  octx.clearRect(0, 0, oc.width, oc.height);
+
+  // Sun
+  const sunGrad = octx.createRadialGradient(CX, CY, 0, CX, CY, 10);
+  sunGrad.addColorStop(0, '#fff8c0');
+  sunGrad.addColorStop(0.4, '#ffd060');
+  sunGrad.addColorStop(1, 'rgba(255,180,0,0)');
+  octx.beginPath();
+  octx.arc(CX, CY, 10, 0, 2 * Math.PI);
+  octx.fillStyle = sunGrad;
+  octx.fill();
+
+  // Orbit rings
+  [0.387, 0.723, 1.0, 1.524].forEach(r => {
+    octx.beginPath();
+    octx.arc(CX, CY, r * SCALE, 0, 2 * Math.PI);
+    octx.strokeStyle = '#1c3050';
+    octx.lineWidth = 1;
+    octx.stroke();
+  });
+
+  // Earth — fixed at 12 o'clock (top)
+  const ex = CX;
+  const ey = CY - EARTH_R * SCALE;
+  octx.beginPath();
+  octx.arc(ex, ey, 5, 0, 2 * Math.PI);
+  octx.fillStyle = '#4fa8d5';
+  octx.fill();
+  octx.fillStyle = '#8ab4f8';
+  octx.font = '10px Segoe UI, system-ui';
+  octx.fillText('Earth', ex + 7, ey + 4);
+
+  // Planets
+  const rad = angle * Math.PI / 180;
+  PLANETS.forEach(p => {
+    const px = CX + p.r * SCALE * Math.sin(rad);
+    const py = CY - p.r * SCALE * Math.cos(rad);
+
+    // Distance line from Earth to planet
+    octx.beginPath();
+    octx.moveTo(ex, ey);
+    octx.lineTo(px, py);
+    octx.strokeStyle = p.color + '55';
+    octx.lineWidth = 1;
+    octx.setLineDash([3, 4]);
+    octx.stroke();
+    octx.setLineDash([]);
+
+    // Planet dot
+    octx.beginPath();
+    octx.arc(px, py, 4, 0, 2 * Math.PI);
+    octx.fillStyle = p.color;
+    octx.fill();
+  });
+}
+
+// ── Sync everything to a given angle ─────────────────────────────────────────
+function setAngle(angle) {
+  angle = ((angle % 360) + 360) % 360;
+
+  // Update slider & label
+  document.getElementById('angleSlider').value = angle;
+  document.getElementById('angleDisplay').textContent = Math.round(angle) + '°';
+
+  // Update marker line on chart
+  const markerDs = chart.data.datasets[chart.data.datasets.length - 1];
+  markerDs.data = [{ x: angle, y: 0 }, { x: angle, y: 3.2 }];
+  chart.update('none');
+
+  // Update distance readouts
+  document.getElementById('dMercury').textContent = dist(0.387, angle).toFixed(3) + ' AU';
+  document.getElementById('dVenus').textContent   = dist(0.723, angle).toFixed(3) + ' AU';
+  document.getElementById('dMars').textContent    = dist(1.524, angle).toFixed(3) + ' AU';
+
+  // Draw orbital diagram
+  drawOrbit(angle);
+}
+
+// Initial render
+setAngle(0);
+
+// Slider
+document.getElementById('angleSlider').addEventListener('input', e => {
+  setAngle(parseFloat(e.target.value));
+});
+
+// Animate
+let animId = null;
+let animAngle = 0;
+const playBtn = document.getElementById('playBtn');
+
+function animStep() {
+  animAngle = (animAngle + 1) % 360;
+  setAngle(animAngle);
+  animId = requestAnimationFrame(animStep);
+}
+
+playBtn.addEventListener('click', () => {
+  if (animId) {
+    cancelAnimationFrame(animId);
+    animId = null;
+    playBtn.textContent = '▶ Animate';
+  } else {
+    animAngle = parseFloat(document.getElementById('angleSlider').value);
+    playBtn.textContent = '⏸ Pause';
+    animId = requestAnimationFrame(animStep);
+  }
+});
+</script>
+</body>
+</html>
