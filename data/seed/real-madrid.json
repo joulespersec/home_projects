@@ -1,0 +1,180 @@
+{
+  "club": "real-madrid",
+  "league": "laliga",
+  "season": "2025-26",
+  "currency": "EUR",
+  "provenance": "Curated estimate from public wage reporting (Capology/Spotrac/SalaryLeaks/press) gathered via web search 2026-07-16; NOT a live scrape. Weekly base wages, journalist-estimated. XI = reconstructed most-used 2025-26 lineup. Approximate — verify against a live scrape before publication.",
+  "formation_note": "4-2-3-1 under Xabi Alonso; Bellingham at 10.",
+  "wages": [
+    {
+      "name": "Thibaut Courtois",
+      "weekly": 250,
+      "annual": 13000,
+      "currency": "EUR"
+    },
+    {
+      "name": "Trent Alexander-Arnold",
+      "weekly": 240,
+      "annual": 12480,
+      "currency": "EUR"
+    },
+    {
+      "name": "Eder Militao",
+      "weekly": 150,
+      "annual": 7800,
+      "currency": "EUR"
+    },
+    {
+      "name": "Antonio Rudiger",
+      "weekly": 190,
+      "annual": 9880,
+      "currency": "EUR"
+    },
+    {
+      "name": "Alvaro Carreras",
+      "weekly": 90,
+      "annual": 4680,
+      "currency": "EUR"
+    },
+    {
+      "name": "Aurelien Tchouameni",
+      "weekly": 190,
+      "annual": 9880,
+      "currency": "EUR"
+    },
+    {
+      "name": "Fede Valverde",
+      "weekly": 320,
+      "annual": 16640,
+      "currency": "EUR"
+    },
+    {
+      "name": "Jude Bellingham",
+      "weekly": 400,
+      "annual": 20800,
+      "currency": "EUR"
+    },
+    {
+      "name": "Vinicius Jr",
+      "weekly": 480,
+      "annual": 24960,
+      "currency": "EUR"
+    },
+    {
+      "name": "Rodrygo",
+      "weekly": 190,
+      "annual": 9880,
+      "currency": "EUR"
+    },
+    {
+      "name": "Kylian Mbappe",
+      "weekly": 600,
+      "annual": 31200,
+      "currency": "EUR"
+    },
+    {
+      "name": "Arda Guler",
+      "weekly": 90,
+      "annual": 4680,
+      "currency": "EUR"
+    },
+    {
+      "name": "Dean Huijsen",
+      "weekly": 90,
+      "annual": 4680,
+      "currency": "EUR"
+    },
+    {
+      "name": "Eduardo Camavinga",
+      "weekly": 150,
+      "annual": 7800,
+      "currency": "EUR"
+    }
+  ],
+  "lineup": [
+    {
+      "name": "Thibaut Courtois",
+      "granular": "GK",
+      "minutes": 3000,
+      "starts": 33
+    },
+    {
+      "name": "Trent Alexander-Arnold",
+      "granular": "FB",
+      "minutes": 2300,
+      "starts": 25
+    },
+    {
+      "name": "Éder Militão",
+      "granular": "CB",
+      "minutes": 2400,
+      "starts": 26
+    },
+    {
+      "name": "Antonio Rüdiger",
+      "granular": "CB",
+      "minutes": 2600,
+      "starts": 28
+    },
+    {
+      "name": "Álvaro Carreras",
+      "granular": "FB",
+      "minutes": 2500,
+      "starts": 27
+    },
+    {
+      "name": "Aurélien Tchouaméni",
+      "granular": "DM",
+      "minutes": 2800,
+      "starts": 31
+    },
+    {
+      "name": "Federico Valverde",
+      "granular": "CM",
+      "minutes": 3100,
+      "starts": 34
+    },
+    {
+      "name": "Jude Bellingham",
+      "granular": "AM",
+      "minutes": 2700,
+      "starts": 30
+    },
+    {
+      "name": "Vinícius Júnior",
+      "granular": "W",
+      "minutes": 2900,
+      "starts": 31
+    },
+    {
+      "name": "Rodrygo",
+      "granular": "W",
+      "minutes": 2200,
+      "starts": 24
+    },
+    {
+      "name": "Kylian Mbappé",
+      "granular": "ST",
+      "minutes": 3100,
+      "starts": 34
+    },
+    {
+      "name": "Arda Güler",
+      "granular": "AM",
+      "minutes": 1600,
+      "starts": 15
+    },
+    {
+      "name": "Dean Huijsen",
+      "granular": "CB",
+      "minutes": 1800,
+      "starts": 18
+    },
+    {
+      "name": "Eduardo Camavinga",
+      "granular": "CM",
+      "minutes": 1500,
+      "starts": 14
+    }
+  ]
+}

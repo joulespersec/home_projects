@@ -1,0 +1,192 @@
+{
+  "club": "man-city",
+  "league": "epl",
+  "season": "2025-26",
+  "currency": "GBP",
+  "provenance": "Curated estimate from public wage reporting (Capology/Spotrac/SalaryLeaks/press) gathered via web search 2026-07-16; NOT a live scrape. Weekly base wages, journalist-estimated. XI = reconstructed most-used 2025-26 lineup. Approximate — verify against a live scrape before publication.",
+  "formation_note": "4-2-3-1; Rodri single pivot when fit.",
+  "wages": [
+    {
+      "name": "Gianluigi Donnarumma",
+      "weekly": 250,
+      "annual": 13000,
+      "currency": "GBP"
+    },
+    {
+      "name": "Matheus Nunes",
+      "weekly": 110,
+      "annual": 5720,
+      "currency": "GBP"
+    },
+    {
+      "name": "Ruben Dias",
+      "weekly": 220,
+      "annual": 11440,
+      "currency": "GBP"
+    },
+    {
+      "name": "Josko Gvardiol",
+      "weekly": 130,
+      "annual": 6760,
+      "currency": "GBP"
+    },
+    {
+      "name": "Nathan Ake",
+      "weekly": 120,
+      "annual": 6240,
+      "currency": "GBP"
+    },
+    {
+      "name": "Rodrigo Hernandez",
+      "weekly": 220,
+      "annual": 11440,
+      "currency": "GBP"
+    },
+    {
+      "name": "Tijjani Reijnders",
+      "weekly": 140,
+      "annual": 7280,
+      "currency": "GBP"
+    },
+    {
+      "name": "Bernardo Silva",
+      "weekly": 160,
+      "annual": 8320,
+      "currency": "GBP"
+    },
+    {
+      "name": "Savinho",
+      "weekly": 70,
+      "annual": 3640,
+      "currency": "GBP"
+    },
+    {
+      "name": "Phil Foden",
+      "weekly": 150,
+      "annual": 7800,
+      "currency": "GBP"
+    },
+    {
+      "name": "Erling Haaland",
+      "weekly": 525,
+      "annual": 27300,
+      "currency": "GBP"
+    },
+    {
+      "name": "Rayan Cherki",
+      "weekly": 180,
+      "annual": 9360,
+      "currency": "GBP"
+    },
+    {
+      "name": "Omar Marmoush",
+      "weekly": 120,
+      "annual": 6240,
+      "currency": "GBP"
+    },
+    {
+      "name": "Nico Gonzalez",
+      "weekly": 90,
+      "annual": 4680,
+      "currency": "GBP"
+    },
+    {
+      "name": "Abdukodir Khusanov",
+      "weekly": 40,
+      "annual": 2080,
+      "currency": "GBP"
+    }
+  ],
+  "lineup": [
+    {
+      "name": "Gianluigi Donnarumma",
+      "granular": "GK",
+      "minutes": 3100,
+      "starts": 34
+    },
+    {
+      "name": "Matheus Nunes",
+      "granular": "FB",
+      "minutes": 2400,
+      "starts": 27
+    },
+    {
+      "name": "Rúben Dias",
+      "granular": "CB",
+      "minutes": 3000,
+      "starts": 33
+    },
+    {
+      "name": "Joško Gvardiol",
+      "granular": "CB",
+      "minutes": 2900,
+      "starts": 32
+    },
+    {
+      "name": "Nathan Aké",
+      "granular": "FB",
+      "minutes": 2100,
+      "starts": 23
+    },
+    {
+      "name": "Rodri",
+      "granular": "DM",
+      "minutes": 2600,
+      "starts": 29
+    },
+    {
+      "name": "Tijjani Reijnders",
+      "granular": "CM",
+      "minutes": 2700,
+      "starts": 30
+    },
+    {
+      "name": "Bernardo Silva",
+      "granular": "CM",
+      "minutes": 2500,
+      "starts": 28
+    },
+    {
+      "name": "Savinho",
+      "granular": "W",
+      "minutes": 2300,
+      "starts": 25
+    },
+    {
+      "name": "Phil Foden",
+      "granular": "W",
+      "minutes": 2600,
+      "starts": 29
+    },
+    {
+      "name": "Erling Haaland",
+      "granular": "ST",
+      "minutes": 3000,
+      "starts": 33
+    },
+    {
+      "name": "Rayan Cherki",
+      "granular": "AM",
+      "minutes": 1200,
+      "starts": 10
+    },
+    {
+      "name": "Omar Marmoush",
+      "granular": "ST",
+      "minutes": 1400,
+      "starts": 13
+    },
+    {
+      "name": "Nico González",
+      "granular": "DM",
+      "minutes": 1300,
+      "starts": 12
+    },
+    {
+      "name": "Abdukodir Khusanov",
+      "granular": "CB",
+      "minutes": 900,
+      "starts": 8
+    }
+  ]
+}

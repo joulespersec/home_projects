@@ -1,0 +1,180 @@
+{
+  "club": "arsenal",
+  "league": "epl",
+  "season": "2025-26",
+  "currency": "GBP",
+  "provenance": "Curated estimate from public wage reporting (Capology/Spotrac/SalaryLeaks/press) gathered via web search 2026-07-16; NOT a live scrape. Weekly base wages, journalist-estimated. XI = reconstructed most-used 2025-26 lineup. Approximate — verify against a live scrape before publication.",
+  "formation_note": "4-3-3; Zubimendi 6, Rice/Ødegaard 8s.",
+  "wages": [
+    {
+      "name": "David Raya",
+      "weekly": 100,
+      "annual": 5200,
+      "currency": "GBP"
+    },
+    {
+      "name": "Jurrien Timber",
+      "weekly": 75,
+      "annual": 3900,
+      "currency": "GBP"
+    },
+    {
+      "name": "William Saliba",
+      "weekly": 250,
+      "annual": 13000,
+      "currency": "GBP"
+    },
+    {
+      "name": "Gabriel",
+      "weekly": 120,
+      "annual": 6240,
+      "currency": "GBP"
+    },
+    {
+      "name": "Riccardo Calafiori",
+      "weekly": 70,
+      "annual": 3640,
+      "currency": "GBP"
+    },
+    {
+      "name": "Martin Zubimendi",
+      "weekly": 130,
+      "annual": 6760,
+      "currency": "GBP"
+    },
+    {
+      "name": "Declan Rice",
+      "weekly": 240,
+      "annual": 12480,
+      "currency": "GBP"
+    },
+    {
+      "name": "Martin Odegaard",
+      "weekly": 240,
+      "annual": 12480,
+      "currency": "GBP"
+    },
+    {
+      "name": "Bukayo Saka",
+      "weekly": 300,
+      "annual": 15600,
+      "currency": "GBP"
+    },
+    {
+      "name": "Gabriel Martinelli",
+      "weekly": 90,
+      "annual": 4680,
+      "currency": "GBP"
+    },
+    {
+      "name": "Viktor Gyokeres",
+      "weekly": 150,
+      "annual": 7800,
+      "currency": "GBP"
+    },
+    {
+      "name": "Kai Havertz",
+      "weekly": 280,
+      "annual": 14560,
+      "currency": "GBP"
+    },
+    {
+      "name": "Eberechi Eze",
+      "weekly": 190,
+      "annual": 9880,
+      "currency": "GBP"
+    },
+    {
+      "name": "Noni Madueke",
+      "weekly": 90,
+      "annual": 4680,
+      "currency": "GBP"
+    }
+  ],
+  "lineup": [
+    {
+      "name": "David Raya",
+      "granular": "GK",
+      "minutes": 3200,
+      "starts": 35
+    },
+    {
+      "name": "Jurriën Timber",
+      "granular": "FB",
+      "minutes": 2600,
+      "starts": 29
+    },
+    {
+      "name": "William Saliba",
+      "granular": "CB",
+      "minutes": 3000,
+      "starts": 33
+    },
+    {
+      "name": "Gabriel Magalhães",
+      "granular": "CB",
+      "minutes": 2900,
+      "starts": 32
+    },
+    {
+      "name": "Riccardo Calafiori",
+      "granular": "FB",
+      "minutes": 2200,
+      "starts": 24
+    },
+    {
+      "name": "Martín Zubimendi",
+      "granular": "DM",
+      "minutes": 2800,
+      "starts": 31
+    },
+    {
+      "name": "Declan Rice",
+      "granular": "CM",
+      "minutes": 3000,
+      "starts": 33
+    },
+    {
+      "name": "Martin Ødegaard",
+      "granular": "AM",
+      "minutes": 2700,
+      "starts": 30
+    },
+    {
+      "name": "Bukayo Saka",
+      "granular": "W",
+      "minutes": 2800,
+      "starts": 31
+    },
+    {
+      "name": "Gabriel Martinelli",
+      "granular": "W",
+      "minutes": 2200,
+      "starts": 24
+    },
+    {
+      "name": "Viktor Gyökeres",
+      "granular": "ST",
+      "minutes": 2600,
+      "starts": 29
+    },
+    {
+      "name": "Kai Havertz",
+      "granular": "ST",
+      "minutes": 1400,
+      "starts": 13
+    },
+    {
+      "name": "Eberechi Eze",
+      "granular": "AM",
+      "minutes": 1700,
+      "starts": 16
+    },
+    {
+      "name": "Noni Madueke",
+      "granular": "W",
+      "minutes": 1300,
+      "starts": 12
+    }
+  ]
+}

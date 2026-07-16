@@ -1,0 +1,180 @@
+{
+  "club": "barcelona",
+  "league": "laliga",
+  "season": "2025-26",
+  "currency": "EUR",
+  "provenance": "Curated estimate from public wage reporting (Capology/Spotrac/SalaryLeaks/press) gathered via web search 2026-07-16; NOT a live scrape. Weekly base wages, journalist-estimated. XI = reconstructed most-used 2025-26 lineup. Approximate — verify against a live scrape before publication.",
+  "formation_note": "4-3-3 under Flick; Casadó/De Jong pivot, Pedri LCM.",
+  "wages": [
+    {
+      "name": "Marc-Andre ter Stegen",
+      "weekly": 320,
+      "annual": 16640,
+      "currency": "EUR"
+    },
+    {
+      "name": "Jules Kounde",
+      "weekly": 120,
+      "annual": 6240,
+      "currency": "EUR"
+    },
+    {
+      "name": "Pau Cubarsi",
+      "weekly": 40,
+      "annual": 2080,
+      "currency": "EUR"
+    },
+    {
+      "name": "Ronald Araujo",
+      "weekly": 100,
+      "annual": 5200,
+      "currency": "EUR"
+    },
+    {
+      "name": "Alejandro Balde",
+      "weekly": 80,
+      "annual": 4160,
+      "currency": "EUR"
+    },
+    {
+      "name": "Marc Casado",
+      "weekly": 30,
+      "annual": 1560,
+      "currency": "EUR"
+    },
+    {
+      "name": "Frenkie de Jong",
+      "weekly": 140,
+      "annual": 7280,
+      "currency": "EUR"
+    },
+    {
+      "name": "Pedri",
+      "weekly": 240,
+      "annual": 12480,
+      "currency": "EUR"
+    },
+    {
+      "name": "Lamine Yamal",
+      "weekly": 320,
+      "annual": 16640,
+      "currency": "EUR"
+    },
+    {
+      "name": "Raphinha",
+      "weekly": 280,
+      "annual": 14560,
+      "currency": "EUR"
+    },
+    {
+      "name": "Robert Lewandowski",
+      "weekly": 600,
+      "annual": 31200,
+      "currency": "EUR"
+    },
+    {
+      "name": "Dani Olmo",
+      "weekly": 150,
+      "annual": 7800,
+      "currency": "EUR"
+    },
+    {
+      "name": "Ferran Torres",
+      "weekly": 90,
+      "annual": 4680,
+      "currency": "EUR"
+    },
+    {
+      "name": "Marcus Rashford",
+      "weekly": 150,
+      "annual": 7800,
+      "currency": "EUR"
+    }
+  ],
+  "lineup": [
+    {
+      "name": "Marc-André ter Stegen",
+      "granular": "GK",
+      "minutes": 2400,
+      "starts": 26
+    },
+    {
+      "name": "Jules Koundé",
+      "granular": "FB",
+      "minutes": 3000,
+      "starts": 33
+    },
+    {
+      "name": "Pau Cubarsí",
+      "granular": "CB",
+      "minutes": 2900,
+      "starts": 32
+    },
+    {
+      "name": "Ronald Araújo",
+      "granular": "CB",
+      "minutes": 2500,
+      "starts": 27
+    },
+    {
+      "name": "Alejandro Balde",
+      "granular": "FB",
+      "minutes": 2600,
+      "starts": 28
+    },
+    {
+      "name": "Marc Casadó",
+      "granular": "DM",
+      "minutes": 2100,
+      "starts": 22
+    },
+    {
+      "name": "Frenkie de Jong",
+      "granular": "CM",
+      "minutes": 2900,
+      "starts": 32
+    },
+    {
+      "name": "Pedri",
+      "granular": "CM",
+      "minutes": 3000,
+      "starts": 33
+    },
+    {
+      "name": "Lamine Yamal",
+      "granular": "W",
+      "minutes": 2900,
+      "starts": 32
+    },
+    {
+      "name": "Raphinha",
+      "granular": "W",
+      "minutes": 2800,
+      "starts": 31
+    },
+    {
+      "name": "Robert Lewandowski",
+      "granular": "ST",
+      "minutes": 2400,
+      "starts": 26
+    },
+    {
+      "name": "Dani Olmo",
+      "granular": "AM",
+      "minutes": 1700,
+      "starts": 16
+    },
+    {
+      "name": "Ferran Torres",
+      "granular": "ST",
+      "minutes": 1600,
+      "starts": 15
+    },
+    {
+      "name": "Marcus Rashford",
+      "granular": "W",
+      "minutes": 1500,
+      "starts": 14
+    }
+  ]
+}

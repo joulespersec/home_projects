@@ -1,0 +1,12 @@
+__pycache__/
+*.pyc
+.pytest_cache/
+.venv/
+venv/
+
+# Cached raw HTML from live scrapes (can be large; regenerate on demand).
+data/raw/*/
+!data/raw/.gitkeep
+
+# Generated intermediates (rebuilt by the pipeline).
+data/interim/*.json

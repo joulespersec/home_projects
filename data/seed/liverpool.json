@@ -1,0 +1,180 @@
+{
+  "club": "liverpool",
+  "league": "epl",
+  "season": "2025-26",
+  "currency": "GBP",
+  "provenance": "Curated estimate from public wage reporting (Capology/Spotrac/SalaryLeaks/press) gathered via web search 2026-07-16; NOT a live scrape. Weekly base wages, journalist-estimated. XI = reconstructed most-used 2025-26 lineup. Approximate — verify against a live scrape before publication.",
+  "formation_note": "4-2-3-1; Wirtz at 10, Gravenberch anchor.",
+  "wages": [
+    {
+      "name": "Alisson Becker",
+      "weekly": 150,
+      "annual": 7800,
+      "currency": "GBP"
+    },
+    {
+      "name": "Jeremie Frimpong",
+      "weekly": 85,
+      "annual": 4420,
+      "currency": "GBP"
+    },
+    {
+      "name": "Virgil van Dijk",
+      "weekly": 350,
+      "annual": 18200,
+      "currency": "GBP"
+    },
+    {
+      "name": "Ibrahima Konate",
+      "weekly": 120,
+      "annual": 6240,
+      "currency": "GBP"
+    },
+    {
+      "name": "Milos Kerkez",
+      "weekly": 70,
+      "annual": 3640,
+      "currency": "GBP"
+    },
+    {
+      "name": "Ryan Gravenberch",
+      "weekly": 80,
+      "annual": 4160,
+      "currency": "GBP"
+    },
+    {
+      "name": "Alexis Mac Allister",
+      "weekly": 150,
+      "annual": 7800,
+      "currency": "GBP"
+    },
+    {
+      "name": "Florian Wirtz",
+      "weekly": 195,
+      "annual": 10140,
+      "currency": "GBP"
+    },
+    {
+      "name": "Mohamed Salah",
+      "weekly": 400,
+      "annual": 20800,
+      "currency": "GBP"
+    },
+    {
+      "name": "Cody Gakpo",
+      "weekly": 120,
+      "annual": 6240,
+      "currency": "GBP"
+    },
+    {
+      "name": "Alexander Isak",
+      "weekly": 280,
+      "annual": 14560,
+      "currency": "GBP"
+    },
+    {
+      "name": "Dominik Szoboszlai",
+      "weekly": 120,
+      "annual": 6240,
+      "currency": "GBP"
+    },
+    {
+      "name": "Hugo Ekitike",
+      "weekly": 110,
+      "annual": 5720,
+      "currency": "GBP"
+    },
+    {
+      "name": "Conor Bradley",
+      "weekly": 40,
+      "annual": 2080,
+      "currency": "GBP"
+    }
+  ],
+  "lineup": [
+    {
+      "name": "Alisson",
+      "granular": "GK",
+      "minutes": 2800,
+      "starts": 31
+    },
+    {
+      "name": "Jeremie Frimpong",
+      "granular": "FB",
+      "minutes": 2200,
+      "starts": 24
+    },
+    {
+      "name": "Virgil van Dijk",
+      "granular": "CB",
+      "minutes": 3200,
+      "starts": 35
+    },
+    {
+      "name": "Ibrahima Konaté",
+      "granular": "CB",
+      "minutes": 2600,
+      "starts": 29
+    },
+    {
+      "name": "Milos Kerkez",
+      "granular": "FB",
+      "minutes": 2400,
+      "starts": 27
+    },
+    {
+      "name": "Ryan Gravenberch",
+      "granular": "DM",
+      "minutes": 2900,
+      "starts": 32
+    },
+    {
+      "name": "Alexis Mac Allister",
+      "granular": "CM",
+      "minutes": 2700,
+      "starts": 30
+    },
+    {
+      "name": "Florian Wirtz",
+      "granular": "AM",
+      "minutes": 2500,
+      "starts": 28
+    },
+    {
+      "name": "Mohamed Salah",
+      "granular": "W",
+      "minutes": 3100,
+      "starts": 34
+    },
+    {
+      "name": "Cody Gakpo",
+      "granular": "W",
+      "minutes": 2400,
+      "starts": 27
+    },
+    {
+      "name": "Alexander Isak",
+      "granular": "ST",
+      "minutes": 2600,
+      "starts": 28
+    },
+    {
+      "name": "Dominik Szoboszlai",
+      "granular": "CM",
+      "minutes": 1900,
+      "starts": 20
+    },
+    {
+      "name": "Hugo Ekitike",
+      "granular": "ST",
+      "minutes": 1500,
+      "starts": 14
+    },
+    {
+      "name": "Conor Bradley",
+      "granular": "FB",
+      "minutes": 1200,
+      "starts": 11
+    }
+  ]
+}

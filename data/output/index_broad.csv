@@ -1,0 +1,9 @@
+league,position,mean_index,median_index,std_index,min_index,max_index,n_players,cv,high_spread,level
+epl,DEF,1.0,0.8,0.594,0.467,2.333,12,0.595,True,broad
+epl,FWD,1.606,1.154,1.038,0.467,3.5,9,0.647,True,broad
+epl,GK,1.145,1.0,0.466,0.769,1.667,3,0.407,True,broad
+epl,MID,1.221,1.067,0.437,0.533,1.846,9,0.358,True,broad
+laliga,DEF,0.653,0.67,0.24,0.286,1.0,8,0.368,True,broad
+laliga,FWD,2.311,2.143,1.135,0.792,4.286,6,0.491,True,broad
+laliga,GK,1.664,1.664,0.88,1.042,2.286,2,0.529,True,broad
+laliga,MID,1.12,1.167,0.573,0.214,1.714,6,0.511,True,broad
