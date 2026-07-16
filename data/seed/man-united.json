@@ -1,0 +1,145 @@
+{
+  "club": "man-united",
+  "league": "epl",
+  "season": "2025-26",
+  "currency": "GBP",
+  "confidence": "estimated",
+  "provenance": "ESTIMATED curated data. Wage tiers anchored to public reporting (Capology/Spotrac/SalaryLeaks/press) via web search 2026-07-16; non-headline per-player wages reasoned from squad role/tier. XI = reconstructed most-used 2025-26 lineup. Indicative only — replace with a live scrape before any published claim.",
+  "formation_note": "3-4-2-1 (Amorim)",
+  "wages": [
+    {
+      "name": "André Onana",
+      "weekly": 120,
+      "annual": 6240,
+      "currency": "GBP"
+    },
+    {
+      "name": "Matthijs de Ligt",
+      "weekly": 130,
+      "annual": 6760,
+      "currency": "GBP"
+    },
+    {
+      "name": "Leny Yoro",
+      "weekly": 85,
+      "annual": 4420,
+      "currency": "GBP"
+    },
+    {
+      "name": "Luke Shaw",
+      "weekly": 150,
+      "annual": 7800,
+      "currency": "GBP"
+    },
+    {
+      "name": "Noussair Mazraoui",
+      "weekly": 90,
+      "annual": 4680,
+      "currency": "GBP"
+    },
+    {
+      "name": "Patrick Dorgu",
+      "weekly": 40,
+      "annual": 2080,
+      "currency": "GBP"
+    },
+    {
+      "name": "Casemiro",
+      "weekly": 350,
+      "annual": 18200,
+      "currency": "GBP"
+    },
+    {
+      "name": "Bruno Fernandes",
+      "weekly": 300,
+      "annual": 15600,
+      "currency": "GBP"
+    },
+    {
+      "name": "Matheus Cunha",
+      "weekly": 90,
+      "annual": 4680,
+      "currency": "GBP"
+    },
+    {
+      "name": "Bryan Mbeumo",
+      "weekly": 120,
+      "annual": 6240,
+      "currency": "GBP"
+    },
+    {
+      "name": "Benjamin Šeško",
+      "weekly": 90,
+      "annual": 4680,
+      "currency": "GBP"
+    }
+  ],
+  "lineup": [
+    {
+      "name": "André Onana",
+      "granular": "GK",
+      "minutes": 2900,
+      "starts": 32
+    },
+    {
+      "name": "Matthijs de Ligt",
+      "granular": "CB",
+      "minutes": 2870,
+      "starts": 31
+    },
+    {
+      "name": "Leny Yoro",
+      "granular": "CB",
+      "minutes": 2840,
+      "starts": 30
+    },
+    {
+      "name": "Luke Shaw",
+      "granular": "CB",
+      "minutes": 2810,
+      "starts": 29
+    },
+    {
+      "name": "Noussair Mazraoui",
+      "granular": "FB",
+      "minutes": 2780,
+      "starts": 28
+    },
+    {
+      "name": "Patrick Dorgu",
+      "granular": "FB",
+      "minutes": 2750,
+      "starts": 27
+    },
+    {
+      "name": "Casemiro",
+      "granular": "CM",
+      "minutes": 2720,
+      "starts": 26
+    },
+    {
+      "name": "Bruno Fernandes",
+      "granular": "CM",
+      "minutes": 2690,
+      "starts": 25
+    },
+    {
+      "name": "Matheus Cunha",
+      "granular": "AM",
+      "minutes": 2660,
+      "starts": 24
+    },
+    {
+      "name": "Bryan Mbeumo",
+      "granular": "AM",
+      "minutes": 2630,
+      "starts": 23
+    },
+    {
+      "name": "Benjamin Šeško",
+      "granular": "ST",
+      "minutes": 2600,
+      "starts": 22
+    }
+  ]
+}

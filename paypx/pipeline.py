@@ -22,10 +22,11 @@ from . import aggregate, build, charts, config
 
 
 def _clubs_for(leagues: list[str], seed_only: bool) -> list[config.Club]:
+    seeded = set(config.seed_clubs())
     clubs: list[config.Club] = []
     for lg in leagues:
         for c in config.get_league(lg).clubs:
-            if seed_only and c.key not in config.SEED_CLUBS:
+            if seed_only and c.key not in seeded:
                 continue
             clubs.append(c)
     return clubs
@@ -38,7 +39,8 @@ def run(leagues, season, formation="actual", seed_only=False, verbose=True):
 
     all_rows: list[dict] = []
     report = {"season": season, "leagues": leagues, "formation": formation,
-              "clubs_built": [], "clubs_failed": {}, "unmatched": {}}
+              "clubs_built": [], "clubs_failed": {}, "unmatched": {},
+              "confidence": {"validated": [], "estimated": [], "scraped": []}}
 
     for club in clubs:
         try:
@@ -47,6 +49,8 @@ def run(leagues, season, formation="actual", seed_only=False, verbose=True):
                 all_rows.extend(build.rows_to_records(result))
                 if mode == modes[0]:
                     report["clubs_built"].append(club.key)
+                    conf = config.club_confidence(club.key)
+                    report["confidence"].setdefault(conf, []).append(club.key)
                     if result.unmatched_lineup:
                         report["unmatched"][club.key] = result.unmatched_lineup
                     _write_club_interim(result)
@@ -90,7 +94,7 @@ def _write_outputs(df, tables, tidy, season, report) -> None:
             charts.comparison_chart(table, level, season=season)
     # Sanity check vs the 5 validated clubs.
     if not tidy.empty:
-        sc = aggregate.sanity_check(tidy, config.SEED_CLUBS)
+        sc = aggregate.sanity_check(tidy, config.VALIDATED_CLUBS)
         if not sc.empty:
             sc.to_csv(config.OUTPUT / "sanity_check.csv")
             report["sanity_check_clubs"] = list(sc.index)

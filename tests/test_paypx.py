@@ -117,11 +117,20 @@ def test_index_is_salary_over_median():
 
 
 def test_all_seed_clubs_build_full_xi():
-    for key in config.SEED_CLUBS:
+    for key in config.seed_clubs():
         res = build.build_club(config.get_club(key), "2025-26")
         assert len(res.rows) == 11
         matched = [r for r in res.rows if r.matched]
         assert len(matched) == 11, f"{key}: {res.unmatched_lineup}"
+
+
+def test_confidence_tiers():
+    # The 5 brief-validated clubs are "validated"; expansion is "estimated".
+    for key in config.VALIDATED_CLUBS:
+        assert config.club_confidence(key) == "validated"
+    assert config.club_confidence("chelsea") == "estimated"
+    # A club with no seed file falls back to "scraped".
+    assert config.club_confidence("burnley") == "scraped"
 
 
 def test_forced_433_has_standard_shape():

@@ -1,0 +1,145 @@
+{
+  "club": "newcastle",
+  "league": "epl",
+  "season": "2025-26",
+  "currency": "GBP",
+  "confidence": "estimated",
+  "provenance": "ESTIMATED curated data. Wage tiers anchored to public reporting (Capology/Spotrac/SalaryLeaks/press) via web search 2026-07-16; non-headline per-player wages reasoned from squad role/tier. XI = reconstructed most-used 2025-26 lineup. Indicative only — replace with a live scrape before any published claim.",
+  "formation_note": "4-3-3 (Howe)",
+  "wages": [
+    {
+      "name": "Nick Pope",
+      "weekly": 60,
+      "annual": 3120,
+      "currency": "GBP"
+    },
+    {
+      "name": "Tino Livramento",
+      "weekly": 50,
+      "annual": 2600,
+      "currency": "GBP"
+    },
+    {
+      "name": "Sven Botman",
+      "weekly": 70,
+      "annual": 3640,
+      "currency": "GBP"
+    },
+    {
+      "name": "Fabian Schär",
+      "weekly": 60,
+      "annual": 3120,
+      "currency": "GBP"
+    },
+    {
+      "name": "Lewis Hall",
+      "weekly": 45,
+      "annual": 2340,
+      "currency": "GBP"
+    },
+    {
+      "name": "Sandro Tonali",
+      "weekly": 120,
+      "annual": 6240,
+      "currency": "GBP"
+    },
+    {
+      "name": "Bruno Guimarães",
+      "weekly": 160,
+      "annual": 8320,
+      "currency": "GBP"
+    },
+    {
+      "name": "Joelinton",
+      "weekly": 150,
+      "annual": 7800,
+      "currency": "GBP"
+    },
+    {
+      "name": "Harvey Barnes",
+      "weekly": 60,
+      "annual": 3120,
+      "currency": "GBP"
+    },
+    {
+      "name": "Anthony Gordon",
+      "weekly": 150,
+      "annual": 7800,
+      "currency": "GBP"
+    },
+    {
+      "name": "Nick Woltemade",
+      "weekly": 80,
+      "annual": 4160,
+      "currency": "GBP"
+    }
+  ],
+  "lineup": [
+    {
+      "name": "Nick Pope",
+      "granular": "GK",
+      "minutes": 2900,
+      "starts": 32
+    },
+    {
+      "name": "Tino Livramento",
+      "granular": "FB",
+      "minutes": 2870,
+      "starts": 31
+    },
+    {
+      "name": "Sven Botman",
+      "granular": "CB",
+      "minutes": 2840,
+      "starts": 30
+    },
+    {
+      "name": "Fabian Schär",
+      "granular": "CB",
+      "minutes": 2810,
+      "starts": 29
+    },
+    {
+      "name": "Lewis Hall",
+      "granular": "FB",
+      "minutes": 2780,
+      "starts": 28
+    },
+    {
+      "name": "Sandro Tonali",
+      "granular": "DM",
+      "minutes": 2750,
+      "starts": 27
+    },
+    {
+      "name": "Bruno Guimarães",
+      "granular": "CM",
+      "minutes": 2720,
+      "starts": 26
+    },
+    {
+      "name": "Joelinton",
+      "granular": "CM",
+      "minutes": 2690,
+      "starts": 25
+    },
+    {
+      "name": "Harvey Barnes",
+      "granular": "W",
+      "minutes": 2660,
+      "starts": 24
+    },
+    {
+      "name": "Anthony Gordon",
+      "granular": "W",
+      "minutes": 2630,
+      "starts": 23
+    },
+    {
+      "name": "Nick Woltemade",
+      "granular": "ST",
+      "minutes": 2600,
+      "starts": 22
+    }
+  ]
+}

@@ -164,8 +164,38 @@ LEAGUES: dict[str, League] = {
     "laliga": League("laliga", "La Liga", "Spain", _LALIGA),
 }
 
-# Clubs with shipped, verified seed data (used for the sanity check).
-SEED_CLUBS = ["man-city", "liverpool", "arsenal", "real-madrid", "barcelona"]
+# The 5 clubs the brief manually validated — used for the sanity check.
+VALIDATED_CLUBS = ["man-city", "liverpool", "arsenal", "real-madrid",
+                   "barcelona"]
+
+
+def seed_clubs() -> list[str]:
+    """Club keys that have a shipped seed file in data/seed (discovered)."""
+    return sorted(p.stem for p in SEED.glob("*.json"))
+
+
+def club_confidence(key: str) -> str:
+    """Confidence tier for a club's data source.
+
+    "validated" — one of the 5 manually-checked clubs.
+    "estimated" — curated-expansion seed (indicative figures).
+    "scraped"   — no seed file; data came from a live scrape.
+    """
+    import json
+    seed_path = SEED / f"{key}.json"
+    if not seed_path.exists():
+        return "scraped"
+    if key in VALIDATED_CLUBS:
+        return "validated"
+    try:
+        return json.loads(seed_path.read_text(encoding="utf-8")).get(
+            "confidence", "estimated")
+    except (json.JSONDecodeError, OSError):
+        return "estimated"
+
+
+# Back-compat alias; prefer seed_clubs() / VALIDATED_CLUBS.
+SEED_CLUBS = VALIDATED_CLUBS
 
 
 def get_league(key: str) -> League:

@@ -1,0 +1,145 @@
+{
+  "club": "villarreal",
+  "league": "laliga",
+  "season": "2025-26",
+  "currency": "EUR",
+  "confidence": "estimated",
+  "provenance": "ESTIMATED curated data. Wage tiers anchored to public reporting (Capology/Spotrac/SalaryLeaks/press) via web search 2026-07-16; non-headline per-player wages reasoned from squad role/tier. XI = reconstructed most-used 2025-26 lineup. Indicative only — replace with a live scrape before any published claim.",
+  "formation_note": "4-3-3 (Marcelino)",
+  "wages": [
+    {
+      "name": "Luiz Júnior",
+      "weekly": 40,
+      "annual": 2080,
+      "currency": "EUR"
+    },
+    {
+      "name": "Juan Foyth",
+      "weekly": 77,
+      "annual": 4004,
+      "currency": "EUR"
+    },
+    {
+      "name": "Logan Costa",
+      "weekly": 40,
+      "annual": 2080,
+      "currency": "EUR"
+    },
+    {
+      "name": "Rafa Marín",
+      "weekly": 45,
+      "annual": 2340,
+      "currency": "EUR"
+    },
+    {
+      "name": "Alfonso Pedraza",
+      "weekly": 64,
+      "annual": 3328,
+      "currency": "EUR"
+    },
+    {
+      "name": "Santi Comesaña",
+      "weekly": 40,
+      "annual": 2080,
+      "currency": "EUR"
+    },
+    {
+      "name": "Dani Parejo",
+      "weekly": 60,
+      "annual": 3120,
+      "currency": "EUR"
+    },
+    {
+      "name": "Thomas Partey",
+      "weekly": 70,
+      "annual": 3640,
+      "currency": "EUR"
+    },
+    {
+      "name": "Yeremy Pino",
+      "weekly": 55,
+      "annual": 2860,
+      "currency": "EUR"
+    },
+    {
+      "name": "Nicolas Pepe",
+      "weekly": 67,
+      "annual": 3484,
+      "currency": "EUR"
+    },
+    {
+      "name": "Georges Mikautadze",
+      "weekly": 88,
+      "annual": 4576,
+      "currency": "EUR"
+    }
+  ],
+  "lineup": [
+    {
+      "name": "Luiz Júnior",
+      "granular": "GK",
+      "minutes": 2900,
+      "starts": 32
+    },
+    {
+      "name": "Juan Foyth",
+      "granular": "FB",
+      "minutes": 2870,
+      "starts": 31
+    },
+    {
+      "name": "Logan Costa",
+      "granular": "CB",
+      "minutes": 2840,
+      "starts": 30
+    },
+    {
+      "name": "Rafa Marín",
+      "granular": "CB",
+      "minutes": 2810,
+      "starts": 29
+    },
+    {
+      "name": "Alfonso Pedraza",
+      "granular": "FB",
+      "minutes": 2780,
+      "starts": 28
+    },
+    {
+      "name": "Santi Comesaña",
+      "granular": "DM",
+      "minutes": 2750,
+      "starts": 27
+    },
+    {
+      "name": "Dani Parejo",
+      "granular": "CM",
+      "minutes": 2720,
+      "starts": 26
+    },
+    {
+      "name": "Thomas Partey",
+      "granular": "CM",
+      "minutes": 2690,
+      "starts": 25
+    },
+    {
+      "name": "Yeremy Pino",
+      "granular": "W",
+      "minutes": 2660,
+      "starts": 24
+    },
+    {
+      "name": "Nicolas Pepe",
+      "granular": "W",
+      "minutes": 2630,
+      "starts": 23
+    },
+    {
+      "name": "Georges Mikautadze",
+      "granular": "ST",
+      "minutes": 2600,
+      "starts": 22
+    }
+  ]
+}

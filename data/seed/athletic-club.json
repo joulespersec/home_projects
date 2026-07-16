@@ -1,0 +1,145 @@
+{
+  "club": "athletic-club",
+  "league": "laliga",
+  "season": "2025-26",
+  "currency": "EUR",
+  "confidence": "estimated",
+  "provenance": "ESTIMATED curated data. Wage tiers anchored to public reporting (Capology/Spotrac/SalaryLeaks/press) via web search 2026-07-16; non-headline per-player wages reasoned from squad role/tier. XI = reconstructed most-used 2025-26 lineup. Indicative only — replace with a live scrape before any published claim.",
+  "formation_note": "4-2-3-1 (Valverde)",
+  "wages": [
+    {
+      "name": "Unai Simón",
+      "weekly": 96,
+      "annual": 4992,
+      "currency": "EUR"
+    },
+    {
+      "name": "Andoni Gorosabel",
+      "weekly": 40,
+      "annual": 2080,
+      "currency": "EUR"
+    },
+    {
+      "name": "Aymeric Laporte",
+      "weekly": 173,
+      "annual": 8996,
+      "currency": "EUR"
+    },
+    {
+      "name": "Dani Vivian",
+      "weekly": 70,
+      "annual": 3640,
+      "currency": "EUR"
+    },
+    {
+      "name": "Yuri Berchiche",
+      "weekly": 50,
+      "annual": 2600,
+      "currency": "EUR"
+    },
+    {
+      "name": "Mikel Vesga",
+      "weekly": 40,
+      "annual": 2080,
+      "currency": "EUR"
+    },
+    {
+      "name": "Iñigo Ruiz de Galarreta",
+      "weekly": 45,
+      "annual": 2340,
+      "currency": "EUR"
+    },
+    {
+      "name": "Oihan Sancet",
+      "weekly": 80,
+      "annual": 4160,
+      "currency": "EUR"
+    },
+    {
+      "name": "Nico Williams",
+      "weekly": 250,
+      "annual": 13000,
+      "currency": "EUR"
+    },
+    {
+      "name": "Iñaki Williams",
+      "weekly": 219,
+      "annual": 11388,
+      "currency": "EUR"
+    },
+    {
+      "name": "Gorka Guruzeta",
+      "weekly": 45,
+      "annual": 2340,
+      "currency": "EUR"
+    }
+  ],
+  "lineup": [
+    {
+      "name": "Unai Simón",
+      "granular": "GK",
+      "minutes": 2900,
+      "starts": 32
+    },
+    {
+      "name": "Andoni Gorosabel",
+      "granular": "FB",
+      "minutes": 2870,
+      "starts": 31
+    },
+    {
+      "name": "Aymeric Laporte",
+      "granular": "CB",
+      "minutes": 2840,
+      "starts": 30
+    },
+    {
+      "name": "Dani Vivian",
+      "granular": "CB",
+      "minutes": 2810,
+      "starts": 29
+    },
+    {
+      "name": "Yuri Berchiche",
+      "granular": "FB",
+      "minutes": 2780,
+      "starts": 28
+    },
+    {
+      "name": "Mikel Vesga",
+      "granular": "DM",
+      "minutes": 2750,
+      "starts": 27
+    },
+    {
+      "name": "Iñigo Ruiz de Galarreta",
+      "granular": "CM",
+      "minutes": 2720,
+      "starts": 26
+    },
+    {
+      "name": "Oihan Sancet",
+      "granular": "AM",
+      "minutes": 2690,
+      "starts": 25
+    },
+    {
+      "name": "Nico Williams",
+      "granular": "W",
+      "minutes": 2660,
+      "starts": 24
+    },
+    {
+      "name": "Iñaki Williams",
+      "granular": "W",
+      "minutes": 2630,
+      "starts": 23
+    },
+    {
+      "name": "Gorka Guruzeta",
+      "granular": "ST",
+      "minutes": 2600,
+      "starts": 22
+    }
+  ]
+}

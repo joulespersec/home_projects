@@ -1,0 +1,145 @@
+{
+  "club": "chelsea",
+  "league": "epl",
+  "season": "2025-26",
+  "currency": "GBP",
+  "confidence": "estimated",
+  "provenance": "ESTIMATED curated data. Wage tiers anchored to public reporting (Capology/Spotrac/SalaryLeaks/press) via web search 2026-07-16; non-headline per-player wages reasoned from squad role/tier. XI = reconstructed most-used 2025-26 lineup. Indicative only — replace with a live scrape before any published claim.",
+  "formation_note": "4-2-3-1 (Maresca)",
+  "wages": [
+    {
+      "name": "Robert Sánchez",
+      "weekly": 75,
+      "annual": 3900,
+      "currency": "GBP"
+    },
+    {
+      "name": "Reece James",
+      "weekly": 200,
+      "annual": 10400,
+      "currency": "GBP"
+    },
+    {
+      "name": "Wesley Fofana",
+      "weekly": 200,
+      "annual": 10400,
+      "currency": "GBP"
+    },
+    {
+      "name": "Levi Colwill",
+      "weekly": 80,
+      "annual": 4160,
+      "currency": "GBP"
+    },
+    {
+      "name": "Marc Cucurella",
+      "weekly": 175,
+      "annual": 9100,
+      "currency": "GBP"
+    },
+    {
+      "name": "Moisés Caicedo",
+      "weekly": 200,
+      "annual": 10400,
+      "currency": "GBP"
+    },
+    {
+      "name": "Enzo Fernández",
+      "weekly": 180,
+      "annual": 9360,
+      "currency": "GBP"
+    },
+    {
+      "name": "Cole Palmer",
+      "weekly": 130,
+      "annual": 6760,
+      "currency": "GBP"
+    },
+    {
+      "name": "Pedro Neto",
+      "weekly": 160,
+      "annual": 8320,
+      "currency": "GBP"
+    },
+    {
+      "name": "Estêvão",
+      "weekly": 80,
+      "annual": 4160,
+      "currency": "GBP"
+    },
+    {
+      "name": "João Pedro",
+      "weekly": 90,
+      "annual": 4680,
+      "currency": "GBP"
+    }
+  ],
+  "lineup": [
+    {
+      "name": "Robert Sánchez",
+      "granular": "GK",
+      "minutes": 2900,
+      "starts": 32
+    },
+    {
+      "name": "Reece James",
+      "granular": "FB",
+      "minutes": 2870,
+      "starts": 31
+    },
+    {
+      "name": "Wesley Fofana",
+      "granular": "CB",
+      "minutes": 2840,
+      "starts": 30
+    },
+    {
+      "name": "Levi Colwill",
+      "granular": "CB",
+      "minutes": 2810,
+      "starts": 29
+    },
+    {
+      "name": "Marc Cucurella",
+      "granular": "FB",
+      "minutes": 2780,
+      "starts": 28
+    },
+    {
+      "name": "Moisés Caicedo",
+      "granular": "DM",
+      "minutes": 2750,
+      "starts": 27
+    },
+    {
+      "name": "Enzo Fernández",
+      "granular": "CM",
+      "minutes": 2720,
+      "starts": 26
+    },
+    {
+      "name": "Cole Palmer",
+      "granular": "AM",
+      "minutes": 2690,
+      "starts": 25
+    },
+    {
+      "name": "Pedro Neto",
+      "granular": "W",
+      "minutes": 2660,
+      "starts": 24
+    },
+    {
+      "name": "Estêvão",
+      "granular": "W",
+      "minutes": 2630,
+      "starts": 23
+    },
+    {
+      "name": "João Pedro",
+      "granular": "ST",
+      "minutes": 2600,
+      "starts": 22
+    }
+  ]
+}

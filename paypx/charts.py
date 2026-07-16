@@ -69,8 +69,6 @@ def comparison_chart(table, level: str, out_path=None, season: str = ""):
                     ha="center", va="bottom", fontsize=8)
 
     ax.axhline(1.0, color="#555555", linewidth=1, linestyle="--", zorder=0)
-    ax.text(-0.45, 1.0, "team median = 1.00", va="bottom", ha="left",
-            fontsize=8, color="#555555")
     ax.set_xticks(x)
     ax.set_xticklabels(positions_order)
     ax.set_ylabel("Mean pay index (salary / team median)")
@@ -82,7 +80,9 @@ def comparison_chart(table, level: str, out_path=None, season: str = ""):
     ax.legend(frameon=False)
     ax.spines[["top", "right"]].set_visible(False)
     ax.margins(y=0.15)
-    fig.text(0.01, 0.005, "* mean hides high cross-club spread (CV ≥ 0.35)",
+    fig.text(0.01, 0.005,
+             "dashed line = team median (1.00)   ·   "
+             "* mean hides high cross-club spread (CV ≥ 0.35)",
              fontsize=7, color="#777777")
     fig.tight_layout()
 

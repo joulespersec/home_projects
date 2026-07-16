@@ -28,11 +28,20 @@ those hosts are reachable (e.g. your local machine). Everything downstream of
 scraping — matching, index computation, aggregation, charts — runs anywhere.
 
 To prove the pipeline end-to-end here, the repo ships **curated seed data for
-the 5 sanity-check clubs** (`data/seed/`). Those figures are
-**journalist-estimated wages + a reconstructed most-used XI**, gathered via web
-search — **not a live scrape**. They are labelled as such in every file's
-`provenance` field. Replace them with a real scrape before treating any number
-as final.
+16 clubs** (`data/seed/`), in two confidence tiers (each file carries a
+`confidence` + `provenance` field):
+
+| tier | clubs | basis |
+|------|-------|-------|
+| **validated** (5) | Man City, Liverpool, Arsenal, Real Madrid, Barcelona | headline wages confirmed via search + reconstructed most-used XI |
+| **estimated** (11) | Chelsea, Man Utd, Tottenham, Newcastle, Aston Villa; Atlético, Athletic, Real Sociedad, Villarreal, Betis, Sevilla | wage *tiers* anchored to public reporting; non-headline per-player figures reasoned from role/tier |
+
+All 16 are **journalist-estimated, not a live scrape**. The `estimated` tier in
+particular is *indicative* — it exists so the league aggregates have real
+breadth to demonstrate. Replace everything with a real scrape
+(`python -m paypx.pipeline`) before treating any number as final. The run
+report (`report.json`) lists which clubs were `validated` / `estimated` /
+`scraped`.
 
 ---
 
@@ -160,8 +169,9 @@ No code changes needed — the pipeline is parameterised by league and season.
 ```
 paypx/            pipeline package (config, positions, names, scrape, parse,
                   build, aggregate, charts, pipeline)
-scripts/          make_seed.py — regenerates the curated 5-club seed data
-data/seed/        curated verified-ish seed data (the 5 sanity clubs)
+scripts/          make_seed.py           — regenerates the 5 validated clubs
+                  make_seed_expansion.py  — regenerates the 11 estimated clubs
+data/seed/        curated seed data (5 validated + 11 estimated clubs)
 data/raw/         cached raw HTML from live scrapes (gitignored)
 data/interim/     per-club merged tables (gitignored)
 data/output/      index tables, charts, sanity check, run report

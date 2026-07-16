@@ -9,11 +9,45 @@
     "man-city",
     "liverpool",
     "arsenal",
+    "chelsea",
+    "man-united",
+    "tottenham",
+    "newcastle",
+    "aston-villa",
     "real-madrid",
-    "barcelona"
+    "barcelona",
+    "atletico-madrid",
+    "athletic-club",
+    "real-sociedad",
+    "real-betis",
+    "villarreal",
+    "sevilla"
   ],
   "clubs_failed": {},
   "unmatched": {},
+  "confidence": {
+    "validated": [
+      "man-city",
+      "liverpool",
+      "arsenal",
+      "real-madrid",
+      "barcelona"
+    ],
+    "estimated": [
+      "chelsea",
+      "man-united",
+      "tottenham",
+      "newcastle",
+      "aston-villa",
+      "atletico-madrid",
+      "athletic-club",
+      "real-sociedad",
+      "real-betis",
+      "villarreal",
+      "sevilla"
+    ],
+    "scraped": []
+  },
   "sanity_check_clubs": [
     "arsenal",
     "barcelona",

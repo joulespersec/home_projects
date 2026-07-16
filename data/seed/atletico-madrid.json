@@ -1,0 +1,145 @@
+{
+  "club": "atletico-madrid",
+  "league": "laliga",
+  "season": "2025-26",
+  "currency": "EUR",
+  "confidence": "estimated",
+  "provenance": "ESTIMATED curated data. Wage tiers anchored to public reporting (Capology/Spotrac/SalaryLeaks/press) via web search 2026-07-16; non-headline per-player wages reasoned from squad role/tier. XI = reconstructed most-used 2025-26 lineup. Indicative only — replace with a live scrape before any published claim.",
+  "formation_note": "4-2-3-1 (Simeone)",
+  "wages": [
+    {
+      "name": "Jan Oblak",
+      "weekly": 375,
+      "annual": 19500,
+      "currency": "EUR"
+    },
+    {
+      "name": "Nahuel Molina",
+      "weekly": 90,
+      "annual": 4680,
+      "currency": "EUR"
+    },
+    {
+      "name": "José María Giménez",
+      "weekly": 110,
+      "annual": 5720,
+      "currency": "EUR"
+    },
+    {
+      "name": "Robin Le Normand",
+      "weekly": 100,
+      "annual": 5200,
+      "currency": "EUR"
+    },
+    {
+      "name": "David Hancko",
+      "weekly": 80,
+      "annual": 4160,
+      "currency": "EUR"
+    },
+    {
+      "name": "Koke",
+      "weekly": 130,
+      "annual": 6760,
+      "currency": "EUR"
+    },
+    {
+      "name": "Pablo Barrios",
+      "weekly": 60,
+      "annual": 3120,
+      "currency": "EUR"
+    },
+    {
+      "name": "Antoine Griezmann",
+      "weekly": 180,
+      "annual": 9360,
+      "currency": "EUR"
+    },
+    {
+      "name": "Nico González",
+      "weekly": 90,
+      "annual": 4680,
+      "currency": "EUR"
+    },
+    {
+      "name": "Giuliano Simeone",
+      "weekly": 45,
+      "annual": 2340,
+      "currency": "EUR"
+    },
+    {
+      "name": "Julián Álvarez",
+      "weekly": 240,
+      "annual": 12480,
+      "currency": "EUR"
+    }
+  ],
+  "lineup": [
+    {
+      "name": "Jan Oblak",
+      "granular": "GK",
+      "minutes": 2900,
+      "starts": 32
+    },
+    {
+      "name": "Nahuel Molina",
+      "granular": "FB",
+      "minutes": 2870,
+      "starts": 31
+    },
+    {
+      "name": "José María Giménez",
+      "granular": "CB",
+      "minutes": 2840,
+      "starts": 30
+    },
+    {
+      "name": "Robin Le Normand",
+      "granular": "CB",
+      "minutes": 2810,
+      "starts": 29
+    },
+    {
+      "name": "David Hancko",
+      "granular": "FB",
+      "minutes": 2780,
+      "starts": 28
+    },
+    {
+      "name": "Koke",
+      "granular": "DM",
+      "minutes": 2750,
+      "starts": 27
+    },
+    {
+      "name": "Pablo Barrios",
+      "granular": "CM",
+      "minutes": 2720,
+      "starts": 26
+    },
+    {
+      "name": "Antoine Griezmann",
+      "granular": "AM",
+      "minutes": 2690,
+      "starts": 25
+    },
+    {
+      "name": "Nico González",
+      "granular": "W",
+      "minutes": 2660,
+      "starts": 24
+    },
+    {
+      "name": "Giuliano Simeone",
+      "granular": "W",
+      "minutes": 2630,
+      "starts": 23
+    },
+    {
+      "name": "Julián Álvarez",
+      "granular": "ST",
+      "minutes": 2600,
+      "starts": 22
+    }
+  ]
+}

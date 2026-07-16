@@ -1,0 +1,145 @@
+{
+  "club": "aston-villa",
+  "league": "epl",
+  "season": "2025-26",
+  "currency": "GBP",
+  "confidence": "estimated",
+  "provenance": "ESTIMATED curated data. Wage tiers anchored to public reporting (Capology/Spotrac/SalaryLeaks/press) via web search 2026-07-16; non-headline per-player wages reasoned from squad role/tier. XI = reconstructed most-used 2025-26 lineup. Indicative only — replace with a live scrape before any published claim.",
+  "formation_note": "4-2-3-1 (Emery)",
+  "wages": [
+    {
+      "name": "Emiliano Martínez",
+      "weekly": 150,
+      "annual": 7800,
+      "currency": "GBP"
+    },
+    {
+      "name": "Matty Cash",
+      "weekly": 55,
+      "annual": 2860,
+      "currency": "GBP"
+    },
+    {
+      "name": "Ezri Konsa",
+      "weekly": 70,
+      "annual": 3640,
+      "currency": "GBP"
+    },
+    {
+      "name": "Pau Torres",
+      "weekly": 65,
+      "annual": 3380,
+      "currency": "GBP"
+    },
+    {
+      "name": "Lucas Digne",
+      "weekly": 55,
+      "annual": 2860,
+      "currency": "GBP"
+    },
+    {
+      "name": "Boubacar Kamara",
+      "weekly": 150,
+      "annual": 7800,
+      "currency": "GBP"
+    },
+    {
+      "name": "Youri Tielemans",
+      "weekly": 150,
+      "annual": 7800,
+      "currency": "GBP"
+    },
+    {
+      "name": "Morgan Rogers",
+      "weekly": 150,
+      "annual": 7800,
+      "currency": "GBP"
+    },
+    {
+      "name": "Leon Bailey",
+      "weekly": 65,
+      "annual": 3380,
+      "currency": "GBP"
+    },
+    {
+      "name": "Jadon Sancho",
+      "weekly": 200,
+      "annual": 10400,
+      "currency": "GBP"
+    },
+    {
+      "name": "Ollie Watkins",
+      "weekly": 130,
+      "annual": 6760,
+      "currency": "GBP"
+    }
+  ],
+  "lineup": [
+    {
+      "name": "Emiliano Martínez",
+      "granular": "GK",
+      "minutes": 2900,
+      "starts": 32
+    },
+    {
+      "name": "Matty Cash",
+      "granular": "FB",
+      "minutes": 2870,
+      "starts": 31
+    },
+    {
+      "name": "Ezri Konsa",
+      "granular": "CB",
+      "minutes": 2840,
+      "starts": 30
+    },
+    {
+      "name": "Pau Torres",
+      "granular": "CB",
+      "minutes": 2810,
+      "starts": 29
+    },
+    {
+      "name": "Lucas Digne",
+      "granular": "FB",
+      "minutes": 2780,
+      "starts": 28
+    },
+    {
+      "name": "Boubacar Kamara",
+      "granular": "DM",
+      "minutes": 2750,
+      "starts": 27
+    },
+    {
+      "name": "Youri Tielemans",
+      "granular": "CM",
+      "minutes": 2720,
+      "starts": 26
+    },
+    {
+      "name": "Morgan Rogers",
+      "granular": "AM",
+      "minutes": 2690,
+      "starts": 25
+    },
+    {
+      "name": "Leon Bailey",
+      "granular": "W",
+      "minutes": 2660,
+      "starts": 24
+    },
+    {
+      "name": "Jadon Sancho",
+      "granular": "W",
+      "minutes": 2630,
+      "starts": 23
+    },
+    {
+      "name": "Ollie Watkins",
+      "granular": "ST",
+      "minutes": 2600,
+      "starts": 22
+    }
+  ]
+}

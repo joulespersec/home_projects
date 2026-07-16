@@ -65,6 +65,116 @@ arsenal,epl,2025-26,Martin Ødegaard,CM,MID,12480,240,GBP,2700,30,1.8462,forced4
 arsenal,epl,2025-26,Bukayo Saka,W,FWD,15600,300,GBP,2800,31,2.3077,forced433,True
 arsenal,epl,2025-26,Gabriel Martinelli,W,FWD,4680,90,GBP,2200,24,0.6923,forced433,True
 arsenal,epl,2025-26,Viktor Gyökeres,ST,FWD,7800,150,GBP,2600,29,1.1538,forced433,True
+chelsea,epl,2025-26,Robert Sánchez,GK,GK,3900,75,GBP,2900,32,0.4688,actual,True
+chelsea,epl,2025-26,Reece James,FB,DEF,10400,200,GBP,2870,31,1.25,actual,True
+chelsea,epl,2025-26,Wesley Fofana,CB,DEF,10400,200,GBP,2840,30,1.25,actual,True
+chelsea,epl,2025-26,Levi Colwill,CB,DEF,4160,80,GBP,2810,29,0.5,actual,True
+chelsea,epl,2025-26,Marc Cucurella,FB,DEF,9100,175,GBP,2780,28,1.0938,actual,True
+chelsea,epl,2025-26,Moisés Caicedo,DM,MID,10400,200,GBP,2750,27,1.25,actual,True
+chelsea,epl,2025-26,Enzo Fernández,CM,MID,9360,180,GBP,2720,26,1.125,actual,True
+chelsea,epl,2025-26,Cole Palmer,AM,MID,6760,130,GBP,2690,25,0.8125,actual,True
+chelsea,epl,2025-26,Pedro Neto,W,FWD,8320,160,GBP,2660,24,1.0,actual,True
+chelsea,epl,2025-26,Estêvão,W,FWD,4160,80,GBP,2630,23,0.5,actual,True
+chelsea,epl,2025-26,João Pedro,ST,FWD,4680,90,GBP,2600,22,0.5625,actual,True
+chelsea,epl,2025-26,Robert Sánchez,GK,GK,3900,75,GBP,2900,32,0.4688,forced433,True
+chelsea,epl,2025-26,Wesley Fofana,CB,DEF,10400,200,GBP,2840,30,1.25,forced433,True
+chelsea,epl,2025-26,Levi Colwill,CB,DEF,4160,80,GBP,2810,29,0.5,forced433,True
+chelsea,epl,2025-26,Reece James,FB,DEF,10400,200,GBP,2870,31,1.25,forced433,True
+chelsea,epl,2025-26,Marc Cucurella,FB,DEF,9100,175,GBP,2780,28,1.0938,forced433,True
+chelsea,epl,2025-26,Moisés Caicedo,DM,MID,10400,200,GBP,2750,27,1.25,forced433,True
+chelsea,epl,2025-26,Enzo Fernández,CM,MID,9360,180,GBP,2720,26,1.125,forced433,True
+chelsea,epl,2025-26,Cole Palmer,CM,MID,6760,130,GBP,2690,25,0.8125,forced433,True
+chelsea,epl,2025-26,Pedro Neto,W,FWD,8320,160,GBP,2660,24,1.0,forced433,True
+chelsea,epl,2025-26,Estêvão,W,FWD,4160,80,GBP,2630,23,0.5,forced433,True
+chelsea,epl,2025-26,João Pedro,ST,FWD,4680,90,GBP,2600,22,0.5625,forced433,True
+man-united,epl,2025-26,André Onana,GK,GK,6240,120,GBP,2900,32,1.0,actual,True
+man-united,epl,2025-26,Matthijs de Ligt,CB,DEF,6760,130,GBP,2870,31,1.0833,actual,True
+man-united,epl,2025-26,Leny Yoro,CB,DEF,4420,85,GBP,2840,30,0.7083,actual,True
+man-united,epl,2025-26,Luke Shaw,CB,DEF,7800,150,GBP,2810,29,1.25,actual,True
+man-united,epl,2025-26,Noussair Mazraoui,FB,DEF,4680,90,GBP,2780,28,0.75,actual,True
+man-united,epl,2025-26,Patrick Dorgu,FB,DEF,2080,40,GBP,2750,27,0.3333,actual,True
+man-united,epl,2025-26,Casemiro,CM,MID,18200,350,GBP,2720,26,2.9167,actual,True
+man-united,epl,2025-26,Bruno Fernandes,CM,MID,15600,300,GBP,2690,25,2.5,actual,True
+man-united,epl,2025-26,Matheus Cunha,AM,MID,4680,90,GBP,2660,24,0.75,actual,True
+man-united,epl,2025-26,Bryan Mbeumo,AM,MID,6240,120,GBP,2630,23,1.0,actual,True
+man-united,epl,2025-26,Benjamin Šeško,ST,FWD,4680,90,GBP,2600,22,0.75,actual,True
+man-united,epl,2025-26,André Onana,GK,GK,6240,120,GBP,2900,32,1.0,forced433,True
+man-united,epl,2025-26,Matthijs de Ligt,CB,DEF,6760,130,GBP,2870,31,1.0833,forced433,True
+man-united,epl,2025-26,Leny Yoro,CB,DEF,4420,85,GBP,2840,30,0.7083,forced433,True
+man-united,epl,2025-26,Noussair Mazraoui,FB,DEF,4680,90,GBP,2780,28,0.75,forced433,True
+man-united,epl,2025-26,Patrick Dorgu,FB,DEF,2080,40,GBP,2750,27,0.3333,forced433,True
+man-united,epl,2025-26,Casemiro,DM,MID,18200,350,GBP,2720,26,2.9167,forced433,True
+man-united,epl,2025-26,Bruno Fernandes,CM,MID,15600,300,GBP,2690,25,2.5,forced433,True
+man-united,epl,2025-26,Matheus Cunha,CM,MID,4680,90,GBP,2660,24,0.75,forced433,True
+man-united,epl,2025-26,Bryan Mbeumo,W,FWD,6240,120,GBP,2630,23,1.0,forced433,True
+man-united,epl,2025-26,Benjamin Šeško,W,FWD,4680,90,GBP,2600,22,0.75,forced433,True
+man-united,epl,2025-26,Luke Shaw,ST,FWD,7800,150,GBP,2810,29,1.25,forced433,True
+tottenham,epl,2025-26,Guglielmo Vicario,GK,GK,4160,80,GBP,2900,32,0.8889,actual,True
+tottenham,epl,2025-26,Pedro Porro,FB,DEF,4680,90,GBP,2870,31,1.0,actual,True
+tottenham,epl,2025-26,Cristian Romero,CB,DEF,10140,195,GBP,2840,30,2.1667,actual,True
+tottenham,epl,2025-26,Micky van de Ven,CB,DEF,4680,90,GBP,2810,29,1.0,actual,True
+tottenham,epl,2025-26,Destiny Udogie,FB,DEF,3640,70,GBP,2780,28,0.7778,actual,True
+tottenham,epl,2025-26,João Palhinha,DM,MID,7020,135,GBP,2750,27,1.5,actual,True
+tottenham,epl,2025-26,Rodrigo Bentancur,CM,MID,4680,90,GBP,2720,26,1.0,actual,True
+tottenham,epl,2025-26,Xavi Simons,AM,MID,10140,195,GBP,2690,25,2.1667,actual,True
+tottenham,epl,2025-26,Mohammed Kudus,W,FWD,7800,150,GBP,2660,24,1.6667,actual,True
+tottenham,epl,2025-26,Brennan Johnson,W,FWD,4160,80,GBP,2630,23,0.8889,actual,True
+tottenham,epl,2025-26,Dominic Solanke,ST,FWD,5720,110,GBP,2600,22,1.2222,actual,True
+tottenham,epl,2025-26,Guglielmo Vicario,GK,GK,4160,80,GBP,2900,32,0.8889,forced433,True
+tottenham,epl,2025-26,Cristian Romero,CB,DEF,10140,195,GBP,2840,30,2.1667,forced433,True
+tottenham,epl,2025-26,Micky van de Ven,CB,DEF,4680,90,GBP,2810,29,1.0,forced433,True
+tottenham,epl,2025-26,Pedro Porro,FB,DEF,4680,90,GBP,2870,31,1.0,forced433,True
+tottenham,epl,2025-26,Destiny Udogie,FB,DEF,3640,70,GBP,2780,28,0.7778,forced433,True
+tottenham,epl,2025-26,João Palhinha,DM,MID,7020,135,GBP,2750,27,1.5,forced433,True
+tottenham,epl,2025-26,Rodrigo Bentancur,CM,MID,4680,90,GBP,2720,26,1.0,forced433,True
+tottenham,epl,2025-26,Xavi Simons,CM,MID,10140,195,GBP,2690,25,2.1667,forced433,True
+tottenham,epl,2025-26,Mohammed Kudus,W,FWD,7800,150,GBP,2660,24,1.6667,forced433,True
+tottenham,epl,2025-26,Brennan Johnson,W,FWD,4160,80,GBP,2630,23,0.8889,forced433,True
+tottenham,epl,2025-26,Dominic Solanke,ST,FWD,5720,110,GBP,2600,22,1.2222,forced433,True
+newcastle,epl,2025-26,Nick Pope,GK,GK,3120,60,GBP,2900,32,0.8571,actual,True
+newcastle,epl,2025-26,Tino Livramento,FB,DEF,2600,50,GBP,2870,31,0.7143,actual,True
+newcastle,epl,2025-26,Sven Botman,CB,DEF,3640,70,GBP,2840,30,1.0,actual,True
+newcastle,epl,2025-26,Fabian Schär,CB,DEF,3120,60,GBP,2810,29,0.8571,actual,True
+newcastle,epl,2025-26,Lewis Hall,FB,DEF,2340,45,GBP,2780,28,0.6429,actual,True
+newcastle,epl,2025-26,Sandro Tonali,DM,MID,6240,120,GBP,2750,27,1.7143,actual,True
+newcastle,epl,2025-26,Bruno Guimarães,CM,MID,8320,160,GBP,2720,26,2.2857,actual,True
+newcastle,epl,2025-26,Joelinton,CM,MID,7800,150,GBP,2690,25,2.1429,actual,True
+newcastle,epl,2025-26,Harvey Barnes,W,FWD,3120,60,GBP,2660,24,0.8571,actual,True
+newcastle,epl,2025-26,Anthony Gordon,W,FWD,7800,150,GBP,2630,23,2.1429,actual,True
+newcastle,epl,2025-26,Nick Woltemade,ST,FWD,4160,80,GBP,2600,22,1.1429,actual,True
+newcastle,epl,2025-26,Nick Pope,GK,GK,3120,60,GBP,2900,32,0.8571,forced433,True
+newcastle,epl,2025-26,Sven Botman,CB,DEF,3640,70,GBP,2840,30,1.0,forced433,True
+newcastle,epl,2025-26,Fabian Schär,CB,DEF,3120,60,GBP,2810,29,0.8571,forced433,True
+newcastle,epl,2025-26,Tino Livramento,FB,DEF,2600,50,GBP,2870,31,0.7143,forced433,True
+newcastle,epl,2025-26,Lewis Hall,FB,DEF,2340,45,GBP,2780,28,0.6429,forced433,True
+newcastle,epl,2025-26,Sandro Tonali,DM,MID,6240,120,GBP,2750,27,1.7143,forced433,True
+newcastle,epl,2025-26,Bruno Guimarães,CM,MID,8320,160,GBP,2720,26,2.2857,forced433,True
+newcastle,epl,2025-26,Joelinton,CM,MID,7800,150,GBP,2690,25,2.1429,forced433,True
+newcastle,epl,2025-26,Harvey Barnes,W,FWD,3120,60,GBP,2660,24,0.8571,forced433,True
+newcastle,epl,2025-26,Anthony Gordon,W,FWD,7800,150,GBP,2630,23,2.1429,forced433,True
+newcastle,epl,2025-26,Nick Woltemade,ST,FWD,4160,80,GBP,2600,22,1.1429,forced433,True
+aston-villa,epl,2025-26,Emiliano Martínez,GK,GK,7800,150,GBP,2900,32,1.1538,actual,True
+aston-villa,epl,2025-26,Matty Cash,FB,DEF,2860,55,GBP,2870,31,0.4231,actual,True
+aston-villa,epl,2025-26,Ezri Konsa,CB,DEF,3640,70,GBP,2840,30,0.5385,actual,True
+aston-villa,epl,2025-26,Pau Torres,CB,DEF,3380,65,GBP,2810,29,0.5,actual,True
+aston-villa,epl,2025-26,Lucas Digne,FB,DEF,2860,55,GBP,2780,28,0.4231,actual,True
+aston-villa,epl,2025-26,Boubacar Kamara,DM,MID,7800,150,GBP,2750,27,1.1538,actual,True
+aston-villa,epl,2025-26,Youri Tielemans,CM,MID,7800,150,GBP,2720,26,1.1538,actual,True
+aston-villa,epl,2025-26,Morgan Rogers,AM,MID,7800,150,GBP,2690,25,1.1538,actual,True
+aston-villa,epl,2025-26,Leon Bailey,W,FWD,3380,65,GBP,2660,24,0.5,actual,True
+aston-villa,epl,2025-26,Jadon Sancho,W,FWD,10400,200,GBP,2630,23,1.5385,actual,True
+aston-villa,epl,2025-26,Ollie Watkins,ST,FWD,6760,130,GBP,2600,22,1.0,actual,True
+aston-villa,epl,2025-26,Emiliano Martínez,GK,GK,7800,150,GBP,2900,32,1.1538,forced433,True
+aston-villa,epl,2025-26,Ezri Konsa,CB,DEF,3640,70,GBP,2840,30,0.5385,forced433,True
+aston-villa,epl,2025-26,Pau Torres,CB,DEF,3380,65,GBP,2810,29,0.5,forced433,True
+aston-villa,epl,2025-26,Matty Cash,FB,DEF,2860,55,GBP,2870,31,0.4231,forced433,True
+aston-villa,epl,2025-26,Lucas Digne,FB,DEF,2860,55,GBP,2780,28,0.4231,forced433,True
+aston-villa,epl,2025-26,Boubacar Kamara,DM,MID,7800,150,GBP,2750,27,1.1538,forced433,True
+aston-villa,epl,2025-26,Youri Tielemans,CM,MID,7800,150,GBP,2720,26,1.1538,forced433,True
+aston-villa,epl,2025-26,Morgan Rogers,CM,MID,7800,150,GBP,2690,25,1.1538,forced433,True
+aston-villa,epl,2025-26,Leon Bailey,W,FWD,3380,65,GBP,2660,24,0.5,forced433,True
+aston-villa,epl,2025-26,Jadon Sancho,W,FWD,10400,200,GBP,2630,23,1.5385,forced433,True
+aston-villa,epl,2025-26,Ollie Watkins,ST,FWD,6760,130,GBP,2600,22,1.0,forced433,True
 real-madrid,laliga,2025-26,Federico Valverde,CM,MID,16640,320,EUR,3100,34,1.3333,actual,True
 real-madrid,laliga,2025-26,Kylian Mbappé,ST,FWD,31200,600,EUR,3100,34,2.5,actual,True
 real-madrid,laliga,2025-26,Thibaut Courtois,GK,GK,13000,250,EUR,3000,33,1.0417,actual,True
@@ -109,3 +219,135 @@ barcelona,laliga,2025-26,Frenkie de Jong,CM,MID,7280,140,EUR,2900,32,1.0,forced4
 barcelona,laliga,2025-26,Lamine Yamal,W,FWD,16640,320,EUR,2900,32,2.2857,forced433,True
 barcelona,laliga,2025-26,Raphinha,W,FWD,14560,280,EUR,2800,31,2.0,forced433,True
 barcelona,laliga,2025-26,Robert Lewandowski,ST,FWD,31200,600,EUR,2400,26,4.2857,forced433,True
+atletico-madrid,laliga,2025-26,Jan Oblak,GK,GK,19500,375,EUR,2900,32,3.75,actual,True
+atletico-madrid,laliga,2025-26,Nahuel Molina,FB,DEF,4680,90,EUR,2870,31,0.9,actual,True
+atletico-madrid,laliga,2025-26,José María Giménez,CB,DEF,5720,110,EUR,2840,30,1.1,actual,True
+atletico-madrid,laliga,2025-26,Robin Le Normand,CB,DEF,5200,100,EUR,2810,29,1.0,actual,True
+atletico-madrid,laliga,2025-26,David Hancko,FB,DEF,4160,80,EUR,2780,28,0.8,actual,True
+atletico-madrid,laliga,2025-26,Koke,DM,MID,6760,130,EUR,2750,27,1.3,actual,True
+atletico-madrid,laliga,2025-26,Pablo Barrios,CM,MID,3120,60,EUR,2720,26,0.6,actual,True
+atletico-madrid,laliga,2025-26,Antoine Griezmann,AM,MID,9360,180,EUR,2690,25,1.8,actual,True
+atletico-madrid,laliga,2025-26,Nico González,W,FWD,4680,90,EUR,2660,24,0.9,actual,True
+atletico-madrid,laliga,2025-26,Giuliano Simeone,W,FWD,2340,45,EUR,2630,23,0.45,actual,True
+atletico-madrid,laliga,2025-26,Julián Álvarez,ST,FWD,12480,240,EUR,2600,22,2.4,actual,True
+atletico-madrid,laliga,2025-26,Jan Oblak,GK,GK,19500,375,EUR,2900,32,3.75,forced433,True
+atletico-madrid,laliga,2025-26,José María Giménez,CB,DEF,5720,110,EUR,2840,30,1.1,forced433,True
+atletico-madrid,laliga,2025-26,Robin Le Normand,CB,DEF,5200,100,EUR,2810,29,1.0,forced433,True
+atletico-madrid,laliga,2025-26,Nahuel Molina,FB,DEF,4680,90,EUR,2870,31,0.9,forced433,True
+atletico-madrid,laliga,2025-26,David Hancko,FB,DEF,4160,80,EUR,2780,28,0.8,forced433,True
+atletico-madrid,laliga,2025-26,Koke,DM,MID,6760,130,EUR,2750,27,1.3,forced433,True
+atletico-madrid,laliga,2025-26,Pablo Barrios,CM,MID,3120,60,EUR,2720,26,0.6,forced433,True
+atletico-madrid,laliga,2025-26,Antoine Griezmann,CM,MID,9360,180,EUR,2690,25,1.8,forced433,True
+atletico-madrid,laliga,2025-26,Nico González,W,FWD,4680,90,EUR,2660,24,0.9,forced433,True
+atletico-madrid,laliga,2025-26,Giuliano Simeone,W,FWD,2340,45,EUR,2630,23,0.45,forced433,True
+atletico-madrid,laliga,2025-26,Julián Álvarez,ST,FWD,12480,240,EUR,2600,22,2.4,forced433,True
+athletic-club,laliga,2025-26,Unai Simón,GK,GK,4992,96,EUR,2900,32,1.3714,actual,True
+athletic-club,laliga,2025-26,Andoni Gorosabel,FB,DEF,2080,40,EUR,2870,31,0.5714,actual,True
+athletic-club,laliga,2025-26,Aymeric Laporte,CB,DEF,8996,173,EUR,2840,30,2.4714,actual,True
+athletic-club,laliga,2025-26,Dani Vivian,CB,DEF,3640,70,EUR,2810,29,1.0,actual,True
+athletic-club,laliga,2025-26,Yuri Berchiche,FB,DEF,2600,50,EUR,2780,28,0.7143,actual,True
+athletic-club,laliga,2025-26,Mikel Vesga,DM,MID,2080,40,EUR,2750,27,0.5714,actual,True
+athletic-club,laliga,2025-26,Iñigo Ruiz de Galarreta,CM,MID,2340,45,EUR,2720,26,0.6429,actual,True
+athletic-club,laliga,2025-26,Oihan Sancet,AM,MID,4160,80,EUR,2690,25,1.1429,actual,True
+athletic-club,laliga,2025-26,Nico Williams,W,FWD,13000,250,EUR,2660,24,3.5714,actual,True
+athletic-club,laliga,2025-26,Iñaki Williams,W,FWD,11388,219,EUR,2630,23,3.1286,actual,True
+athletic-club,laliga,2025-26,Gorka Guruzeta,ST,FWD,2340,45,EUR,2600,22,0.6429,actual,True
+athletic-club,laliga,2025-26,Unai Simón,GK,GK,4992,96,EUR,2900,32,1.3714,forced433,True
+athletic-club,laliga,2025-26,Aymeric Laporte,CB,DEF,8996,173,EUR,2840,30,2.4714,forced433,True
+athletic-club,laliga,2025-26,Dani Vivian,CB,DEF,3640,70,EUR,2810,29,1.0,forced433,True
+athletic-club,laliga,2025-26,Andoni Gorosabel,FB,DEF,2080,40,EUR,2870,31,0.5714,forced433,True
+athletic-club,laliga,2025-26,Yuri Berchiche,FB,DEF,2600,50,EUR,2780,28,0.7143,forced433,True
+athletic-club,laliga,2025-26,Mikel Vesga,DM,MID,2080,40,EUR,2750,27,0.5714,forced433,True
+athletic-club,laliga,2025-26,Iñigo Ruiz de Galarreta,CM,MID,2340,45,EUR,2720,26,0.6429,forced433,True
+athletic-club,laliga,2025-26,Oihan Sancet,CM,MID,4160,80,EUR,2690,25,1.1429,forced433,True
+athletic-club,laliga,2025-26,Nico Williams,W,FWD,13000,250,EUR,2660,24,3.5714,forced433,True
+athletic-club,laliga,2025-26,Iñaki Williams,W,FWD,11388,219,EUR,2630,23,3.1286,forced433,True
+athletic-club,laliga,2025-26,Gorka Guruzeta,ST,FWD,2340,45,EUR,2600,22,0.6429,forced433,True
+real-sociedad,laliga,2025-26,Álex Remiro,GK,GK,4680,90,EUR,2900,32,1.6364,actual,True
+real-sociedad,laliga,2025-26,Hamari Traoré,FB,DEF,2340,45,EUR,2870,31,0.8182,actual,True
+real-sociedad,laliga,2025-26,Igor Zubeldia,CB,DEF,3640,70,EUR,2840,30,1.2727,actual,True
+real-sociedad,laliga,2025-26,Nayef Aguerd,CB,DEF,2860,55,EUR,2810,29,1.0,actual,True
+real-sociedad,laliga,2025-26,Aihen Muñoz,FB,DEF,2080,40,EUR,2780,28,0.7273,actual,True
+real-sociedad,laliga,2025-26,Beñat Turrientes,DM,MID,1560,30,EUR,2750,27,0.5455,actual,True
+real-sociedad,laliga,2025-26,Brais Méndez,CM,MID,4160,80,EUR,2720,26,1.4545,actual,True
+real-sociedad,laliga,2025-26,Luka Sučić,CM,MID,2860,55,EUR,2690,25,1.0,actual,True
+real-sociedad,laliga,2025-26,Ander Barrenetxea,W,FWD,2340,45,EUR,2660,24,0.8182,actual,True
+real-sociedad,laliga,2025-26,Takefusa Kubo,W,FWD,4680,90,EUR,2630,23,1.6364,actual,True
+real-sociedad,laliga,2025-26,Mikel Oyarzabal,ST,FWD,6240,120,EUR,2600,22,2.1818,actual,True
+real-sociedad,laliga,2025-26,Álex Remiro,GK,GK,4680,90,EUR,2900,32,1.6364,forced433,True
+real-sociedad,laliga,2025-26,Igor Zubeldia,CB,DEF,3640,70,EUR,2840,30,1.2727,forced433,True
+real-sociedad,laliga,2025-26,Nayef Aguerd,CB,DEF,2860,55,EUR,2810,29,1.0,forced433,True
+real-sociedad,laliga,2025-26,Hamari Traoré,FB,DEF,2340,45,EUR,2870,31,0.8182,forced433,True
+real-sociedad,laliga,2025-26,Aihen Muñoz,FB,DEF,2080,40,EUR,2780,28,0.7273,forced433,True
+real-sociedad,laliga,2025-26,Beñat Turrientes,DM,MID,1560,30,EUR,2750,27,0.5455,forced433,True
+real-sociedad,laliga,2025-26,Brais Méndez,CM,MID,4160,80,EUR,2720,26,1.4545,forced433,True
+real-sociedad,laliga,2025-26,Luka Sučić,CM,MID,2860,55,EUR,2690,25,1.0,forced433,True
+real-sociedad,laliga,2025-26,Ander Barrenetxea,W,FWD,2340,45,EUR,2660,24,0.8182,forced433,True
+real-sociedad,laliga,2025-26,Takefusa Kubo,W,FWD,4680,90,EUR,2630,23,1.6364,forced433,True
+real-sociedad,laliga,2025-26,Mikel Oyarzabal,ST,FWD,6240,120,EUR,2600,22,2.1818,forced433,True
+real-betis,laliga,2025-26,Pau López,GK,GK,2860,55,EUR,2900,32,1.0,actual,True
+real-betis,laliga,2025-26,Héctor Bellerín,FB,DEF,3120,60,EUR,2870,31,1.0909,actual,True
+real-betis,laliga,2025-26,Marc Bartra,CB,DEF,2340,45,EUR,2840,30,0.8182,actual,True
+real-betis,laliga,2025-26,Natan,CB,DEF,2600,50,EUR,2810,29,0.9091,actual,True
+real-betis,laliga,2025-26,Junior Firpo,FB,DEF,2340,45,EUR,2780,28,0.8182,actual,True
+real-betis,laliga,2025-26,Sofyan Amrabat,DM,MID,4680,90,EUR,2750,27,1.6364,actual,True
+real-betis,laliga,2025-26,Marc Roca,CM,MID,2340,45,EUR,2720,26,0.8182,actual,True
+real-betis,laliga,2025-26,Isco,AM,MID,5980,115,EUR,2690,25,2.0909,actual,True
+real-betis,laliga,2025-26,Abde Ezzalzouli,W,FWD,2860,55,EUR,2660,24,1.0,actual,True
+real-betis,laliga,2025-26,Antony,W,FWD,6240,120,EUR,2630,23,2.1818,actual,True
+real-betis,laliga,2025-26,Cucho Hernández,ST,FWD,3640,70,EUR,2600,22,1.2727,actual,True
+real-betis,laliga,2025-26,Pau López,GK,GK,2860,55,EUR,2900,32,1.0,forced433,True
+real-betis,laliga,2025-26,Marc Bartra,CB,DEF,2340,45,EUR,2840,30,0.8182,forced433,True
+real-betis,laliga,2025-26,Natan,CB,DEF,2600,50,EUR,2810,29,0.9091,forced433,True
+real-betis,laliga,2025-26,Héctor Bellerín,FB,DEF,3120,60,EUR,2870,31,1.0909,forced433,True
+real-betis,laliga,2025-26,Junior Firpo,FB,DEF,2340,45,EUR,2780,28,0.8182,forced433,True
+real-betis,laliga,2025-26,Sofyan Amrabat,DM,MID,4680,90,EUR,2750,27,1.6364,forced433,True
+real-betis,laliga,2025-26,Marc Roca,CM,MID,2340,45,EUR,2720,26,0.8182,forced433,True
+real-betis,laliga,2025-26,Isco,CM,MID,5980,115,EUR,2690,25,2.0909,forced433,True
+real-betis,laliga,2025-26,Abde Ezzalzouli,W,FWD,2860,55,EUR,2660,24,1.0,forced433,True
+real-betis,laliga,2025-26,Antony,W,FWD,6240,120,EUR,2630,23,2.1818,forced433,True
+real-betis,laliga,2025-26,Cucho Hernández,ST,FWD,3640,70,EUR,2600,22,1.2727,forced433,True
+villarreal,laliga,2025-26,Luiz Júnior,GK,GK,2080,40,EUR,2900,32,0.6667,actual,True
+villarreal,laliga,2025-26,Juan Foyth,FB,DEF,4004,77,EUR,2870,31,1.2833,actual,True
+villarreal,laliga,2025-26,Logan Costa,CB,DEF,2080,40,EUR,2840,30,0.6667,actual,True
+villarreal,laliga,2025-26,Rafa Marín,CB,DEF,2340,45,EUR,2810,29,0.75,actual,True
+villarreal,laliga,2025-26,Alfonso Pedraza,FB,DEF,3328,64,EUR,2780,28,1.0667,actual,True
+villarreal,laliga,2025-26,Santi Comesaña,DM,MID,2080,40,EUR,2750,27,0.6667,actual,True
+villarreal,laliga,2025-26,Dani Parejo,CM,MID,3120,60,EUR,2720,26,1.0,actual,True
+villarreal,laliga,2025-26,Thomas Partey,CM,MID,3640,70,EUR,2690,25,1.1667,actual,True
+villarreal,laliga,2025-26,Yeremy Pino,W,FWD,2860,55,EUR,2660,24,0.9167,actual,True
+villarreal,laliga,2025-26,Nicolas Pepe,W,FWD,3484,67,EUR,2630,23,1.1167,actual,True
+villarreal,laliga,2025-26,Georges Mikautadze,ST,FWD,4576,88,EUR,2600,22,1.4667,actual,True
+villarreal,laliga,2025-26,Luiz Júnior,GK,GK,2080,40,EUR,2900,32,0.6667,forced433,True
+villarreal,laliga,2025-26,Logan Costa,CB,DEF,2080,40,EUR,2840,30,0.6667,forced433,True
+villarreal,laliga,2025-26,Rafa Marín,CB,DEF,2340,45,EUR,2810,29,0.75,forced433,True
+villarreal,laliga,2025-26,Juan Foyth,FB,DEF,4004,77,EUR,2870,31,1.2833,forced433,True
+villarreal,laliga,2025-26,Alfonso Pedraza,FB,DEF,3328,64,EUR,2780,28,1.0667,forced433,True
+villarreal,laliga,2025-26,Santi Comesaña,DM,MID,2080,40,EUR,2750,27,0.6667,forced433,True
+villarreal,laliga,2025-26,Dani Parejo,CM,MID,3120,60,EUR,2720,26,1.0,forced433,True
+villarreal,laliga,2025-26,Thomas Partey,CM,MID,3640,70,EUR,2690,25,1.1667,forced433,True
+villarreal,laliga,2025-26,Yeremy Pino,W,FWD,2860,55,EUR,2660,24,0.9167,forced433,True
+villarreal,laliga,2025-26,Nicolas Pepe,W,FWD,3484,67,EUR,2630,23,1.1167,forced433,True
+villarreal,laliga,2025-26,Georges Mikautadze,ST,FWD,4576,88,EUR,2600,22,1.4667,forced433,True
+sevilla,laliga,2025-26,Ørjan Nyland,GK,GK,1560,30,EUR,2900,32,0.75,actual,True
+sevilla,laliga,2025-26,Juanlu Sánchez,FB,DEF,1300,25,EUR,2870,31,0.625,actual,True
+sevilla,laliga,2025-26,Marcão,CB,DEF,4160,80,EUR,2840,30,2.0,actual,True
+sevilla,laliga,2025-26,Kike Salas,CB,DEF,1560,30,EUR,2810,29,0.75,actual,True
+sevilla,laliga,2025-26,Adrià Pedrosa,FB,DEF,1820,35,EUR,2780,28,0.875,actual,True
+sevilla,laliga,2025-26,Djibril Sow,DM,MID,2860,55,EUR,2750,27,1.375,actual,True
+sevilla,laliga,2025-26,Lucien Agoumé,CM,MID,2080,40,EUR,2720,26,1.0,actual,True
+sevilla,laliga,2025-26,Saúl Ñíguez,CM,MID,3120,60,EUR,2690,25,1.5,actual,True
+sevilla,laliga,2025-26,Alexis Sánchez,W,FWD,2600,50,EUR,2660,24,1.25,actual,True
+sevilla,laliga,2025-26,Rubén Vargas,W,FWD,3640,70,EUR,2630,23,1.75,actual,True
+sevilla,laliga,2025-26,Isaac Romero,ST,FWD,1560,30,EUR,2600,22,0.75,actual,True
+sevilla,laliga,2025-26,Ørjan Nyland,GK,GK,1560,30,EUR,2900,32,0.75,forced433,True
+sevilla,laliga,2025-26,Marcão,CB,DEF,4160,80,EUR,2840,30,2.0,forced433,True
+sevilla,laliga,2025-26,Kike Salas,CB,DEF,1560,30,EUR,2810,29,0.75,forced433,True
+sevilla,laliga,2025-26,Juanlu Sánchez,FB,DEF,1300,25,EUR,2870,31,0.625,forced433,True
+sevilla,laliga,2025-26,Adrià Pedrosa,FB,DEF,1820,35,EUR,2780,28,0.875,forced433,True
+sevilla,laliga,2025-26,Djibril Sow,DM,MID,2860,55,EUR,2750,27,1.375,forced433,True
+sevilla,laliga,2025-26,Lucien Agoumé,CM,MID,2080,40,EUR,2720,26,1.0,forced433,True
+sevilla,laliga,2025-26,Saúl Ñíguez,CM,MID,3120,60,EUR,2690,25,1.5,forced433,True
+sevilla,laliga,2025-26,Alexis Sánchez,W,FWD,2600,50,EUR,2660,24,1.25,forced433,True
+sevilla,laliga,2025-26,Rubén Vargas,W,FWD,3640,70,EUR,2630,23,1.75,forced433,True
+sevilla,laliga,2025-26,Isaac Romero,ST,FWD,1560,30,EUR,2600,22,0.75,forced433,True
