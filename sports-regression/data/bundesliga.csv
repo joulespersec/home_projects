@@ -1,0 +1,433 @@
+season,position,team
+2001-02,1,Bayern Munich
+2001-02,2,Dortmund
+2001-02,3,Leverkusen
+2001-02,4,Schalke 04
+2001-02,5,Hertha
+2001-02,6,Werder Bremen
+2001-02,7,Kaiserslautern
+2001-02,8,Munich 1860
+2001-02,9,Stuttgart
+2001-02,10,Wolfsburg
+2001-02,11,Hamburg
+2001-02,12,MGladbach
+2001-02,13,Hansa Rostock
+2001-02,14,Nurnberg
+2001-02,15,Cottbus
+2001-02,16,FC Koln
+2001-02,17,Freiburg
+2001-02,18,St Pauli
+2002-03,1,Bayern Munich
+2002-03,2,Stuttgart
+2002-03,3,Dortmund
+2002-03,4,Hamburg
+2002-03,5,Werder Bremen
+2002-03,6,Hertha
+2002-03,7,Schalke 04
+2002-03,8,Bochum
+2002-03,9,Wolfsburg
+2002-03,10,Hannover
+2002-03,11,Munich 1860
+2002-03,12,MGladbach
+2002-03,13,Kaiserslautern
+2002-03,14,Hansa Rostock
+2002-03,15,Leverkusen
+2002-03,16,Bielefeld
+2002-03,17,Nurnberg
+2002-03,18,Cottbus
+2003-04,1,Werder Bremen
+2003-04,2,Stuttgart
+2003-04,3,Bayern Munich
+2003-04,4,Leverkusen
+2003-04,5,Schalke 04
+2003-04,6,Dortmund
+2003-04,7,Bochum
+2003-04,8,Hamburg
+2003-04,9,MGladbach
+2003-04,10,Wolfsburg
+2003-04,11,Kaiserslautern
+2003-04,12,Hannover
+2003-04,13,Hertha
+2003-04,14,Munich 1860
+2003-04,15,Freiburg
+2003-04,16,Hansa Rostock
+2003-04,17,Ein Frankfurt
+2003-04,18,FC Koln
+2004-05,1,Bayern Munich
+2004-05,2,Schalke 04
+2004-05,3,Werder Bremen
+2004-05,4,Hertha
+2004-05,5,Stuttgart
+2004-05,6,Leverkusen
+2004-05,7,Dortmund
+2004-05,8,Hamburg
+2004-05,9,Wolfsburg
+2004-05,10,Hannover
+2004-05,11,Mainz
+2004-05,12,Kaiserslautern
+2004-05,13,Bielefeld
+2004-05,14,Nurnberg
+2004-05,15,MGladbach
+2004-05,16,Bochum
+2004-05,17,Hansa Rostock
+2004-05,18,Freiburg
+2005-06,1,Bayern Munich
+2005-06,2,Werder Bremen
+2005-06,3,Hamburg
+2005-06,4,Schalke 04
+2005-06,5,Leverkusen
+2005-06,6,Hertha
+2005-06,7,Dortmund
+2005-06,8,Nurnberg
+2005-06,9,Stuttgart
+2005-06,10,MGladbach
+2005-06,11,Mainz
+2005-06,12,Hannover
+2005-06,13,Bielefeld
+2005-06,14,Ein Frankfurt
+2005-06,15,Wolfsburg
+2005-06,16,Kaiserslautern
+2005-06,17,FC Koln
+2005-06,18,Duisburg
+2006-07,1,Stuttgart
+2006-07,2,Schalke 04
+2006-07,3,Werder Bremen
+2006-07,4,Bayern Munich
+2006-07,5,Leverkusen
+2006-07,6,Nurnberg
+2006-07,7,Hamburg
+2006-07,8,Bochum
+2006-07,9,Dortmund
+2006-07,10,Hertha
+2006-07,11,Hannover
+2006-07,12,Bielefeld
+2006-07,13,Cottbus
+2006-07,14,Ein Frankfurt
+2006-07,15,Wolfsburg
+2006-07,16,Mainz
+2006-07,17,Aachen
+2006-07,18,MGladbach
+2007-08,1,Bayern Munich
+2007-08,2,Werder Bremen
+2007-08,3,Schalke 04
+2007-08,4,Hamburg
+2007-08,5,Wolfsburg
+2007-08,6,Stuttgart
+2007-08,7,Leverkusen
+2007-08,8,Hannover
+2007-08,9,Ein Frankfurt
+2007-08,10,Hertha
+2007-08,11,Karlsruhe
+2007-08,12,Bochum
+2007-08,13,Dortmund
+2007-08,14,Cottbus
+2007-08,15,Bielefeld
+2007-08,16,Nurnberg
+2007-08,17,Hansa Rostock
+2007-08,18,Duisburg
+2008-09,1,Wolfsburg
+2008-09,2,Bayern Munich
+2008-09,3,Stuttgart
+2008-09,4,Hertha
+2008-09,5,Hamburg
+2008-09,6,Dortmund
+2008-09,7,Hoffenheim
+2008-09,8,Schalke 04
+2008-09,9,Leverkusen
+2008-09,10,Werder Bremen
+2008-09,11,Hannover
+2008-09,12,FC Koln
+2008-09,13,Ein Frankfurt
+2008-09,14,Bochum
+2008-09,15,MGladbach
+2008-09,16,Cottbus
+2008-09,17,Karlsruhe
+2008-09,18,Bielefeld
+2009-10,1,Bayern Munich
+2009-10,2,Schalke 04
+2009-10,3,Werder Bremen
+2009-10,4,Leverkusen
+2009-10,5,Dortmund
+2009-10,6,Stuttgart
+2009-10,7,Hamburg
+2009-10,8,Wolfsburg
+2009-10,9,Mainz
+2009-10,10,Ein Frankfurt
+2009-10,11,Hoffenheim
+2009-10,12,MGladbach
+2009-10,13,FC Koln
+2009-10,14,Freiburg
+2009-10,15,Hannover
+2009-10,16,Nurnberg
+2009-10,17,Bochum
+2009-10,18,Hertha
+2010-11,1,Dortmund
+2010-11,2,Leverkusen
+2010-11,3,Bayern Munich
+2010-11,4,Hannover
+2010-11,5,Mainz
+2010-11,6,Nurnberg
+2010-11,7,Kaiserslautern
+2010-11,8,Hamburg
+2010-11,9,Freiburg
+2010-11,10,FC Koln
+2010-11,11,Hoffenheim
+2010-11,12,Stuttgart
+2010-11,13,Werder Bremen
+2010-11,14,Schalke 04
+2010-11,15,Wolfsburg
+2010-11,16,MGladbach
+2010-11,17,Ein Frankfurt
+2010-11,18,St Pauli
+2011-12,1,Dortmund
+2011-12,2,Bayern Munich
+2011-12,3,Schalke 04
+2011-12,4,MGladbach
+2011-12,5,Leverkusen
+2011-12,6,Stuttgart
+2011-12,7,Hannover
+2011-12,8,Wolfsburg
+2011-12,9,Werder Bremen
+2011-12,10,Nurnberg
+2011-12,11,Hoffenheim
+2011-12,12,Freiburg
+2011-12,13,Mainz
+2011-12,14,Augsburg
+2011-12,15,Hamburg
+2011-12,16,Hertha
+2011-12,17,FC Koln
+2011-12,18,Kaiserslautern
+2012-13,1,Bayern Munich
+2012-13,2,Dortmund
+2012-13,3,Leverkusen
+2012-13,4,Schalke 04
+2012-13,5,Freiburg
+2012-13,6,Ein Frankfurt
+2012-13,7,Hamburg
+2012-13,8,MGladbach
+2012-13,9,Hannover
+2012-13,10,Nurnberg
+2012-13,11,Wolfsburg
+2012-13,12,Stuttgart
+2012-13,13,Mainz
+2012-13,14,Werder Bremen
+2012-13,15,Augsburg
+2012-13,16,Hoffenheim
+2012-13,17,Fortuna Dusseldorf
+2012-13,18,Greuther Furth
+2013-14,1,Bayern Munich
+2013-14,2,Dortmund
+2013-14,3,Schalke 04
+2013-14,4,Leverkusen
+2013-14,5,Wolfsburg
+2013-14,6,MGladbach
+2013-14,7,Mainz
+2013-14,8,Augsburg
+2013-14,9,Hoffenheim
+2013-14,10,Hannover
+2013-14,11,Hertha
+2013-14,12,Werder Bremen
+2013-14,13,Ein Frankfurt
+2013-14,14,Freiburg
+2013-14,15,Stuttgart
+2013-14,16,Hamburg
+2013-14,17,Nurnberg
+2013-14,18,Braunschweig
+2014-15,1,Bayern Munich
+2014-15,2,Wolfsburg
+2014-15,3,MGladbach
+2014-15,4,Leverkusen
+2014-15,5,Augsburg
+2014-15,6,Schalke 04
+2014-15,7,Dortmund
+2014-15,8,Hoffenheim
+2014-15,9,Ein Frankfurt
+2014-15,10,Werder Bremen
+2014-15,11,Mainz
+2014-15,12,FC Koln
+2014-15,13,Hannover
+2014-15,14,Stuttgart
+2014-15,15,Hertha
+2014-15,16,Hamburg
+2014-15,17,Freiburg
+2014-15,18,Paderborn
+2015-16,1,Bayern Munich
+2015-16,2,Dortmund
+2015-16,3,Leverkusen
+2015-16,4,MGladbach
+2015-16,5,Schalke 04
+2015-16,6,Mainz
+2015-16,7,Hertha
+2015-16,8,Wolfsburg
+2015-16,9,FC Koln
+2015-16,10,Hamburg
+2015-16,11,Ingolstadt
+2015-16,12,Augsburg
+2015-16,13,Werder Bremen
+2015-16,14,Darmstadt
+2015-16,15,Hoffenheim
+2015-16,16,Ein Frankfurt
+2015-16,17,Stuttgart
+2015-16,18,Hannover
+2016-17,1,Bayern Munich
+2016-17,2,RB Leipzig
+2016-17,3,Dortmund
+2016-17,4,Hoffenheim
+2016-17,5,FC Koln
+2016-17,6,Hertha
+2016-17,7,Freiburg
+2016-17,8,Werder Bremen
+2016-17,9,MGladbach
+2016-17,10,Schalke 04
+2016-17,11,Ein Frankfurt
+2016-17,12,Leverkusen
+2016-17,13,Augsburg
+2016-17,14,Hamburg
+2016-17,15,Mainz
+2016-17,16,Wolfsburg
+2016-17,17,Ingolstadt
+2016-17,18,Darmstadt
+2017-18,1,Bayern Munich
+2017-18,2,Schalke 04
+2017-18,3,Hoffenheim
+2017-18,4,Dortmund
+2017-18,5,Leverkusen
+2017-18,6,RB Leipzig
+2017-18,7,Stuttgart
+2017-18,8,Ein Frankfurt
+2017-18,9,MGladbach
+2017-18,10,Hertha
+2017-18,11,Werder Bremen
+2017-18,12,Augsburg
+2017-18,13,Hannover
+2017-18,14,Mainz
+2017-18,15,Freiburg
+2017-18,16,Wolfsburg
+2017-18,17,Hamburg
+2017-18,18,FC Koln
+2018-19,1,Bayern Munich
+2018-19,2,Dortmund
+2018-19,3,RB Leipzig
+2018-19,4,Leverkusen
+2018-19,5,MGladbach
+2018-19,6,Wolfsburg
+2018-19,7,Ein Frankfurt
+2018-19,8,Werder Bremen
+2018-19,9,Hoffenheim
+2018-19,10,Fortuna Dusseldorf
+2018-19,11,Hertha
+2018-19,12,Mainz
+2018-19,13,Freiburg
+2018-19,14,Schalke 04
+2018-19,15,Augsburg
+2018-19,16,Stuttgart
+2018-19,17,Hannover
+2018-19,18,Nurnberg
+2019-20,1,Bayern Munich
+2019-20,2,Dortmund
+2019-20,3,RB Leipzig
+2019-20,4,MGladbach
+2019-20,5,Leverkusen
+2019-20,6,Hoffenheim
+2019-20,7,Wolfsburg
+2019-20,8,Freiburg
+2019-20,9,Ein Frankfurt
+2019-20,10,Hertha
+2019-20,11,Union Berlin
+2019-20,12,Schalke 04
+2019-20,13,Mainz
+2019-20,14,FC Koln
+2019-20,15,Augsburg
+2019-20,16,Werder Bremen
+2019-20,17,Fortuna Dusseldorf
+2019-20,18,Paderborn
+2020-21,1,Bayern Munich
+2020-21,2,RB Leipzig
+2020-21,3,Dortmund
+2020-21,4,Wolfsburg
+2020-21,5,Ein Frankfurt
+2020-21,6,Leverkusen
+2020-21,7,Union Berlin
+2020-21,8,MGladbach
+2020-21,9,Stuttgart
+2020-21,10,Freiburg
+2020-21,11,Hoffenheim
+2020-21,12,Mainz
+2020-21,13,Augsburg
+2020-21,14,Hertha
+2020-21,15,Bielefeld
+2020-21,16,FC Koln
+2020-21,17,Werder Bremen
+2020-21,18,Schalke 04
+2021-22,1,Bayern Munich
+2021-22,2,Dortmund
+2021-22,3,Leverkusen
+2021-22,4,RB Leipzig
+2021-22,5,Union Berlin
+2021-22,6,Freiburg
+2021-22,7,FC Koln
+2021-22,8,Mainz
+2021-22,9,Hoffenheim
+2021-22,10,MGladbach
+2021-22,11,Ein Frankfurt
+2021-22,12,Wolfsburg
+2021-22,13,Bochum
+2021-22,14,Augsburg
+2021-22,15,Stuttgart
+2021-22,16,Hertha
+2021-22,17,Bielefeld
+2021-22,18,Greuther Furth
+2022-23,1,Bayern Munich
+2022-23,2,Dortmund
+2022-23,3,RB Leipzig
+2022-23,4,Union Berlin
+2022-23,5,Freiburg
+2022-23,6,Leverkusen
+2022-23,7,Ein Frankfurt
+2022-23,8,Wolfsburg
+2022-23,9,Mainz
+2022-23,10,MGladbach
+2022-23,11,FC Koln
+2022-23,12,Hoffenheim
+2022-23,13,Werder Bremen
+2022-23,14,Bochum
+2022-23,15,Augsburg
+2022-23,16,Stuttgart
+2022-23,17,Schalke 04
+2022-23,18,Hertha
+2023-24,1,Leverkusen
+2023-24,2,Stuttgart
+2023-24,3,Bayern Munich
+2023-24,4,RB Leipzig
+2023-24,5,Dortmund
+2023-24,6,Ein Frankfurt
+2023-24,7,Hoffenheim
+2023-24,8,Heidenheim
+2023-24,9,Werder Bremen
+2023-24,10,Freiburg
+2023-24,11,Augsburg
+2023-24,12,Wolfsburg
+2023-24,13,Mainz
+2023-24,14,MGladbach
+2023-24,15,Union Berlin
+2023-24,16,Bochum
+2023-24,17,FC Koln
+2023-24,18,Darmstadt
+2024-25,1,Bayern Munich
+2024-25,2,Leverkusen
+2024-25,3,Ein Frankfurt
+2024-25,4,Dortmund
+2024-25,5,Freiburg
+2024-25,6,Mainz
+2024-25,7,RB Leipzig
+2024-25,8,Werder Bremen
+2024-25,9,Stuttgart
+2024-25,10,MGladbach
+2024-25,11,Wolfsburg
+2024-25,12,Augsburg
+2024-25,13,Union Berlin
+2024-25,14,St Pauli
+2024-25,15,Hoffenheim
+2024-25,16,Heidenheim
+2024-25,17,Holstein Kiel
+2024-25,18,Bochum

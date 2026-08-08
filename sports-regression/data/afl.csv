@@ -1,4 +1,199 @@
 season,position,team
+2001,1,Essendon
+2001,2,Brisbane Lions
+2001,3,Port Adelaide
+2001,4,Richmond
+2001,5,Carlton
+2001,6,Hawthorn
+2001,7,Sydney
+2001,8,Adelaide
+2001,9,Collingwood
+2001,10,Western Bulldogs
+2001,11,Melbourne
+2001,12,Geelong
+2001,13,Kangaroos
+2001,14,West Coast
+2001,15,St Kilda
+2001,16,Fremantle
+2002,1,Port Adelaide
+2002,2,Brisbane Lions
+2002,3,Adelaide
+2002,4,Collingwood
+2002,5,Essendon
+2002,6,Melbourne
+2002,7,Kangaroos
+2002,8,West Coast
+2002,9,Geelong
+2002,10,Hawthorn
+2002,11,Sydney
+2002,12,Western Bulldogs
+2002,13,Fremantle
+2002,14,Richmond
+2002,15,St Kilda
+2002,16,Carlton
+2003,1,Port Adelaide
+2003,2,Collingwood
+2003,3,Brisbane Lions
+2003,4,Sydney
+2003,5,Fremantle
+2003,6,Adelaide
+2003,7,West Coast
+2003,8,Essendon
+2003,9,Hawthorn
+2003,10,Kangaroos
+2003,11,St Kilda
+2003,12,Geelong
+2003,13,Richmond
+2003,14,Melbourne
+2003,15,Carlton
+2003,16,Western Bulldogs
+2004,1,Port Adelaide
+2004,2,Brisbane Lions
+2004,3,St Kilda
+2004,4,Geelong
+2004,5,Melbourne
+2004,6,Sydney
+2004,7,West Coast
+2004,8,Essendon
+2004,9,Fremantle
+2004,10,Kangaroos
+2004,11,Carlton
+2004,12,Adelaide
+2004,13,Collingwood
+2004,14,Western Bulldogs
+2004,15,Hawthorn
+2004,16,Richmond
+2005,1,Adelaide
+2005,2,West Coast
+2005,3,Sydney
+2005,4,St Kilda
+2005,5,Kangaroos
+2005,6,Geelong
+2005,7,Melbourne
+2005,8,Port Adelaide
+2005,9,Western Bulldogs
+2005,10,Fremantle
+2005,11,Brisbane Lions
+2005,12,Richmond
+2005,13,Essendon
+2005,14,Hawthorn
+2005,15,Collingwood
+2005,16,Carlton
+2006,1,West Coast
+2006,2,Adelaide
+2006,3,Fremantle
+2006,4,Sydney
+2006,5,Collingwood
+2006,6,St Kilda
+2006,7,Melbourne
+2006,8,Western Bulldogs
+2006,9,Richmond
+2006,10,Geelong
+2006,11,Hawthorn
+2006,12,Port Adelaide
+2006,13,Brisbane Lions
+2006,14,Kangaroos
+2006,15,Essendon
+2006,16,Carlton
+2007,1,Geelong
+2007,2,Port Adelaide
+2007,3,West Coast
+2007,4,Kangaroos
+2007,5,Hawthorn
+2007,6,Collingwood
+2007,7,Sydney
+2007,8,Adelaide
+2007,9,St Kilda
+2007,10,Brisbane Lions
+2007,11,Fremantle
+2007,12,Essendon
+2007,13,Western Bulldogs
+2007,14,Melbourne
+2007,15,Carlton
+2007,16,Richmond
+2008,1,Geelong
+2008,2,Hawthorn
+2008,3,Western Bulldogs
+2008,4,St Kilda
+2008,5,Adelaide
+2008,6,Sydney
+2008,7,North Melbourne
+2008,8,Collingwood
+2008,9,Richmond
+2008,10,Brisbane Lions
+2008,11,Carlton
+2008,12,Essendon
+2008,13,Port Adelaide
+2008,14,Fremantle
+2008,15,West Coast
+2008,16,Melbourne
+2009,1,St Kilda
+2009,2,Geelong
+2009,3,Western Bulldogs
+2009,4,Collingwood
+2009,5,Adelaide
+2009,6,Brisbane Lions
+2009,7,Carlton
+2009,8,Essendon
+2009,9,Hawthorn
+2009,10,Port Adelaide
+2009,11,West Coast
+2009,12,Sydney
+2009,13,North Melbourne
+2009,14,Fremantle
+2009,15,Richmond
+2009,16,Melbourne
+2010,1,Collingwood
+2010,2,Geelong
+2010,3,St Kilda
+2010,4,Western Bulldogs
+2010,5,Sydney
+2010,6,Fremantle
+2010,7,Hawthorn
+2010,8,Carlton
+2010,9,North Melbourne
+2010,10,Port Adelaide
+2010,11,Adelaide
+2010,12,Melbourne
+2010,13,Brisbane Lions
+2010,14,Essendon
+2010,15,Richmond
+2010,16,West Coast
+2011,1,Collingwood
+2011,2,Geelong
+2011,3,Hawthorn
+2011,4,West Coast
+2011,5,Carlton
+2011,6,St Kilda
+2011,7,Sydney
+2011,8,Essendon
+2011,9,North Melbourne
+2011,10,Western Bulldogs
+2011,11,Fremantle
+2011,12,Richmond
+2011,13,Melbourne
+2011,14,Adelaide
+2011,15,Brisbane Lions
+2011,16,Port Adelaide
+2011,17,Gold Coast
+2012,1,Hawthorn
+2012,2,Adelaide
+2012,3,Sydney
+2012,4,Collingwood
+2012,5,West Coast
+2012,6,Geelong
+2012,7,Fremantle
+2012,8,North Melbourne
+2012,9,St Kilda
+2012,10,Carlton
+2012,11,Essendon
+2012,12,Richmond
+2012,13,Brisbane Lions
+2012,14,Port Adelaide
+2012,15,Western Bulldogs
+2012,16,Melbourne
+2012,17,Gold Coast
+2012,18,Greater Western Sydney
 2013,1,Hawthorn
 2013,2,Geelong
 2013,3,Fremantle
@@ -215,3 +410,21 @@ season,position,team
 2024,16,West Coast
 2024,17,North Melbourne
 2024,18,Richmond
+2025,1,Hawthorn
+2025,2,Adelaide
+2025,3,Brisbane Lions
+2025,4,Gold Coast
+2025,5,Greater Western Sydney
+2025,6,Collingwood
+2025,7,St Kilda
+2025,8,Western Bulldogs
+2025,9,Geelong
+2025,10,North Melbourne
+2025,11,Sydney
+2025,12,Port Adelaide
+2025,13,Fremantle
+2025,14,Essendon
+2025,15,Richmond
+2025,16,Carlton
+2025,17,Melbourne
+2025,18,West Coast

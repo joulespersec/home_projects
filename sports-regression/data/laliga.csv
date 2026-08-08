@@ -1,0 +1,461 @@
+season,position,team
+2001-02,1,Valencia
+2001-02,2,La Coruna
+2001-02,3,Real Madrid
+2001-02,4,Barcelona
+2001-02,5,Celta
+2001-02,6,Betis
+2001-02,7,Alaves
+2001-02,8,Sevilla
+2001-02,9,Malaga
+2001-02,10,Ath Bilbao
+2001-02,11,Vallecano
+2001-02,12,Valladolid
+2001-02,13,Sociedad
+2001-02,14,Espanol
+2001-02,15,Villarreal
+2001-02,16,Mallorca
+2001-02,17,Osasuna
+2001-02,18,Las Palmas
+2001-02,19,Tenerife
+2001-02,20,Zaragoza
+2002-03,1,Real Madrid
+2002-03,2,Sociedad
+2002-03,3,La Coruna
+2002-03,4,Celta
+2002-03,5,Valencia
+2002-03,6,Barcelona
+2002-03,7,Ath Bilbao
+2002-03,8,Betis
+2002-03,9,Mallorca
+2002-03,10,Sevilla
+2002-03,11,Ath Madrid
+2002-03,12,Osasuna
+2002-03,13,Valladolid
+2002-03,14,Malaga
+2002-03,15,Villarreal
+2002-03,16,Santander
+2002-03,17,Espanol
+2002-03,18,Recreativo
+2002-03,19,Alaves
+2002-03,20,Vallecano
+2003-04,1,Valencia
+2003-04,2,Barcelona
+2003-04,3,La Coruna
+2003-04,4,Real Madrid
+2003-04,5,Ath Bilbao
+2003-04,6,Sevilla
+2003-04,7,Ath Madrid
+2003-04,8,Villarreal
+2003-04,9,Betis
+2003-04,10,Malaga
+2003-04,11,Mallorca
+2003-04,12,Osasuna
+2003-04,13,Zaragoza
+2003-04,14,Albacete
+2003-04,15,Sociedad
+2003-04,16,Santander
+2003-04,17,Espanol
+2003-04,18,Valladolid
+2003-04,19,Celta
+2003-04,20,Murcia
+2004-05,1,Barcelona
+2004-05,2,Real Madrid
+2004-05,3,Villarreal
+2004-05,4,Valencia
+2004-05,5,Sevilla
+2004-05,6,Espanol
+2004-05,7,Betis
+2004-05,8,Malaga
+2004-05,9,Osasuna
+2004-05,10,Ath Madrid
+2004-05,11,Getafe
+2004-05,12,Zaragoza
+2004-05,13,Santander
+2004-05,14,Levante
+2004-05,15,La Coruna
+2004-05,16,Ath Bilbao
+2004-05,17,Sociedad
+2004-05,18,Mallorca
+2004-05,19,Albacete
+2004-05,20,Numancia
+2005-06,1,Barcelona
+2005-06,2,Real Madrid
+2005-06,3,Valencia
+2005-06,4,Sevilla
+2005-06,5,Osasuna
+2005-06,6,Celta
+2005-06,7,Villarreal
+2005-06,8,La Coruna
+2005-06,9,Getafe
+2005-06,10,Ath Madrid
+2005-06,11,Zaragoza
+2005-06,12,Ath Bilbao
+2005-06,13,Mallorca
+2005-06,14,Betis
+2005-06,15,Espanol
+2005-06,16,Santander
+2005-06,17,Sociedad
+2005-06,18,Alaves
+2005-06,19,Cadiz
+2005-06,20,Malaga
+2007-08,1,Real Madrid
+2007-08,2,Villarreal
+2007-08,3,Barcelona
+2007-08,4,Sevilla
+2007-08,5,Ath Madrid
+2007-08,6,Santander
+2007-08,7,Mallorca
+2007-08,8,La Coruna
+2007-08,9,Almeria
+2007-08,10,Valencia
+2007-08,11,Ath Bilbao
+2007-08,12,Espanol
+2007-08,13,Getafe
+2007-08,14,Betis
+2007-08,15,Valladolid
+2007-08,16,Recreativo
+2007-08,17,Osasuna
+2007-08,18,Zaragoza
+2007-08,19,Murcia
+2007-08,20,Levante
+2008-09,1,Barcelona
+2008-09,2,Real Madrid
+2008-09,3,Sevilla
+2008-09,4,Ath Madrid
+2008-09,5,Villarreal
+2008-09,6,Valencia
+2008-09,7,La Coruna
+2008-09,8,Malaga
+2008-09,9,Mallorca
+2008-09,10,Espanol
+2008-09,11,Santander
+2008-09,12,Almeria
+2008-09,13,Ath Bilbao
+2008-09,14,Osasuna
+2008-09,15,Valladolid
+2008-09,16,Sp Gijon
+2008-09,17,Getafe
+2008-09,18,Betis
+2008-09,19,Numancia
+2008-09,20,Recreativo
+2009-10,1,Barcelona
+2009-10,2,Real Madrid
+2009-10,3,Valencia
+2009-10,4,Sevilla
+2009-10,5,Mallorca
+2009-10,6,Getafe
+2009-10,7,Villarreal
+2009-10,8,Ath Bilbao
+2009-10,9,Ath Madrid
+2009-10,10,La Coruna
+2009-10,11,Espanol
+2009-10,12,Osasuna
+2009-10,13,Almeria
+2009-10,14,Zaragoza
+2009-10,15,Sp Gijon
+2009-10,16,Santander
+2009-10,17,Malaga
+2009-10,18,Valladolid
+2009-10,19,Tenerife
+2009-10,20,Xerez
+2010-11,1,Barcelona
+2010-11,2,Real Madrid
+2010-11,3,Valencia
+2010-11,4,Villarreal
+2010-11,5,Ath Madrid
+2010-11,6,Ath Bilbao
+2010-11,7,Sevilla
+2010-11,8,Espanol
+2010-11,9,Osasuna
+2010-11,10,Sp Gijon
+2010-11,11,Malaga
+2010-11,12,Santander
+2010-11,13,Levante
+2010-11,14,Zaragoza
+2010-11,15,Sociedad
+2010-11,16,Getafe
+2010-11,17,Mallorca
+2010-11,18,La Coruna
+2010-11,19,Hercules
+2010-11,20,Almeria
+2011-12,1,Real Madrid
+2011-12,2,Barcelona
+2011-12,3,Valencia
+2011-12,4,Malaga
+2011-12,5,Ath Madrid
+2011-12,6,Levante
+2011-12,7,Osasuna
+2011-12,8,Mallorca
+2011-12,9,Sevilla
+2011-12,10,Ath Bilbao
+2011-12,11,Sociedad
+2011-12,12,Betis
+2011-12,13,Getafe
+2011-12,14,Espanol
+2011-12,15,Vallecano
+2011-12,16,Zaragoza
+2011-12,17,Granada
+2011-12,18,Villarreal
+2011-12,19,Sp Gijon
+2011-12,20,Santander
+2012-13,1,Barcelona
+2012-13,2,Real Madrid
+2012-13,3,Ath Madrid
+2012-13,4,Sociedad
+2012-13,5,Valencia
+2012-13,6,Malaga
+2012-13,7,Betis
+2012-13,8,Vallecano
+2012-13,9,Sevilla
+2012-13,10,Getafe
+2012-13,11,Levante
+2012-13,12,Ath Bilbao
+2012-13,13,Espanol
+2012-13,14,Valladolid
+2012-13,15,Granada
+2012-13,16,Osasuna
+2012-13,17,Celta
+2012-13,18,Mallorca
+2012-13,19,La Coruna
+2012-13,20,Zaragoza
+2013-14,1,Ath Madrid
+2013-14,2,Barcelona
+2013-14,3,Real Madrid
+2013-14,4,Ath Bilbao
+2013-14,5,Sevilla
+2013-14,6,Villarreal
+2013-14,7,Sociedad
+2013-14,8,Valencia
+2013-14,9,Celta
+2013-14,10,Levante
+2013-14,11,Malaga
+2013-14,12,Vallecano
+2013-14,13,Espanol
+2013-14,14,Getafe
+2013-14,15,Granada
+2013-14,16,Elche
+2013-14,17,Almeria
+2013-14,18,Osasuna
+2013-14,19,Valladolid
+2013-14,20,Betis
+2014-15,1,Barcelona
+2014-15,2,Real Madrid
+2014-15,3,Ath Madrid
+2014-15,4,Valencia
+2014-15,5,Sevilla
+2014-15,6,Villarreal
+2014-15,7,Ath Bilbao
+2014-15,8,Celta
+2014-15,9,Malaga
+2014-15,10,Espanol
+2014-15,11,Vallecano
+2014-15,12,Sociedad
+2014-15,13,Elche
+2014-15,14,Getafe
+2014-15,15,Levante
+2014-15,16,Eibar
+2014-15,17,La Coruna
+2014-15,18,Granada
+2014-15,19,Almeria
+2014-15,20,Cordoba
+2015-16,1,Barcelona
+2015-16,2,Real Madrid
+2015-16,3,Ath Madrid
+2015-16,4,Villarreal
+2015-16,5,Ath Bilbao
+2015-16,6,Celta
+2015-16,7,Sevilla
+2015-16,8,Malaga
+2015-16,9,Sociedad
+2015-16,10,Betis
+2015-16,11,Valencia
+2015-16,12,Las Palmas
+2015-16,13,Eibar
+2015-16,14,Espanol
+2015-16,15,La Coruna
+2015-16,16,Sp Gijon
+2015-16,17,Granada
+2015-16,18,Vallecano
+2015-16,19,Getafe
+2015-16,20,Levante
+2016-17,1,Real Madrid
+2016-17,2,Barcelona
+2016-17,3,Ath Madrid
+2016-17,4,Sevilla
+2016-17,5,Villarreal
+2016-17,6,Sociedad
+2016-17,7,Ath Bilbao
+2016-17,8,Espanol
+2016-17,9,Alaves
+2016-17,10,Eibar
+2016-17,11,Malaga
+2016-17,12,Valencia
+2016-17,13,Celta
+2016-17,14,Las Palmas
+2016-17,15,Betis
+2016-17,16,La Coruna
+2016-17,17,Leganes
+2016-17,18,Sp Gijon
+2016-17,19,Osasuna
+2016-17,20,Granada
+2017-18,1,Barcelona
+2017-18,2,Ath Madrid
+2017-18,3,Real Madrid
+2017-18,4,Valencia
+2017-18,5,Villarreal
+2017-18,6,Betis
+2017-18,7,Sevilla
+2017-18,8,Getafe
+2017-18,9,Eibar
+2017-18,10,Girona
+2017-18,11,Sociedad
+2017-18,12,Celta
+2017-18,13,Espanol
+2017-18,14,Alaves
+2017-18,15,Levante
+2017-18,16,Ath Bilbao
+2017-18,17,Leganes
+2017-18,18,La Coruna
+2017-18,19,Las Palmas
+2017-18,20,Malaga
+2018-19,1,Barcelona
+2018-19,2,Ath Madrid
+2018-19,3,Real Madrid
+2018-19,4,Valencia
+2018-19,5,Sevilla
+2018-19,6,Getafe
+2018-19,7,Espanol
+2018-19,8,Ath Bilbao
+2018-19,9,Sociedad
+2018-19,10,Betis
+2018-19,11,Alaves
+2018-19,12,Eibar
+2018-19,13,Leganes
+2018-19,14,Villarreal
+2018-19,15,Levante
+2018-19,16,Celta
+2018-19,17,Valladolid
+2018-19,18,Girona
+2018-19,19,Huesca
+2018-19,20,Vallecano
+2019-20,1,Real Madrid
+2019-20,2,Barcelona
+2019-20,3,Ath Madrid
+2019-20,4,Sevilla
+2019-20,5,Villarreal
+2019-20,6,Sociedad
+2019-20,7,Granada
+2019-20,8,Getafe
+2019-20,9,Valencia
+2019-20,10,Osasuna
+2019-20,11,Ath Bilbao
+2019-20,12,Levante
+2019-20,13,Valladolid
+2019-20,14,Eibar
+2019-20,15,Betis
+2019-20,16,Alaves
+2019-20,17,Celta
+2019-20,18,Leganes
+2019-20,19,Mallorca
+2019-20,20,Espanol
+2020-21,1,Ath Madrid
+2020-21,2,Real Madrid
+2020-21,3,Barcelona
+2020-21,4,Sevilla
+2020-21,5,Sociedad
+2020-21,6,Betis
+2020-21,7,Villarreal
+2020-21,8,Celta
+2020-21,9,Ath Bilbao
+2020-21,10,Granada
+2020-21,11,Osasuna
+2020-21,12,Cadiz
+2020-21,13,Valencia
+2020-21,14,Levante
+2020-21,15,Getafe
+2020-21,16,Alaves
+2020-21,17,Elche
+2020-21,18,Huesca
+2020-21,19,Valladolid
+2020-21,20,Eibar
+2021-22,1,Real Madrid
+2021-22,2,Barcelona
+2021-22,3,Ath Madrid
+2021-22,4,Sevilla
+2021-22,5,Betis
+2021-22,6,Sociedad
+2021-22,7,Villarreal
+2021-22,8,Ath Bilbao
+2021-22,9,Valencia
+2021-22,10,Osasuna
+2021-22,11,Celta
+2021-22,12,Vallecano
+2021-22,13,Elche
+2021-22,14,Espanol
+2021-22,15,Getafe
+2021-22,16,Cadiz
+2021-22,17,Mallorca
+2021-22,18,Granada
+2021-22,19,Levante
+2021-22,20,Alaves
+2022-23,1,Barcelona
+2022-23,2,Real Madrid
+2022-23,3,Ath Madrid
+2022-23,4,Sociedad
+2022-23,5,Villarreal
+2022-23,6,Betis
+2022-23,7,Osasuna
+2022-23,8,Ath Bilbao
+2022-23,9,Mallorca
+2022-23,10,Girona
+2022-23,11,Sevilla
+2022-23,12,Vallecano
+2022-23,13,Celta
+2022-23,14,Valencia
+2022-23,15,Getafe
+2022-23,16,Cadiz
+2022-23,17,Almeria
+2022-23,18,Valladolid
+2022-23,19,Espanol
+2022-23,20,Elche
+2023-24,1,Real Madrid
+2023-24,2,Barcelona
+2023-24,3,Girona
+2023-24,4,Ath Madrid
+2023-24,5,Ath Bilbao
+2023-24,6,Sociedad
+2023-24,7,Betis
+2023-24,8,Villarreal
+2023-24,9,Valencia
+2023-24,10,Alaves
+2023-24,11,Osasuna
+2023-24,12,Getafe
+2023-24,13,Sevilla
+2023-24,14,Celta
+2023-24,15,Mallorca
+2023-24,16,Las Palmas
+2023-24,17,Vallecano
+2023-24,18,Cadiz
+2023-24,19,Almeria
+2023-24,20,Granada
+2024-25,1,Barcelona
+2024-25,2,Real Madrid
+2024-25,3,Ath Madrid
+2024-25,4,Ath Bilbao
+2024-25,5,Villarreal
+2024-25,6,Betis
+2024-25,7,Celta
+2024-25,8,Osasuna
+2024-25,9,Vallecano
+2024-25,10,Mallorca
+2024-25,11,Valencia
+2024-25,12,Sociedad
+2024-25,13,Getafe
+2024-25,14,Alaves
+2024-25,15,Espanol
+2024-25,16,Sevilla
+2024-25,17,Girona
+2024-25,18,Leganes
+2024-25,19,Las Palmas
+2024-25,20,Valladolid

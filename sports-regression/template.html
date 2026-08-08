@@ -163,12 +163,15 @@ function render(){
     `<div class="kpi"><span class="v">${st!=null?(st>0.6?"Sticky":st>0.35?"Mixed":"Volatile"):"—"}</span><span class="l">character</span></div>`;
 
   // geometry
+  const prom = group.promoted || null;   // promoted-team distribution (releg. leagues)
+  const NS = N + (prom?1:0);             // slots: positions + one "Promoted" column
+  const promSlot = N + 1;
   const W=960, H=Math.max(420, 34*N+90);
   const m={t:20,r:185,b:52,l:52};
   const iw=W-m.l-m.r, ih=H-m.t-m.b;
-  const x = p => m.l + (p-0.5)/N*iw;                 // band centre
+  const x = i => m.l + (i-0.5)/NS*iw;                // slot centre
   const y = p => m.t + (p-1)/(N-1)*ih;              // inverted: pos 1 at top
-  const band = iw/N;
+  const band = iw/NS;
   const bw = Math.min(band*0.56, 24);
 
   const cutTop = (lg.cutoffs.find(c=>c.kind==="top"&&!c.soft)||{}).pos;
@@ -220,75 +223,67 @@ function render(){
 
   // boxes
   const tt=$("#tt"), wrap=$("#chartwrap");
+  const drawBox=(cx,P,col,soft)=>{
+    g.appendChild(el("line",{x1:cx,x2:cx,y1:y(P.whiskerLo),y2:y(P.whiskerHi),stroke:col,"stroke-width":1.4}));
+    g.appendChild(el("line",{x1:cx-bw*0.3,x2:cx+bw*0.3,y1:y(P.whiskerLo),y2:y(P.whiskerLo),stroke:col,"stroke-width":1.4}));
+    g.appendChild(el("line",{x1:cx-bw*0.3,x2:cx+bw*0.3,y1:y(P.whiskerHi),y2:y(P.whiskerHi),stroke:col,"stroke-width":1.4}));
+    const yA=y(P.q1),yB=y(P.q3),top=Math.min(yA,yB);
+    g.appendChild(el("rect",{x:cx-bw/2,y:top,width:bw,height:Math.abs(yB-yA)||1.5,rx:3,fill:soft,stroke:col,"stroke-width":1.4}));
+    g.appendChild(el("line",{x1:cx-bw/2,x2:cx+bw/2,y1:y(P.median),y2:y(P.median),stroke:col,"stroke-width":2.4}));
+    const my=y(P.meanNext),d=3.4;
+    g.appendChild(el("path",{d:`M${cx} ${my-d}L${cx+d} ${my}L${cx} ${my+d}L${cx-d} ${my}Z`,fill:"var(--surface-1)",stroke:col,"stroke-width":1.4}));
+    for(const o of (P.outliers||[])) g.appendChild(el("circle",{cx:cx,cy:y(o),r:2,fill:"none",stroke:col,"stroke-width":1.1}));
+    if(state.points){let k=0;for(const v of P.points){const jx=cx+((k*37%100)/100-0.5)*bw*0.8;k++;g.appendChild(el("circle",{cx:jx,cy:y(v),r:1.7,fill:col,opacity:.45}));}}
+  };
+  const attachHover=(cx,html)=>{
+    const hit=el("rect",{x:cx-band/2,y:m.t,width:band,height:ih,fill:"transparent"});
+    hit.addEventListener("mousemove",e=>{const r=wrap.getBoundingClientRect();tt.style.opacity=1;
+      tt.style.left=Math.min(e.clientX-r.left+14,r.width-180)+"px";tt.style.top=(e.clientY-r.top+12)+"px";tt.innerHTML=html;});
+    hit.addEventListener("mouseleave",()=>tt.style.opacity=0);
+    g.appendChild(hit);
+  };
+
   for(const P of group.positions){
     if(P.pos>N) continue;
     const cx=x(P.pos);
     if(P.n===0){
-      if(P.leftDivision>0){
+      if(P.leftDivision>0)
         g.appendChild(el("text",{x:cx,y:m.t+ih-4,"text-anchor":"middle","font-size":9,
           fill:"var(--bad)","font-weight":600,
           transform:`rotate(-90 ${cx} ${m.t+ih-4})`},txt("relegated ↓")));
-      }
       continue;
     }
-    // whisker
-    g.appendChild(el("line",{x1:cx,x2:cx,y1:y(P.whiskerLo),y2:y(P.whiskerHi),
-      stroke:"var(--series)","stroke-width":1.4}));
-    g.appendChild(el("line",{x1:cx-bw*0.3,x2:cx+bw*0.3,y1:y(P.whiskerLo),y2:y(P.whiskerLo),
-      stroke:"var(--series)","stroke-width":1.4}));
-    g.appendChild(el("line",{x1:cx-bw*0.3,x2:cx+bw*0.3,y1:y(P.whiskerHi),y2:y(P.whiskerHi),
-      stroke:"var(--series)","stroke-width":1.4}));
-    // box (q3 is lower on screen since axis inverted -> rect from y(q1)..y(q3))
-    const yA=y(P.q1), yB=y(P.q3), top=Math.min(yA,yB);
-    const rect=el("rect",{x:cx-bw/2,y:top,width:bw,height:Math.abs(yB-yA)||1.5,rx:3,
-      fill:"var(--series-soft)",stroke:"var(--series)","stroke-width":1.4});
-    g.appendChild(rect);
-    // median
-    g.appendChild(el("line",{x1:cx-bw/2,x2:cx+bw/2,y1:y(P.median),y2:y(P.median),
-      stroke:"var(--series)","stroke-width":2.4}));
-    // mean diamond
-    const my=y(P.meanNext), d=3.4;
-    g.appendChild(el("path",{d:`M${cx} ${my-d}L${cx+d} ${my}L${cx} ${my+d}L${cx-d} ${my}Z`,
-      fill:"var(--surface-1)",stroke:"var(--series)","stroke-width":1.4}));
-    // outliers
-    for(const o of (P.outliers||[]))
-      g.appendChild(el("circle",{cx:cx,cy:y(o),r:2,fill:"none",stroke:"var(--series)","stroke-width":1.1}));
-    // jittered points
-    if(state.points){
-      let k=0; for(const v of P.points){
-        const jx=cx+((k*37%100)/100-0.5)*bw*0.8; k++;
-        g.appendChild(el("circle",{cx:jx,cy:y(v),r:1.7,fill:"var(--series)",opacity:.45}));
-      }
-    }
-    // hover hit target
-    const hit=el("rect",{x:cx-band/2,y:m.t,width:band,height:ih,fill:"transparent"});
-    const mv=P.meanMove;
-    const arrow = mv>0.3?"↓ falls":mv<-0.3?"↑ climbs":"→ holds";
-    hit.addEventListener("mousemove",e=>{
-      const r=wrap.getBoundingClientRect();
-      tt.style.opacity=1;
-      tt.style.left=Math.min(e.clientX-r.left+14, r.width-170)+"px";
-      tt.style.top=(e.clientY-r.top+12)+"px";
-      tt.innerHTML=`<b>Finished ${P.pos}${sfx(P.pos)}</b> · ${P.n} seasons<br>`+
-        `<span class="mut">Next year range</span> ${P.min}–${P.max}<br>`+
-        `<span class="mut">IQR</span> ${P.q1.toFixed(1)}–${P.q3.toFixed(1)} · <span class="mut">median</span> ${P.median.toFixed(1)}<br>`+
-        `<span class="mut">avg next</span> ${P.meanNext.toFixed(1)} (${arrow} ${mv>0?"+":""}${mv.toFixed(1)})`+
-        (P.leftDivision?`<br><span class="mut">left division</span> ${P.leftDivision}×`:"");
-    });
-    hit.addEventListener("mouseleave",()=>tt.style.opacity=0);
-    g.appendChild(hit);
+    drawBox(cx,P,"var(--series)","var(--series-soft)");
+    const mv=P.meanMove, arrow=mv>0.3?"↓ falls":mv<-0.3?"↑ climbs":"→ holds";
+    attachHover(cx,`<b>Finished ${P.pos}${sfx(P.pos)}</b> · ${P.n} seasons<br>`+
+      `<span class="mut">Next year range</span> ${P.min}–${P.max}<br>`+
+      `<span class="mut">IQR</span> ${P.q1.toFixed(1)}–${P.q3.toFixed(1)} · <span class="mut">median</span> ${P.median.toFixed(1)}<br>`+
+      `<span class="mut">avg next</span> ${P.meanNext.toFixed(1)} (${arrow} ${mv>0?"+":""}${mv.toFixed(1)})`+
+      (P.leftDivision?`<br><span class="mut">left division</span> ${P.leftDivision}×`:""));
+  }
+
+  // Promoted column: where teams entering the division land next season
+  if(prom){
+    const cx=x(promSlot), divX=m.l+iw*(N/NS);
+    g.appendChild(el("line",{x1:divX,x2:divX,y1:m.t,y2:m.t+ih,stroke:"var(--border-strong)","stroke-width":1,"stroke-dasharray":"3 3",opacity:.7}));
+    drawBox(cx,prom,"var(--good)","var(--good-soft)");
+    g.appendChild(el("text",{x:cx,y:m.t+ih+16,"text-anchor":"middle","font-size":11,fill:"var(--good)","font-weight":700},txt("Prom.")));
+    attachHover(cx,`<b>Newly promoted</b> · ${prom.n} teams<br>`+
+      `<span class="mut">First-season range</span> ${prom.min}–${prom.max}<br>`+
+      `<span class="mut">IQR</span> ${prom.q1.toFixed(1)}–${prom.q3.toFixed(1)} · <span class="mut">median</span> ${prom.median.toFixed(1)}<br>`+
+      `<span class="mut">avg finish</span> ${prom.meanNext.toFixed(1)}`);
   }
 
   const wrapEl=$("#chartwrap");
   [...wrapEl.querySelectorAll("svg")].forEach(s=>s.remove());
   wrapEl.insertBefore(g, tt);
 
-  renderLegend(lg);
+  renderLegend(lg,group);
   renderTable(lg,group);
 }
 const sfx=n=>{const s=["th","st","nd","rd"],v=n%100;return s[(v-20)%10]||s[v]||s[0];};
 
-function renderLegend(lg){
+function renderLegend(lg,group){
   const L=$("#legend"); L.innerHTML="";
   const items=[
     [`<span class="swatch" style="background:var(--series-soft);border:1.4px solid var(--series)"></span>`,"Interquartile range (25–75%)"],
@@ -298,6 +293,7 @@ function renderLegend(lg){
   ];
   if(lg.cutoffs.some(c=>c.kind==="top")) items.push([`<span class="swatch" style="background:var(--good-soft);border-bottom:2px solid var(--good)"></span>`,"Qualification zone"]);
   if(lg.cutoffs.some(c=>c.kind==="bottom")) items.push([`<span class="swatch" style="background:var(--bad-soft);border-top:2px solid var(--bad)"></span>`,"Relegation zone"]);
+  if(group&&group.promoted) items.push([`<span class="swatch" style="background:var(--good-soft);border:1.4px solid var(--good)"></span>`,"Promoted-in teams (right column)"]);
   for(const [sw,lab] of items){ const d=document.createElement("div"); d.className="it";
     d.innerHTML=sw+"<span>"+lab+"</span>"; L.appendChild(d); }
 }
@@ -315,6 +311,9 @@ function renderTable(lg,group){
          `<td>${p.meanNext.toFixed(1)}</td><td>${ar} ${mv>0?"+":""}${mv.toFixed(1)}</td></tr>`;
     }
   }
+  if(group.promoted){const q=group.promoted;
+    h+=`<tr style="color:var(--good)"><td>Promoted&nbsp;in</td><td>${q.n}</td><td>${q.min}–${q.max}</td>`+
+       `<td>${q.median.toFixed(1)}</td><td>${q.meanNext.toFixed(1)}</td><td>—</td></tr>`;}
   t.innerHTML=h+"</tbody>";
 }
 
@@ -355,17 +354,14 @@ function buildSubtabs(){
 }
 
 function init(){
-  const realNames = DATA.leagues.filter(l=>l.confidence==="real").map(l=>l.name);
   const illusNames = DATA.leagues.filter(l=>l.confidence!=="real").map(l=>l.name);
   $("#banner").innerHTML =
-    `<b>Data provenance.</b> `+
-    (realNames.length?`<span class="badge real">real</span> verified data — `+
-      `<b>${realNames.join("</b>, <b>")}</b> (EPL hand-checked final tables; AFL ladders computed from match results). `:"")+
-    (illusNames.length?`<span class="badge illustrative">illustrative</span> clearly-labelled model data `+
-      `(persistence + noise, <i>not</i> real results) — <b>${illusNames.join("</b>, <b>")}</b>. `+
-      `Open GitHub-hosted sources exist for these; each league reads an editable CSV in <code>data/</code>, so dropping in `+
-      `verified standings and re-running <code>build.py</code> swaps the model for real numbers.`:"")+
-    ` &nbsp;Generated ${DATA.generatedAt}.`;
+    `<b>Data provenance.</b> <span class="badge real">real</span> All ${DATA.leagues.length} leagues use verified data from `+
+    `open datasets (football tables computed from match results; MLB/NBA from W‑L records; AFL/NRL from ladders; `+
+    `F1 from championship points). `+
+    (illusNames.length?`<span class="badge illustrative">illustrative</span> model data (not real): <b>${illusNames.join(", ")}</b>. `:"")+
+    `The green <b>Prom.</b> column on promotion/relegation leagues shows where newly-<i>promoted</i> teams land. `+
+    `Each league reads an editable CSV in <code>data/</code>. &nbsp;Generated ${DATA.generatedAt}.`;
 
   // confidence badge inline in rule handled per-render via meta; add to tabs done.
   $("#tgPoints").onchange=e=>{state.points=e.target.checked;render();};
@@ -376,7 +372,8 @@ function init(){
     "How to read it: the y-axis is inverted so 1st place sits at the top. A column whose box sits on the dashed "+
     "diagonal means teams tend to finish where they did last year (consistency). A column whose box pulls toward "+
     "the middle of the table — high finishers drifting down, low finishers drifting up — is regression to the mean. "+
-    "In promotion/relegation leagues the bottom columns are empty because those teams left the division.";
+    "In promotion/relegation leagues the bottom columns are empty because those teams were relegated; the green "+
+    "“Prom.” column instead shows where the teams promoted in that year finished.";
 
   const want=decodeURIComponent(location.hash.replace(/^#/,"")).toUpperCase();
   const idx=DATA.leagues.findIndex(l=>l.key.toUpperCase()===want);

@@ -79,6 +79,46 @@ LEAGUES = {
             {"pos": 17, "label": "Relegation (bottom 3)", "kind": "bottom"},
         ],
     },
+    "LaLiga": {
+        "name": "La Liga (Spain)",
+        "sport": "Football (soccer)",
+        "type": "single",
+        "size": 20,
+        "relegation": True,
+        "confidence": "real",
+        "position_rule": "Final league-table position (points; ties by head-to-head — approximated here by goal difference).",
+        "cutoffs": [
+            {"pos": 4, "label": "Champions League (top 4)", "kind": "top"},
+            {"pos": 6, "label": "Europe (approx.)", "kind": "top", "soft": True},
+            {"pos": 17, "label": "Relegation (bottom 3)", "kind": "bottom"},
+        ],
+    },
+    "Bundesliga": {
+        "name": "Bundesliga (Germany)",
+        "sport": "Football (soccer)",
+        "type": "single",
+        "size": 18,
+        "relegation": True,
+        "confidence": "real",
+        "position_rule": "Final league-table position (points, then goal difference). 16th enters a relegation play-off.",
+        "cutoffs": [
+            {"pos": 4, "label": "Champions League (top 4)", "kind": "top"},
+            {"pos": 16, "label": "Relegation (16–18)", "kind": "bottom"},
+        ],
+    },
+    "Ligue1": {
+        "name": "Ligue 1 (France)",
+        "sport": "Football (soccer)",
+        "type": "single",
+        "size": 20,
+        "relegation": True,
+        "confidence": "real",
+        "position_rule": "Final league-table position. League shrank from 20 to 18 clubs in 2023-24.",
+        "cutoffs": [
+            {"pos": 3, "label": "Champions League (approx.)", "kind": "top"},
+            {"pos": 17, "label": "Relegation zone", "kind": "bottom"},
+        ],
+    },
     "NBA": {
         "name": "NBA",
         "sport": "Basketball",
@@ -133,6 +173,19 @@ LEAGUES = {
             {"pos": 8, "label": "Finals series (top 8)", "kind": "top"},
         ],
         "rho": 0.45,
+    },
+    "F1": {
+        "name": "F1 Constructors",
+        "sport": "Motorsport",
+        "type": "single",
+        "size": 12,
+        "relegation": False,
+        "confidence": "real",  # muharsyad/formula-one-datasets, 1991-2024
+        "position_rule": "Final Constructors' Championship position (season points, incl. sprints).",
+        "cutoffs": [
+            {"pos": 3, "label": "Podium (top 3)", "kind": "top", "soft": True},
+        ],
+        "rho": 0.7,
     },
 }
 
@@ -213,37 +266,61 @@ def box_stats(values):
     }
 
 
-def analyse_group(tables, size):
-    """Return per-starting-position transition stats for one closed group."""
-    seasons = sorted(tables.keys())
-    # position(team) per season
-    pos_of = {}
-    for s in seasons:
-        pos_of[s] = {team: i + 1 for i, team in enumerate(tables[s])}
+def _season_year(label):
+    """Leading 4-digit year of a season label ('2015-16'->2015, '2024'->2024)."""
+    return int(str(label)[:4])
 
-    # collect next-year positions per starting position
-    nexts = defaultdict(list)   # p -> [next positions]
-    relegated = defaultdict(int)  # p -> count of teams that vanished next year
+
+def analyse_group(tables, size, relegation=False):
+    """Return per-starting-position transition stats for one closed group.
+
+    Transitions are only formed between seasons one calendar year apart, so a
+    skipped/missing season never produces a spurious multi-year jump.
+    """
+    seasons = sorted(tables.keys(), key=_season_year)
+    pos_of = {s: {team: i + 1 for i, team in enumerate(tables[s])} for s in seasons}
+
+    nexts = defaultdict(list)     # p -> [next-year positions of teams that stayed]
+    relegated = defaultdict(int)  # p -> count of teams that left the division
+    promoted = []                 # next-year positions of teams new to the division
     for a, b in zip(seasons, seasons[1:]):
+        if _season_year(b) != _season_year(a) + 1:
+            continue  # gap — don't link non-consecutive seasons
         for team, p in pos_of[a].items():
             if team in pos_of[b]:
                 nexts[p].append(pos_of[b][team])
             else:
                 relegated[p] += 1
+        if relegation:
+            for team, p2 in pos_of[b].items():
+                if team not in pos_of[a]:
+                    promoted.append(p2)
+
+    def summarise(vals, pos):
+        arr = np.array(vals, dtype=float)
+        e = dict(box_stats(vals))
+        e["n"] = len(vals)
+        e["meanNext"] = float(arr.mean())
+        e["meanMove"] = float((arr - pos).mean()) if pos is not None else None
+        e["points"] = [int(v) for v in vals]
+        return e
 
     positions = []
-    maxpos = max([size] + [max(pos_of[s].values()) for s in seasons])
+    maxpos = max([size] + [max(pm.values()) for pm in pos_of.values()])
     for p in range(1, maxpos + 1):
         vals = nexts.get(p, [])
         entry = {"pos": p, "n": len(vals), "leftDivision": relegated.get(p, 0)}
         if vals:
-            arr = np.array(vals, dtype=float)
-            entry.update(box_stats(vals))
-            entry["meanNext"] = float(arr.mean())
-            entry["meanMove"] = float((arr - p).mean())  # +ve = fell down the table
-            entry["points"] = [int(v) for v in vals]
+            entry.update(summarise(vals, p))
         positions.append(entry)
-    return {"size": size, "seasons": seasons, "positions": positions}
+
+    out = {"size": size, "seasons": seasons, "positions": positions}
+    if relegation and promoted:
+        # promoted teams enter near the top of the incoming table; "move" is
+        # measured against an implied 21st-place origin (they were outside the
+        # division), so meanMove is left null and rendered as its own column.
+        out["promoted"] = summarise(promoted, None)
+    return out
 
 
 # --------------------------------------------------------------------------
@@ -284,7 +361,7 @@ def build():
                     write_csv(csv_path, tables_to_rows(tables))
                 tables = read_csv(csv_path)
 
-            stats = analyse_group(tables, cfg["size"])
+            stats = analyse_group(tables, cfg["size"], cfg["relegation"])
             stats["key"] = conf
             stats["name"] = conf if conf else cfg["name"]
             groups.append(stats)
