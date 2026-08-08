@@ -86,13 +86,12 @@ LEAGUES = {
         "conferences": ["East", "West"],
         "size": 15,
         "relegation": False,
-        "confidence": "illustrative",
-        "position_rule": "Regular-season seed within conference (by W-L record).",
+        "confidence": "real",  # NocturneBear/NBA-Data-2010-2024, 2010-11 to 2023-24
+        "position_rule": "Regular-season seed within conference (by W-L record, ties by point differential).",
         "cutoffs": [
-            {"pos": 6, "label": "Direct playoff berth (top 6)", "kind": "top"},
-            {"pos": 10, "label": "Play-in cut (top 10)", "kind": "top", "soft": True},
+            {"pos": 8, "label": "Playoffs (top 8)", "kind": "top"},
+            {"pos": 10, "label": "Play-in cut (2020+, top 10)", "kind": "top", "soft": True},
         ],
-        # rho controls persistence for the illustrative model (higher = stickier)
         "rho": 0.55,
     },
     "MLB": {
@@ -102,10 +101,10 @@ LEAGUES = {
         "conferences": ["American League", "National League"],
         "size": 15,
         "relegation": False,
-        "confidence": "illustrative",
-        "position_rule": "Rank within league by win-loss record (162-game season).",
+        "confidence": "real",  # cbwinslow/baseballdatabank Teams.csv, 2013-2021
+        "position_rule": "Rank within league (AL/NL) by win-loss record (162-game season).",
         "cutoffs": [
-            {"pos": 6, "label": "Playoffs (top 6)", "kind": "top"},
+            {"pos": 5, "label": "Playoffs (top 5, 2013–21)", "kind": "top"},
         ],
         "rho": 0.50,
     },
@@ -128,7 +127,7 @@ LEAGUES = {
         "type": "single",
         "size": 17,
         "relegation": False,
-        "confidence": "illustrative",
+        "confidence": "real",  # uselessnrlstats ladder_round_data.csv, 2010-2024
         "position_rule": "Final regular-season ladder position (competition points, then differential).",
         "cutoffs": [
             {"pos": 8, "label": "Finals series (top 8)", "kind": "top"},
@@ -311,10 +310,13 @@ def build():
 
 
 def write_summary(payload):
+    real = [l["name"] for l in payload["leagues"] if l["confidence"] == "real"]
+    illus = [l["name"] for l in payload["leagues"] if l["confidence"] != "real"]
+    prov = f"Real data: {', '.join(real)}." if real else ""
+    if illus:
+        prov += f" Illustrative (model, not real results): {', '.join(illus)}."
     lines = ["# Year-on-year finishing-position movement\n",
-             f"_Generated {payload['generatedAt']}. "
-             "EPL is real (hand-verified); other leagues are illustrative model data "
-             "pending verified CSVs._\n"]
+             f"_Generated {payload['generatedAt']}. {prov}_\n"]
     for lg in payload["leagues"]:
         lines.append(f"\n## {lg['name']} ({lg['sport']}) — {lg['confidence']}")
         lines.append(f"_{lg['positionRule']}_\n")
