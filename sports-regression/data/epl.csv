@@ -1,0 +1,281 @@
+season,position,team
+2010-11,1,Man Utd
+2010-11,2,Chelsea
+2010-11,3,Man City
+2010-11,4,Arsenal
+2010-11,5,Tottenham
+2010-11,6,Liverpool
+2010-11,7,Everton
+2010-11,8,Fulham
+2010-11,9,Aston Villa
+2010-11,10,Sunderland
+2010-11,11,West Brom
+2010-11,12,Newcastle
+2010-11,13,Stoke
+2010-11,14,Bolton
+2010-11,15,Blackburn
+2010-11,16,Wigan
+2010-11,17,Wolves
+2010-11,18,Birmingham
+2010-11,19,Blackpool
+2010-11,20,West Ham
+2011-12,1,Man City
+2011-12,2,Man Utd
+2011-12,3,Arsenal
+2011-12,4,Tottenham
+2011-12,5,Newcastle
+2011-12,6,Chelsea
+2011-12,7,Everton
+2011-12,8,Liverpool
+2011-12,9,Fulham
+2011-12,10,West Brom
+2011-12,11,Swansea
+2011-12,12,Norwich
+2011-12,13,Sunderland
+2011-12,14,Stoke
+2011-12,15,Wigan
+2011-12,16,Aston Villa
+2011-12,17,QPR
+2011-12,18,Bolton
+2011-12,19,Blackburn
+2011-12,20,Wolves
+2012-13,1,Man Utd
+2012-13,2,Man City
+2012-13,3,Chelsea
+2012-13,4,Arsenal
+2012-13,5,Tottenham
+2012-13,6,Everton
+2012-13,7,Liverpool
+2012-13,8,West Brom
+2012-13,9,Swansea
+2012-13,10,West Ham
+2012-13,11,Norwich
+2012-13,12,Fulham
+2012-13,13,Stoke
+2012-13,14,Southampton
+2012-13,15,Aston Villa
+2012-13,16,Newcastle
+2012-13,17,Sunderland
+2012-13,18,Wigan
+2012-13,19,Reading
+2012-13,20,QPR
+2013-14,1,Man City
+2013-14,2,Liverpool
+2013-14,3,Chelsea
+2013-14,4,Arsenal
+2013-14,5,Everton
+2013-14,6,Tottenham
+2013-14,7,Man Utd
+2013-14,8,Southampton
+2013-14,9,Stoke
+2013-14,10,Newcastle
+2013-14,11,Crystal Palace
+2013-14,12,Swansea
+2013-14,13,West Ham
+2013-14,14,Sunderland
+2013-14,15,Aston Villa
+2013-14,16,Hull
+2013-14,17,West Brom
+2013-14,18,Norwich
+2013-14,19,Fulham
+2013-14,20,Cardiff
+2014-15,1,Chelsea
+2014-15,2,Man City
+2014-15,3,Arsenal
+2014-15,4,Man Utd
+2014-15,5,Tottenham
+2014-15,6,Liverpool
+2014-15,7,Southampton
+2014-15,8,Swansea
+2014-15,9,Stoke
+2014-15,10,Crystal Palace
+2014-15,11,Everton
+2014-15,12,West Ham
+2014-15,13,West Brom
+2014-15,14,Leicester
+2014-15,15,Newcastle
+2014-15,16,Sunderland
+2014-15,17,Aston Villa
+2014-15,18,Hull
+2014-15,19,Burnley
+2014-15,20,QPR
+2015-16,1,Leicester
+2015-16,2,Arsenal
+2015-16,3,Tottenham
+2015-16,4,Man City
+2015-16,5,Man Utd
+2015-16,6,Southampton
+2015-16,7,West Ham
+2015-16,8,Liverpool
+2015-16,9,Stoke
+2015-16,10,Chelsea
+2015-16,11,Everton
+2015-16,12,Swansea
+2015-16,13,Watford
+2015-16,14,West Brom
+2015-16,15,Crystal Palace
+2015-16,16,Bournemouth
+2015-16,17,Sunderland
+2015-16,18,Newcastle
+2015-16,19,Norwich
+2015-16,20,Aston Villa
+2016-17,1,Chelsea
+2016-17,2,Tottenham
+2016-17,3,Man City
+2016-17,4,Liverpool
+2016-17,5,Arsenal
+2016-17,6,Man Utd
+2016-17,7,Everton
+2016-17,8,Southampton
+2016-17,9,Bournemouth
+2016-17,10,West Brom
+2016-17,11,West Ham
+2016-17,12,Leicester
+2016-17,13,Stoke
+2016-17,14,Crystal Palace
+2016-17,15,Swansea
+2016-17,16,Burnley
+2016-17,17,Watford
+2016-17,18,Hull
+2016-17,19,Middlesbrough
+2016-17,20,Sunderland
+2017-18,1,Man City
+2017-18,2,Man Utd
+2017-18,3,Tottenham
+2017-18,4,Liverpool
+2017-18,5,Chelsea
+2017-18,6,Arsenal
+2017-18,7,Burnley
+2017-18,8,Everton
+2017-18,9,Leicester
+2017-18,10,Newcastle
+2017-18,11,Crystal Palace
+2017-18,12,Bournemouth
+2017-18,13,West Ham
+2017-18,14,Watford
+2017-18,15,Brighton
+2017-18,16,Huddersfield
+2017-18,17,Southampton
+2017-18,18,Swansea
+2017-18,19,Stoke
+2017-18,20,West Brom
+2018-19,1,Man City
+2018-19,2,Liverpool
+2018-19,3,Chelsea
+2018-19,4,Tottenham
+2018-19,5,Arsenal
+2018-19,6,Man Utd
+2018-19,7,Wolves
+2018-19,8,Everton
+2018-19,9,Leicester
+2018-19,10,West Ham
+2018-19,11,Watford
+2018-19,12,Crystal Palace
+2018-19,13,Newcastle
+2018-19,14,Bournemouth
+2018-19,15,Burnley
+2018-19,16,Southampton
+2018-19,17,Brighton
+2018-19,18,Cardiff
+2018-19,19,Fulham
+2018-19,20,Huddersfield
+2019-20,1,Liverpool
+2019-20,2,Man City
+2019-20,3,Man Utd
+2019-20,4,Chelsea
+2019-20,5,Leicester
+2019-20,6,Tottenham
+2019-20,7,Wolves
+2019-20,8,Arsenal
+2019-20,9,Sheffield Utd
+2019-20,10,Burnley
+2019-20,11,Southampton
+2019-20,12,Everton
+2019-20,13,Newcastle
+2019-20,14,Crystal Palace
+2019-20,15,Brighton
+2019-20,16,West Ham
+2019-20,17,Aston Villa
+2019-20,18,Bournemouth
+2019-20,19,Watford
+2019-20,20,Norwich
+2020-21,1,Man City
+2020-21,2,Man Utd
+2020-21,3,Liverpool
+2020-21,4,Chelsea
+2020-21,5,Leicester
+2020-21,6,West Ham
+2020-21,7,Tottenham
+2020-21,8,Arsenal
+2020-21,9,Leeds
+2020-21,10,Everton
+2020-21,11,Aston Villa
+2020-21,12,Newcastle
+2020-21,13,Wolves
+2020-21,14,Crystal Palace
+2020-21,15,Southampton
+2020-21,16,Brighton
+2020-21,17,Burnley
+2020-21,18,Fulham
+2020-21,19,West Brom
+2020-21,20,Sheffield Utd
+2021-22,1,Man City
+2021-22,2,Liverpool
+2021-22,3,Chelsea
+2021-22,4,Tottenham
+2021-22,5,Arsenal
+2021-22,6,Man Utd
+2021-22,7,West Ham
+2021-22,8,Leicester
+2021-22,9,Brighton
+2021-22,10,Wolves
+2021-22,11,Newcastle
+2021-22,12,Crystal Palace
+2021-22,13,Brentford
+2021-22,14,Aston Villa
+2021-22,15,Southampton
+2021-22,16,Everton
+2021-22,17,Leeds
+2021-22,18,Burnley
+2021-22,19,Watford
+2021-22,20,Norwich
+2022-23,1,Man City
+2022-23,2,Arsenal
+2022-23,3,Man Utd
+2022-23,4,Newcastle
+2022-23,5,Liverpool
+2022-23,6,Brighton
+2022-23,7,Aston Villa
+2022-23,8,Tottenham
+2022-23,9,Brentford
+2022-23,10,Fulham
+2022-23,11,Crystal Palace
+2022-23,12,Chelsea
+2022-23,13,Wolves
+2022-23,14,West Ham
+2022-23,15,Bournemouth
+2022-23,16,Nott'm Forest
+2022-23,17,Everton
+2022-23,18,Leicester
+2022-23,19,Leeds
+2022-23,20,Southampton
+2023-24,1,Man City
+2023-24,2,Arsenal
+2023-24,3,Liverpool
+2023-24,4,Aston Villa
+2023-24,5,Tottenham
+2023-24,6,Chelsea
+2023-24,7,Newcastle
+2023-24,8,Man Utd
+2023-24,9,West Ham
+2023-24,10,Crystal Palace
+2023-24,11,Brighton
+2023-24,12,Bournemouth
+2023-24,13,Fulham
+2023-24,14,Wolves
+2023-24,15,Everton
+2023-24,16,Brentford
+2023-24,17,Nott'm Forest
+2023-24,18,Luton
+2023-24,19,Burnley
+2023-24,20,Sheffield Utd

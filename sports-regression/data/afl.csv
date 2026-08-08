@@ -1,0 +1,217 @@
+season,position,team
+2013,1,Hawthorn
+2013,2,Geelong
+2013,3,Fremantle
+2013,4,Sydney
+2013,5,Richmond
+2013,6,Collingwood
+2013,7,Essendon
+2013,8,Port Adelaide
+2013,9,Carlton
+2013,10,North Melbourne
+2013,11,Adelaide
+2013,12,Brisbane Lions
+2013,13,West Coast
+2013,14,Gold Coast
+2013,15,Western Bulldogs
+2013,16,St Kilda
+2013,17,Melbourne
+2013,18,Greater Western Sydney
+2014,1,Sydney
+2014,2,Hawthorn
+2014,3,Geelong
+2014,4,Fremantle
+2014,5,Port Adelaide
+2014,6,North Melbourne
+2014,7,Essendon
+2014,8,Richmond
+2014,9,West Coast
+2014,10,Adelaide
+2014,11,Collingwood
+2014,12,Gold Coast
+2014,13,Carlton
+2014,14,Western Bulldogs
+2014,15,Brisbane Lions
+2014,16,Greater Western Sydney
+2014,17,Melbourne
+2014,18,St Kilda
+2015,1,Fremantle
+2015,2,West Coast
+2015,3,Hawthorn
+2015,4,Sydney
+2015,5,Richmond
+2015,6,Western Bulldogs
+2015,7,Adelaide
+2015,8,North Melbourne
+2015,9,Port Adelaide
+2015,10,Geelong
+2015,11,Greater Western Sydney
+2015,12,Collingwood
+2015,13,Melbourne
+2015,14,St Kilda
+2015,15,Essendon
+2015,16,Gold Coast
+2015,17,Brisbane Lions
+2015,18,Carlton
+2016,1,Sydney
+2016,2,Geelong
+2016,3,Hawthorn
+2016,4,Greater Western Sydney
+2016,5,Adelaide
+2016,6,West Coast
+2016,7,Western Bulldogs
+2016,8,North Melbourne
+2016,9,St Kilda
+2016,10,Port Adelaide
+2016,11,Melbourne
+2016,12,Collingwood
+2016,13,Richmond
+2016,14,Carlton
+2016,15,Gold Coast
+2016,16,Fremantle
+2016,17,Brisbane Lions
+2016,18,Essendon
+2017,1,Adelaide
+2017,2,Geelong
+2017,3,Richmond
+2017,4,Greater Western Sydney
+2017,5,Port Adelaide
+2017,6,Sydney
+2017,7,Essendon
+2017,8,West Coast
+2017,9,Melbourne
+2017,10,Western Bulldogs
+2017,11,St Kilda
+2017,12,Hawthorn
+2017,13,Collingwood
+2017,14,Fremantle
+2017,15,North Melbourne
+2017,16,Carlton
+2017,17,Gold Coast
+2017,18,Brisbane Lions
+2018,1,Richmond
+2018,2,West Coast
+2018,3,Collingwood
+2018,4,Hawthorn
+2018,5,Melbourne
+2018,6,Sydney
+2018,7,Greater Western Sydney
+2018,8,Geelong
+2018,9,North Melbourne
+2018,10,Port Adelaide
+2018,11,Essendon
+2018,12,Adelaide
+2018,13,Western Bulldogs
+2018,14,Fremantle
+2018,15,Brisbane Lions
+2018,16,St Kilda
+2018,17,Gold Coast
+2018,18,Carlton
+2019,1,Geelong
+2019,2,Brisbane Lions
+2019,3,Richmond
+2019,4,Collingwood
+2019,5,West Coast
+2019,6,Greater Western Sydney
+2019,7,Western Bulldogs
+2019,8,Essendon
+2019,9,Hawthorn
+2019,10,Port Adelaide
+2019,11,Adelaide
+2019,12,North Melbourne
+2019,13,Fremantle
+2019,14,St Kilda
+2019,15,Sydney
+2019,16,Carlton
+2019,17,Melbourne
+2019,18,Gold Coast
+2020,1,Port Adelaide
+2020,2,Brisbane Lions
+2020,3,Richmond
+2020,4,Geelong
+2020,5,West Coast
+2020,6,St Kilda
+2020,7,Western Bulldogs
+2020,8,Collingwood
+2020,9,Melbourne
+2020,10,Greater Western Sydney
+2020,11,Carlton
+2020,12,Fremantle
+2020,13,Essendon
+2020,14,Gold Coast
+2020,15,Hawthorn
+2020,16,Sydney
+2020,17,North Melbourne
+2020,18,Adelaide
+2021,1,Melbourne
+2021,2,Port Adelaide
+2021,3,Geelong
+2021,4,Brisbane Lions
+2021,5,Western Bulldogs
+2021,6,Sydney
+2021,7,Greater Western Sydney
+2021,8,Essendon
+2021,9,West Coast
+2021,10,St Kilda
+2021,11,Fremantle
+2021,12,Richmond
+2021,13,Carlton
+2021,14,Hawthorn
+2021,15,Adelaide
+2021,16,Gold Coast
+2021,17,Collingwood
+2021,18,North Melbourne
+2022,1,Geelong
+2022,2,Melbourne
+2022,3,Sydney
+2022,4,Collingwood
+2022,5,Fremantle
+2022,6,Brisbane Lions
+2022,7,Richmond
+2022,8,Western Bulldogs
+2022,9,Carlton
+2022,10,St Kilda
+2022,11,Port Adelaide
+2022,12,Gold Coast
+2022,13,Hawthorn
+2022,14,Adelaide
+2022,15,Essendon
+2022,16,Greater Western Sydney
+2022,17,West Coast
+2022,18,North Melbourne
+2023,1,Collingwood
+2023,2,Brisbane Lions
+2023,3,Port Adelaide
+2023,4,Melbourne
+2023,5,Carlton
+2023,6,St Kilda
+2023,7,Greater Western Sydney
+2023,8,Sydney
+2023,9,Western Bulldogs
+2023,10,Adelaide
+2023,11,Essendon
+2023,12,Geelong
+2023,13,Richmond
+2023,14,Fremantle
+2023,15,Gold Coast
+2023,16,Hawthorn
+2023,17,North Melbourne
+2023,18,West Coast
+2024,1,Sydney
+2024,2,Port Adelaide
+2024,3,Geelong
+2024,4,Greater Western Sydney
+2024,5,Brisbane Lions
+2024,6,Western Bulldogs
+2024,7,Hawthorn
+2024,8,Carlton
+2024,9,Collingwood
+2024,10,Fremantle
+2024,11,Essendon
+2024,12,St Kilda
+2024,13,Gold Coast
+2024,14,Melbourne
+2024,15,Adelaide
+2024,16,West Coast
+2024,17,North Melbourne
+2024,18,Richmond
