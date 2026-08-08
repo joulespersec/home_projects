@@ -1,0 +1,409 @@
+<style>
+:root{
+  color-scheme: light;
+  --paper:#f7f7f4; --surface:#ffffff; --surface-2:#fbfbf9;
+  --ink:#14171a; --ink-2:#55595e; --muted:#8a8f94;
+  --grid:#e8e8e2; --axis:#cdcec8; --diag:#b7b8b1;
+  --good:#0f9d3a; --good-band:rgba(15,157,58,.09);
+  --crit:#d03b3b; --crit-band:rgba(208,59,59,.10);
+  --border:rgba(20,23,26,.11); --shadow:rgba(20,23,26,.07);
+  --s-nfl:#2a78d6; --s-nba:#eb6834; --s-mlb:#1baf7a;
+  --s-epl:#4a3aa7; --s-afl:#eda100; --s-nrl:#e34948;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  color-scheme: dark;
+  --paper:#0c0c0c; --surface:#191919; --surface-2:#161615;
+  --ink:#f5f5f2; --ink-2:#c3c2b7; --muted:#8f8e88;
+  --grid:#2b2b29; --axis:#3a3a37; --diag:#4a4a46;
+  --good:#26b34e; --good-band:rgba(38,179,78,.15);
+  --crit:#e66767; --crit-band:rgba(230,103,103,.15);
+  --border:rgba(255,255,255,.12); --shadow:rgba(0,0,0,.4);
+  --s-nfl:#3987e5; --s-nba:#d95926; --s-mlb:#199e70;
+  --s-epl:#9085e9; --s-afl:#c98500; --s-nrl:#e66767;
+}}
+:root[data-theme="dark"]{
+  color-scheme: dark;
+  --paper:#0c0c0c; --surface:#191919; --surface-2:#161615;
+  --ink:#f5f5f2; --ink-2:#c3c2b7; --muted:#8f8e88;
+  --grid:#2b2b29; --axis:#3a3a37; --diag:#4a4a46;
+  --good:#26b34e; --good-band:rgba(38,179,78,.15);
+  --crit:#e66767; --crit-band:rgba(230,103,103,.15);
+  --border:rgba(255,255,255,.12); --shadow:rgba(0,0,0,.4);
+  --s-nfl:#3987e5; --s-nba:#d95926; --s-mlb:#199e70;
+  --s-epl:#9085e9; --s-afl:#c98500; --s-nrl:#e66767;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);
+  font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  line-height:1.55;-webkit-font-smoothing:antialiased;}
+.wrap{max-width:1180px;margin:0 auto;padding:clamp(20px,4vw,52px) clamp(16px,4vw,40px) 80px;}
+.tnum{font-variant-numeric:tabular-nums}
+
+/* ---- header ---- */
+.eyebrow{font-size:12px;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--muted);font-weight:600;margin:0 0 14px;}
+h1{font-size:clamp(30px,5.2vw,52px);line-height:1.02;letter-spacing:-.022em;
+  font-weight:800;margin:0 0 18px;text-wrap:balance;max-width:20ch;}
+h1 em{font-style:normal;color:var(--ink-2);font-weight:800;}
+.stand{font-size:clamp(16px,2vw,19px);color:var(--ink-2);max-width:64ch;margin:0 0 6px;}
+.byline{font-size:13px;color:var(--muted);margin-top:16px;}
+.byline b{color:var(--ink-2);font-weight:600}
+
+/* ---- persistence strip ---- */
+.thesis{margin:40px 0 8px;padding:24px clamp(16px,3vw,28px);background:var(--surface);
+  border:1px solid var(--border);border-radius:14px;box-shadow:0 1px 3px var(--shadow);}
+.thesis h2{font-size:15px;margin:0 0 4px;letter-spacing:-.01em}
+.thesis .sub{font-size:13.5px;color:var(--ink-2);margin:0 0 20px;max-width:70ch}
+.prow{display:grid;grid-template-columns:118px 1fr 132px;align-items:center;gap:14px;
+  padding:9px 0;border-top:1px solid var(--grid);}
+.prow:first-of-type{border-top:none}
+.pname{font-weight:700;font-size:14px;display:flex;align-items:center;gap:9px}
+.dot{width:11px;height:11px;border-radius:3px;flex:none}
+.meter{position:relative;height:12px;background:var(--grid);border-radius:6px;overflow:hidden}
+.meter>span{position:absolute;inset:0 auto 0 0;border-radius:6px}
+.pval{font-size:13px;color:var(--ink-2);text-align:right}
+.pval b{color:var(--ink);font-weight:700;font-size:15px}
+.scalec{display:flex;justify-content:space-between;font-size:11px;color:var(--muted);
+  margin-top:12px;letter-spacing:.02em}
+
+/* ---- controls ---- */
+.controls{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin:34px 0 22px}
+.controls .spacer{flex:1}
+.btn{font:inherit;font-size:13px;font-weight:600;color:var(--ink-2);cursor:pointer;
+  background:var(--surface);border:1px solid var(--border);border-radius:9px;
+  padding:8px 13px;display:inline-flex;align-items:center;gap:8px;}
+.btn:hover{color:var(--ink);border-color:var(--axis)}
+.btn[aria-pressed="true"]{color:var(--ink);border-color:currentColor;
+  box-shadow:inset 0 0 0 1px var(--border)}
+.btn .sw{width:26px;height:15px;border-radius:8px;background:var(--grid);position:relative;transition:.15s}
+.btn .sw::after{content:"";position:absolute;top:2px;left:2px;width:11px;height:11px;border-radius:50%;
+  background:var(--surface);box-shadow:0 1px 2px var(--shadow);transition:.15s}
+.btn[aria-pressed="true"] .sw{background:var(--ink-2)}
+.btn[aria-pressed="true"] .sw::after{left:13px}
+.btn:focus-visible{outline:2px solid var(--s-nfl);outline-offset:2px}
+
+/* ---- how to read ---- */
+.legend{display:flex;flex-wrap:wrap;gap:16px 22px;font-size:12.5px;color:var(--ink-2);
+  align-items:center;margin-bottom:8px}
+.legend .li{display:flex;align-items:center;gap:8px}
+
+/* ---- grid of panels ---- */
+.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;margin-top:14px}
+@media(max-width:820px){.grid{grid-template-columns:1fr}}
+.panel{background:var(--surface);border:1px solid var(--border);border-radius:14px;
+  padding:16px 16px 10px;box-shadow:0 1px 3px var(--shadow);position:relative;min-width:0}
+.phead{display:flex;justify-content:space-between;align-items:baseline;gap:12px;margin-bottom:2px}
+.ptitle{font-size:16px;font-weight:750;letter-spacing:-.01em;display:flex;align-items:center;gap:9px}
+.pmeta{font-size:11.5px;color:var(--muted);text-align:right;line-height:1.4}
+.psub{font-size:12px;color:var(--ink-2);margin:0 0 4px}
+.psub b{color:var(--ink);font-weight:650}
+svg.chart{width:100%;height:auto;display:block;overflow:visible}
+svg.chart text{font-family:inherit}
+.pts{opacity:0}
+.show-pts .pts{opacity:.5}
+.mtrend{opacity:0}
+.show-trend .mtrend{opacity:1}
+
+/* tooltip */
+.tt{position:fixed;z-index:40;pointer-events:none;opacity:0;transition:opacity .1s;
+  background:var(--ink);color:var(--paper);font-size:12px;line-height:1.5;
+  padding:9px 11px;border-radius:9px;box-shadow:0 6px 20px var(--shadow);max-width:230px}
+.tt b{font-weight:700}
+.tt .row{display:flex;justify-content:space-between;gap:16px}
+.tt .k{color:color-mix(in srgb,var(--paper) 60%,var(--ink))}
+.tt hr{border:none;border-top:1px solid color-mix(in srgb,var(--paper) 25%,transparent);margin:6px 0}
+
+/* ---- notes + table ---- */
+.notes{margin-top:44px;display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:22px}
+.note h3{font-size:13px;letter-spacing:.04em;text-transform:uppercase;color:var(--muted);margin:0 0 8px}
+.note p,.note li{font-size:13.5px;color:var(--ink-2);margin:0 0 8px}
+.note ul{margin:0;padding-left:18px}
+.note a{color:var(--s-nfl);text-decoration:none;border-bottom:1px solid var(--border)}
+.note a:hover{border-color:currentColor}
+.tablewrap{margin-top:30px;overflow-x:auto;display:none}
+.tablewrap.show{display:block}
+table{border-collapse:collapse;width:100%;font-size:12.5px;min-width:640px}
+th,td{padding:6px 10px;text-align:right;border-bottom:1px solid var(--grid);white-space:nowrap}
+th:first-child,td:first-child{text-align:left}
+thead th{color:var(--muted);font-weight:600;position:sticky;top:0;background:var(--surface);
+  border-bottom:1px solid var(--axis)}
+tbody tr:hover{background:var(--surface-2)}
+.foot{margin-top:56px;padding-top:22px;border-top:1px solid var(--grid);font-size:12.5px;color:var(--muted)}
+</style>
+
+<div class="wrap">
+  <header>
+    <p class="eyebrow">Regression to the mean &middot; six leagues &middot; regular season only</p>
+    <h1>Where do you finish <em>next</em> year?</h1>
+    <p class="stand">Every professional league sells the same story: this season's table is a verdict.
+      But finishing position is a noisy signal. This view tracks every club's regular-season finish and
+      where the <b>same club</b> lands the following year &mdash; so you can see how strongly the ladder
+      pulls everyone back toward the middle, and which leagues resist it.</p>
+    <p class="byline">Post-season excluded. Each panel is a league's <b>modern, stable-size era</b>;
+      positions are read within the frame teams actually compete in (conference, division, or a single table).</p>
+  </header>
+
+  <section class="thesis" id="thesis">
+    <h2>Consistency vs. regression, ranked</h2>
+    <p class="sub">Correlation (<i>r</i>) between a club's finishing position and its position the next
+      year, on a shared 0&ndash;1 scale. High&nbsp;=&nbsp;the order persists (consistency). Low&nbsp;=&nbsp;
+      last year barely predicts next year (strong regression to the mean).</p>
+    <div id="prows"></div>
+    <div class="scalec"><span>0.0 &mdash; pure regression to the mean</span><span>total consistency &mdash; 1.0</span></div>
+  </section>
+
+  <div class="controls">
+    <button class="btn" id="tgPts" aria-pressed="false"><span class="sw"></span>Show every team-season</button>
+    <button class="btn" id="tgTrend" aria-pressed="true"><span class="sw"></span>Median trend</button>
+    <button class="btn" id="tgTable" aria-pressed="false">Data table</button>
+    <span class="spacer"></span>
+    <button class="btn" id="tgTheme">◐ Theme</button>
+  </div>
+
+  <div class="legend" aria-hidden="true">
+    <span class="li"><svg width="30" height="20"><rect x="9" y="3" width="12" height="10" rx="2" fill="var(--s-nfl)" fill-opacity=".4" stroke="var(--s-nfl)" stroke-width="1.5"/><line x1="15" y1="0" x2="15" y2="3" stroke="var(--axis)" stroke-width="1.5"/><line x1="15" y1="13" x2="15" y2="19" stroke="var(--axis)" stroke-width="1.5"/></svg>middle 50% &amp; full range</span>
+    <span class="li"><svg width="24" height="14"><line x1="3" y1="7" x2="21" y2="7" stroke="var(--ink)" stroke-width="2"/></svg>median</span>
+    <span class="li"><svg width="18" height="14"><path d="M9 2 L15 7 L9 12 L3 7 Z" fill="var(--ink)"/></svg>mean</span>
+    <span class="li"><svg width="30" height="14"><line x1="2" y1="12" x2="28" y2="2" stroke="var(--diag)" stroke-width="2" stroke-dasharray="3 3"/></svg>finished where it started</span>
+    <span class="li"><svg width="16" height="14"><rect width="16" height="14" fill="var(--good-band)"/><line x1="0" y1="13" x2="16" y2="13" stroke="var(--good)" stroke-width="2" stroke-dasharray="3 2"/></svg>finals / playoffs zone</span>
+    <span class="li"><svg width="16" height="14"><rect width="16" height="14" fill="var(--crit-band)"/></svg>relegation (EPL)</span>
+  </div>
+
+  <div class="grid" id="grid"></div>
+
+  <div class="tablewrap" id="tablewrap"></div>
+
+  <div class="notes">
+    <div class="note">
+      <h3>How to read a panel</h3>
+      <p>Horizontal axis: where a club finished. Vertical axis: where it finished the <b>next</b> season,
+        with <b>1st at the top</b>. Each column is a box plot of every club that started at that position.</p>
+      <p>If finishing order carried over perfectly, every box would sit on the dashed diagonal. Instead the
+        boxes bend toward mid-table: top finishers slide down, strugglers climb. That bend <b>is</b>
+        regression to the mean.</p>
+    </div>
+    <div class="note">
+      <h3>Method</h3>
+      <ul>
+        <li>Regular season only; play-offs and finals excluded.</li>
+        <li>Position is ranked within the competitive frame: <b>conference</b> (NFL, NBA), <b>division</b>
+          (MLB), or a <b>single table</b> (EPL, AFL, NRL).</li>
+        <li>Each league is limited to a recent era with a stable team count so a given position means the
+          same thing every year (shown per panel).</li>
+        <li>A club must appear in both seasons to count. In the EPL the bottom three are relegated, so
+          positions 18&ndash;20 have essentially no "next year" in the top flight &mdash; the shaded band.</li>
+        <li>EPL / AFL / NRL tables are recomputed from match results (points, then goal-difference /
+          percentage); administrative points deductions are not applied.</li>
+      </ul>
+    </div>
+    <div class="note">
+      <h3>Data sources</h3>
+      <ul>
+        <li>NFL &mdash; <a href="https://github.com/nflverse/nfldata">nflverse/nfldata</a></li>
+        <li>NBA &mdash; <a href="https://github.com/fivethirtyeight/data/tree/master/nba-elo">FiveThirtyEight nba-elo</a></li>
+        <li>MLB &mdash; <a href="https://github.com/chadwickbureau/baseballdatabank">Chadwick Baseball Databank</a></li>
+        <li>EPL &mdash; <a href="https://github.com/footballcsv/england">footballcsv</a> + <a href="https://github.com/openfootball/england">openfootball</a></li>
+        <li>AFL &mdash; <a href="https://github.com/HashenAbey/afl-data-update">afl-data-update</a></li>
+        <li>NRL &mdash; <a href="https://github.com/uselessnrlstats/uselessnrlstats">uselessnrlstats</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <p class="foot">Built from public regular-season records. Finals/playoff cut-off lines are the standard
+    qualification count for each league's era; NFL playoffs expanded from 6 to 7 per conference in 2020, and
+    MLB's second and third-place clubs frequently reach the post-season via wild cards.</p>
+</div>
+
+<div class="tt" id="tt" role="tooltip"></div>
+
+<script id="data" type="application/json">{"leagues":{"NFL":{"name":"NFL (American football)","grouped_by":"conference","size":16,"window":[2002,2025],"finals_cut":7,"finals_label":"Playoffs (top 7)","relegation_cut":null,"relegation_label":null,"n_transitions":736,"persistence":{"n":736,"r":0.344,"slope":0.344,"r2":0.118},"positions":[{"pos":1,"n":46,"min":1,"q1":2.0,"median":4.0,"q3":9.75,"max":15,"mean":5.43,"mean_move":4.43,"values":[1,1,1,1,1,1,1,1,2,2,2,2,2,2,2,3,3,3,3,4,4,4,4,4,4,4,5,5,5,5,6,7,7,9,10,10,10,10,11,11,11,11,13,13,14,15]},{"pos":2,"n":46,"min":1,"q1":3.0,"median":7.0,"q3":9.75,"max":14,"mean":6.67,"mean_move":4.67,"values":[1,1,2,2,2,2,2,2,2,3,3,3,3,4,4,4,4,5,6,6,7,7,7,7,7,7,7,8,8,8,9,9,9,9,10,10,10,10,11,11,12,12,12,12,13,14]},{"pos":3,"n":46,"min":1,"q1":2.0,"median":7.5,"q3":9.0,"max":16,"mean":6.78,"mean_move":3.78,"values":[1,1,1,1,1,1,1,1,2,2,2,2,2,3,4,4,4,5,6,6,7,7,7,8,8,8,8,8,8,9,9,9,9,9,9,9,10,10,10,10,14,14,14,16,16,16]},{"pos":4,"n":46,"min":1,"q1":2.0,"median":4.5,"q3":8.75,"max":15,"mean":5.76,"mean_move":1.76,"values":[1,1,1,1,1,1,1,1,1,1,2,2,2,2,2,2,2,3,3,3,3,4,4,5,5,5,5,6,7,7,8,8,8,8,9,10,10,11,12,12,13,14,14,14,15,15]},{"pos":5,"n":46,"min":1,"q1":3.0,"median":6.0,"q3":9.0,"max":16,"mean":7.02,"mean_move":2.02,"values":[1,1,2,2,2,2,2,3,3,3,3,3,3,4,4,4,5,5,5,5,5,6,6,6,7,7,8,8,8,8,8,8,9,9,9,9,11,12,13,13,14,15,15,15,16,16]},{"pos":6,"n":46,"min":2,"q1":6.0,"median":9.0,"q3":13.0,"max":16,"mean":9.41,"mean_move":3.41,"values":[2,2,2,3,4,4,5,5,5,6,6,6,6,6,7,7,7,8,8,8,8,9,9,9,10,10,11,11,11,12,13,13,13,13,13,14,14,14,14,14,14,15,15,15,16,16]},{"pos":7,"n":46,"min":1,"q1":4.0,"median":7.0,"q3":11.75,"max":16,"mean":7.46,"mean_move":0.46,"values":[1,1,1,1,1,2,2,3,3,3,4,4,4,4,5,5,5,5,5,6,6,7,7,7,7,8,8,8,8,8,9,10,10,11,12,12,12,12,13,13,14,14,15,15,16,16]},{"pos":8,"n":46,"min":1,"q1":5.25,"median":9.5,"q3":12.0,"max":16,"mean":8.5,"mean_move":0.5,"values":[1,1,2,2,2,2,3,4,4,5,5,5,6,6,6,6,6,6,7,7,9,9,9,10,10,10,11,11,11,11,11,11,11,12,12,12,12,12,12,13,13,13,14,15,15,16]},{"pos":9,"n":46,"min":1,"q1":6.0,"median":8.0,"q3":12.0,"max":16,"mean":8.87,"mean_move":-0.13,"values":[1,2,3,3,3,3,4,5,5,5,5,6,6,6,6,7,7,7,7,8,8,8,8,8,9,9,9,10,10,10,11,11,12,12,12,13,14,14,14,14,14,15,16,16,16,16]},{"pos":10,"n":46,"min":1,"q1":4.25,"median":9.5,"q3":12.0,"max":16,"mean":8.61,"mean_move":-1.39,"values":[1,1,1,1,2,2,3,3,4,4,4,4,5,5,5,6,6,7,7,7,8,8,9,10,10,10,10,10,11,11,11,11,12,12,12,13,14,14,14,15,15,15,15,16,16,16]},{"pos":11,"n":46,"min":1,"q1":6.0,"median":10.0,"q3":13.0,"max":16,"mean":9.46,"mean_move":-1.54,"values":[1,3,3,3,3,3,3,4,4,5,6,6,6,7,7,7,8,8,9,9,9,10,10,10,10,11,11,11,12,12,12,12,12,13,13,13,13,13,14,15,15,15,16,16,16,16]},{"pos":12,"n":46,"min":2,"q1":7.0,"median":9.5,"q3":13.0,"max":16,"mean":9.76,"mean_move":-2.24,"values":[2,3,3,3,3,4,4,4,5,6,7,7,7,8,8,9,9,9,9,9,9,9,9,10,10,11,11,11,11,12,12,12,12,13,13,13,14,14,15,15,15,15,16,16,16,16]},{"pos":13,"n":46,"min":3,"q1":6.25,"median":12.5,"q3":15.0,"max":16,"mean":11.13,"mean_move":-1.87,"values":[3,3,4,5,5,5,5,6,6,6,6,6,7,7,7,9,9,10,11,11,11,12,12,13,13,14,14,14,14,14,15,15,15,15,15,15,16,16,16,16,16,16,16,16,16,16]},{"pos":14,"n":46,"min":1,"q1":7.25,"median":12.0,"q3":13.0,"max":16,"mean":10.54,"mean_move":-3.46,"values":[1,2,3,4,4,5,5,5,5,6,7,7,8,9,9,9,10,11,11,12,12,12,12,12,12,12,12,13,13,13,13,13,13,13,13,13,14,14,14,15,15,15,16,16,16,16]},{"pos":15,"n":46,"min":1,"q1":6.25,"median":10.0,"q3":14.0,"max":16,"mean":9.78,"mean_move":-5.22,"values":[1,3,3,3,4,4,4,5,5,6,6,6,7,7,7,8,8,9,10,10,10,10,10,10,10,11,11,11,11,11,11,13,13,14,14,14,14,14,14,15,15,15,15,16,16,16]},{"pos":16,"n":46,"min":1,"q1":8.0,"median":12.0,"q3":14.75,"max":16,"mean":10.8,"mean_move":-5.2,"values":[1,2,4,4,4,5,6,6,6,6,6,8,8,8,8,9,10,10,11,11,11,12,12,12,13,13,13,13,13,13,13,14,14,14,15,15,15,15,15,15,15,15,16,16,16,16]}]},"NBA":{"name":"NBA (basketball)","grouped_by":"conference","size":15,"window":[2005,2015],"finals_cut":8,"finals_label":"Playoffs (top 8)","relegation_cut":null,"relegation_label":null,"n_transitions":300,"persistence":{"n":300,"r":0.59,"slope":0.59,"r2":0.348},"positions":[{"pos":1,"n":20,"min":1,"q1":1.0,"median":2.0,"q3":3.25,"max":15,"mean":3.25,"mean_move":2.25,"values":[1,1,1,1,1,1,2,2,2,2,2,2,2,3,3,4,5,7,8,15]},{"pos":2,"n":20,"min":1,"q1":1.0,"median":4.0,"q3":7.25,"max":10,"mean":4.3,"mean_move":2.3,"values":[1,1,1,1,1,1,2,3,4,4,4,4,4,5,7,8,8,8,9,10]},{"pos":3,"n":20,"min":1,"q1":2.0,"median":3.5,"q3":6.25,"max":11,"mean":4.7,"mean_move":1.7,"values":[1,2,2,2,2,2,3,3,3,3,4,5,5,5,6,7,7,10,11,11]},{"pos":4,"n":20,"min":1,"q1":3.0,"median":6.0,"q3":8.25,"max":15,"mean":6.2,"mean_move":2.2,"values":[1,2,3,3,3,3,3,5,5,6,6,6,6,7,8,9,11,11,11,15]},{"pos":5,"n":20,"min":2,"q1":5.0,"median":6.0,"q3":7.5,"max":15,"mean":6.9,"mean_move":1.9,"values":[2,4,4,4,5,5,5,5,5,6,6,6,6,7,7,9,9,13,15,15]},{"pos":6,"n":20,"min":1,"q1":5.75,"median":7.5,"q3":9.0,"max":15,"mean":7.35,"mean_move":1.35,"values":[1,1,2,3,5,6,6,7,7,7,8,8,8,9,9,9,11,12,13,15]},{"pos":7,"n":20,"min":1,"q1":4.0,"median":8.0,"q3":10.0,"max":12,"mean":7.1,"mean_move":0.1,"values":[1,2,3,3,4,4,5,6,6,8,8,8,9,10,10,10,11,11,11,12]},{"pos":8,"n":20,"min":1,"q1":3.75,"median":6.0,"q3":10.75,"max":15,"mean":7.25,"mean_move":-0.75,"values":[1,1,3,3,3,4,4,4,4,6,6,7,9,9,10,13,14,14,15,15]},{"pos":9,"n":20,"min":3,"q1":7.75,"median":9.0,"q3":10.5,"max":15,"mean":9.25,"mean_move":0.25,"values":[3,3,4,5,7,8,9,9,9,9,9,10,10,10,10,12,14,14,15,15]},{"pos":10,"n":20,"min":2,"q1":7.0,"median":9.0,"q3":12.25,"max":15,"mean":9.1,"mean_move":-0.9,"values":[2,2,2,5,7,7,7,8,8,8,10,10,10,12,12,13,14,15,15,15]},{"pos":11,"n":20,"min":5,"q1":7.75,"median":11.0,"q3":12.5,"max":15,"mean":10.35,"mean_move":-0.65,"values":[5,5,6,6,7,8,8,9,10,11,11,12,12,12,12,14,14,15,15,15]},{"pos":12,"n":20,"min":4,"q1":7.75,"median":10.5,"q3":13.0,"max":15,"mean":10.3,"mean_move":-1.7,"values":[4,4,6,7,7,8,9,10,10,10,11,12,12,12,13,13,14,14,15,15]},{"pos":13,"n":20,"min":4,"q1":8.0,"median":11.0,"q3":13.0,"max":15,"mean":10.3,"mean_move":-2.7,"values":[4,5,6,7,8,8,9,10,10,11,11,12,12,12,13,13,13,13,14,15]},{"pos":14,"n":20,"min":7,"q1":11.0,"median":13.0,"q3":14.0,"max":15,"mean":12.3,"mean_move":-1.7,"values":[7,9,11,11,11,11,12,12,12,13,13,13,13,13,14,14,14,14,14,15]},{"pos":15,"n":20,"min":1,"q1":10.75,"median":13.0,"q3":14.0,"max":15,"mean":11.35,"mean_move":-3.65,"values":[1,5,6,9,10,11,11,12,12,13,13,13,13,13,14,14,14,14,14,15]}]},"MLB":{"name":"MLB (baseball)","grouped_by":"division","size":5,"window":[1995,2021],"finals_cut":1,"finals_label":"Division title (1st)","relegation_cut":null,"relegation_label":null,"n_transitions":774,"persistence":{"n":774,"r":0.473,"slope":0.473,"r2":0.224},"positions":[{"pos":1,"n":156,"min":1,"q1":1.0,"median":2.0,"q3":3.0,"max":5,"mean":1.99,"mean_move":0.99,"values":[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,4,4,4,4,4,4,4,4,4,4,4,4,5,5,5,5]},{"pos":2,"n":159,"min":1,"q1":2.0,"median":2.0,"q3":4.0,"max":6,"mean":2.65,"mean_move":0.65,"values":[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,6,6]},{"pos":3,"n":153,"min":1,"q1":2.0,"median":3.0,"q3":4.0,"max":5,"mean":2.92,"mean_move":-0.08,"values":[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5]},{"pos":4,"n":159,"min":1,"q1":3.0,"median":4.0,"q3":4.0,"max":6,"mean":3.54,"mean_move":-0.46,"values":[1,1,1,1,1,1,1,1,1,1,1,1,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,6,6,6]},{"pos":5,"n":132,"min":1,"q1":3.0,"median":4.0,"q3":5.0,"max":6,"mean":3.86,"mean_move":-1.14,"values":[1,1,1,1,1,1,1,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,6,6,6]},{"pos":6,"n":15,"min":1,"q1":3.5,"median":5.0,"q3":6.0,"max":6,"mean":4.67,"mean_move":-1.33,"values":[1,3,3,3,4,4,5,5,6,6,6,6,6,6,6]}]},"EPL":{"name":"EPL (English football)","grouped_by":"league","size":20,"window":[1996,2025],"finals_cut":4,"finals_label":"Champions League (top 4)","relegation_cut":18,"relegation_label":"Relegation (18-20)","n_transitions":493,"persistence":{"n":493,"r":0.672,"slope":0.761,"r2":0.452},"positions":[{"pos":1,"n":29,"min":1,"q1":1.0,"median":2.0,"q3":3.0,"max":12,"mean":2.69,"mean_move":1.69,"values":[1,1,1,1,1,1,1,1,1,1,2,2,2,2,2,2,2,2,2,2,2,3,3,3,3,5,7,10,12]},{"pos":2,"n":29,"min":1,"q1":1.0,"median":2.0,"q3":5.0,"max":13,"mean":3.28,"mean_move":1.28,"values":[1,1,1,1,1,1,1,1,1,1,2,2,2,2,2,2,3,3,4,4,5,5,5,6,6,6,6,7,13]},{"pos":3,"n":29,"min":1,"q1":2.0,"median":3.0,"q3":4.0,"max":12,"mean":3.34,"mean_move":0.34,"values":[1,1,1,1,1,1,1,2,2,2,2,2,2,3,3,3,4,4,4,4,4,4,4,4,5,5,7,8,12]},{"pos":4,"n":29,"min":2,"q1":3.0,"median":4.0,"q3":5.0,"max":11,"mean":4.24,"mean_move":0.24,"values":[2,2,2,3,3,3,3,3,3,3,3,3,3,3,4,4,4,4,5,5,5,5,5,5,6,6,7,8,11]},{"pos":5,"n":29,"min":2,"q1":4.0,"median":6.0,"q3":9.0,"max":18,"mean":7.34,"mean_move":2.34,"values":[2,3,3,3,3,3,3,4,4,4,5,5,5,6,6,6,6,7,8,8,8,9,11,11,14,15,16,17,18]},{"pos":6,"n":29,"min":2,"q1":5.0,"median":6.0,"q3":8.0,"max":19,"mean":7.28,"mean_move":1.28,"values":[2,3,3,3,4,4,4,5,5,5,5,6,6,6,6,7,7,8,8,8,8,8,9,10,10,11,15,16,19]},{"pos":7,"n":29,"min":2,"q1":6.0,"median":11.0,"q3":14.0,"max":18,"mean":10.03,"mean_move":3.03,"values":[2,4,4,4,4,5,6,6,6,6,7,7,7,8,11,11,12,13,13,13,14,14,15,15,16,16,17,17,18]},{"pos":8,"n":29,"min":4,"q1":7.0,"median":10.0,"q3":15.0,"max":18,"mean":10.69,"mean_move":2.69,"values":[4,4,5,5,5,6,7,7,7,7,8,8,8,9,10,12,12,12,13,14,15,15,15,16,16,17,17,18,18]},{"pos":9,"n":29,"min":5,"q1":9.0,"median":12.0,"q3":16.0,"max":20,"mean":12.45,"mean_move":3.45,"values":[5,5,6,8,8,9,9,9,10,10,10,12,12,12,12,13,13,14,14,15,15,16,16,16,17,17,18,20,20]},{"pos":10,"n":29,"min":1,"q1":10.0,"median":13.0,"q3":15.0,"max":20,"mean":12.31,"mean_move":2.31,"values":[1,5,6,7,8,8,9,10,11,12,12,12,13,13,13,13,14,14,14,15,15,15,15,16,16,16,17,17,20]},{"pos":11,"n":29,"min":4,"q1":7.0,"median":10.0,"q3":13.0,"max":19,"mean":10.31,"mean_move":-0.69,"values":[4,4,5,6,6,6,7,7,8,8,8,9,10,10,10,10,11,11,11,12,13,13,13,14,15,15,16,18,19]},{"pos":12,"n":29,"min":5,"q1":9.0,"median":11.0,"q3":15.0,"max":20,"mean":12.31,"mean_move":0.31,"values":[5,6,7,7,8,8,9,9,9,10,11,11,11,11,11,13,13,14,14,14,14,15,16,17,18,18,19,19,20]},{"pos":13,"n":29,"min":6,"q1":10.0,"median":13.0,"q3":16.0,"max":20,"mean":13.21,"mean_move":0.21,"values":[6,9,9,9,10,10,10,10,11,11,12,12,12,12,13,13,14,14,14,14,15,16,16,17,17,19,19,19,20]},{"pos":14,"n":28,"min":1,"q1":9.0,"median":11.0,"q3":13.25,"max":20,"mean":11.61,"mean_move":-2.39,"values":[1,7,7,8,8,9,9,9,9,10,11,11,11,11,11,12,12,12,12,13,13,14,14,16,18,18,19,20]},{"pos":15,"n":29,"min":6,"q1":10.0,"median":15.0,"q3":17.0,"max":20,"mean":13.86,"mean_move":-1.14,"values":[6,7,7,7,8,10,10,10,10,13,14,14,14,15,15,15,16,16,16,16,17,17,17,18,18,18,19,19,20]},{"pos":16,"n":29,"min":6,"q1":10.0,"median":15.0,"q3":17.0,"max":20,"mean":13.66,"mean_move":-2.34,"values":[6,6,7,8,9,9,10,10,11,11,12,13,13,15,15,15,16,17,17,17,17,17,17,17,17,18,18,18,20]},{"pos":17,"n":29,"min":4,"q1":12.0,"median":15.0,"q3":19.0,"max":20,"mean":15.03,"mean_move":-1.97,"values":[4,7,7,8,9,11,12,12,13,14,14,14,14,15,15,16,17,18,19,19,19,19,20,20,20,20,20,20,20]},{"pos":18,"n":1,"min":11,"q1":11.0,"median":11.0,"q3":11.0,"max":11,"mean":11.0,"mean_move":-7.0,"values":[11]}]},"AFL":{"name":"AFL (Australian rules)","grouped_by":"league","size":18,"window":[2012,2024],"finals_cut":8,"finals_label":"Finals (top 8)","relegation_cut":null,"relegation_label":null,"n_transitions":216,"persistence":{"n":216,"r":0.543,"slope":0.543,"r2":0.294},"positions":[{"pos":1,"n":12,"min":1,"q1":2.0,"median":4.0,"q3":9.75,"max":16,"mean":6.08,"mean_move":5.08,"values":[1,2,2,2,3,4,4,6,9,12,12,16]},{"pos":2,"n":12,"min":2,"q1":3.0,"median":4.5,"q3":6.5,"max":11,"mean":5.33,"mean_move":3.33,"values":[2,2,3,3,4,4,5,5,6,8,11,11]},{"pos":3,"n":12,"min":1,"q1":2.75,"median":4.0,"q3":8.5,"max":12,"mean":5.33,"mean_move":2.33,"values":[1,1,2,3,3,4,4,4,8,10,12,12]},{"pos":4,"n":12,"min":1,"q1":1.0,"median":5.0,"q3":7.25,"max":14,"mean":5.08,"mean_move":1.08,"values":[1,1,1,1,3,4,6,6,7,8,9,14]},{"pos":5,"n":12,"min":1,"q1":8.0,"median":9.0,"q3":13.0,"max":17,"mean":9.58,"mean_move":4.58,"values":[1,5,8,8,8,9,9,10,13,13,14,17]},{"pos":6,"n":12,"min":2,"q1":5.25,"median":8.0,"q3":10.25,"max":15,"mean":7.83,"mean_move":1.83,"values":[2,2,3,6,7,8,8,10,10,11,12,15]},{"pos":7,"n":12,"min":3,"q1":5.0,"median":7.0,"q3":11.5,"max":16,"mean":8.5,"mean_move":1.5,"values":[3,4,5,5,6,7,7,10,11,13,15,16]},{"pos":8,"n":12,"min":1,"q1":4.25,"median":8.5,"q3":13.5,"max":17,"mean":8.42,"mean_move":0.42,"values":[1,1,2,5,5,8,9,10,13,15,15,17]},{"pos":9,"n":12,"min":1,"q1":5.0,"median":10.5,"q3":13.5,"max":17,"mean":9.42,"mean_move":0.42,"values":[1,2,5,5,6,10,11,12,13,15,16,17]},{"pos":10,"n":12,"min":1,"q1":5.75,"median":7.0,"q3":10.0,"max":15,"mean":7.58,"mean_move":-2.42,"values":[1,2,5,6,6,7,7,9,10,10,13,15]},{"pos":11,"n":12,"min":3,"q1":6.5,"median":9.5,"q3":12.25,"max":18,"mean":9.67,"mean_move":-1.33,"values":[3,4,5,7,8,9,10,11,12,13,16,18]},{"pos":12,"n":12,"min":3,"q1":6.5,"median":11.5,"q3":15.0,"max":17,"mean":10.75,"mean_move":-1.25,"values":[3,4,5,7,11,11,12,13,15,15,16,17]},{"pos":13,"n":12,"min":3,"q1":7.75,"median":10.0,"q3":13.0,"max":18,"mean":10.5,"mean_move":-2.5,"values":[3,3,7,8,9,9,11,12,12,16,18,18]},{"pos":14,"n":12,"min":6,"q1":8.75,"median":11.0,"q3":13.25,"max":16,"mean":11.08,"mean_move":-2.92,"values":[6,6,8,9,10,10,12,13,13,14,16,16]},{"pos":15,"n":12,"min":2,"q1":12.5,"median":14.0,"q3":16.25,"max":18,"mean":13.33,"mean_move":-1.67,"values":[2,9,11,13,14,14,14,15,16,17,17,18]},{"pos":16,"n":12,"min":6,"q1":10.0,"median":13.0,"q3":15.5,"max":18,"mean":12.5,"mean_move":-3.5,"values":[6,7,7,11,11,12,14,14,15,17,18,18]},{"pos":17,"n":12,"min":4,"q1":13.75,"median":17.0,"q3":18.0,"max":18,"mean":15.0,"mean_move":-2.0,"values":[4,9,13,14,17,17,17,17,18,18,18,18]},{"pos":18,"n":12,"min":7,"q1":14.0,"median":15.5,"q3":16.25,"max":18,"mean":15.0,"mean_move":-3.0,"values":[7,14,14,14,15,15,16,16,16,17,18,18]}]},"NRL":{"name":"NRL (rugby league)","grouped_by":"league","size":16,"window":[2007,2022],"finals_cut":8,"finals_label":"Finals (top 8)","relegation_cut":null,"relegation_label":null,"n_transitions":239,"persistence":{"n":239,"r":0.335,"slope":0.336,"r2":0.113},"positions":[{"pos":1,"n":15,"min":1,"q1":1.0,"median":2.0,"q3":4.5,"max":15,"mean":3.33,"mean_move":2.33,"values":[1,1,1,1,1,2,2,2,2,2,4,5,5,6,15]},{"pos":2,"n":14,"min":1,"q1":1.25,"median":3.5,"q3":5.0,"max":12,"mean":4.36,"mean_move":2.36,"values":[1,1,1,1,2,3,3,4,4,5,5,9,10,12]},{"pos":3,"n":15,"min":2,"q1":4.0,"median":6.0,"q3":7.0,"max":15,"mean":6.47,"mean_move":3.47,"values":[2,3,4,4,4,5,5,6,6,6,7,7,8,15,15]},{"pos":4,"n":15,"min":1,"q1":5.0,"median":8.0,"q3":13.5,"max":16,"mean":9.07,"mean_move":5.07,"values":[1,2,4,5,5,7,8,8,10,11,11,16,16,16,16]},{"pos":5,"n":15,"min":3,"q1":5.0,"median":7.0,"q3":8.5,"max":16,"mean":7.2,"mean_move":2.2,"values":[3,3,3,4,6,6,6,7,8,8,8,9,10,11,16]},{"pos":6,"n":15,"min":3,"q1":5.5,"median":10.0,"q3":13.0,"max":16,"mean":9.53,"mean_move":3.53,"values":[3,3,4,4,7,7,10,10,11,13,13,13,14,15,16]},{"pos":7,"n":15,"min":1,"q1":5.5,"median":11.0,"q3":13.0,"max":15,"mean":9.4,"mean_move":2.4,"values":[1,5,5,5,6,7,8,11,11,12,12,14,14,15,15]},{"pos":8,"n":15,"min":2,"q1":7.0,"median":12.0,"q3":13.0,"max":16,"mean":10.27,"mean_move":2.27,"values":[2,2,5,5,9,11,12,12,12,13,13,13,14,15,16]},{"pos":9,"n":15,"min":1,"q1":7.0,"median":10.0,"q3":13.0,"max":14,"mean":9.07,"mean_move":0.07,"values":[1,2,3,7,7,8,9,10,10,11,13,13,14,14,14]},{"pos":10,"n":15,"min":1,"q1":3.5,"median":8.0,"q3":11.0,"max":15,"mean":7.27,"mean_move":-2.73,"values":[1,2,3,3,4,4,4,8,9,9,10,12,12,13,15]},{"pos":11,"n":15,"min":2,"q1":7.5,"median":9.0,"q3":10.5,"max":13,"mean":8.53,"mean_move":-2.47,"values":[2,3,6,7,8,8,8,9,9,9,10,11,12,13,13]},{"pos":12,"n":15,"min":3,"q1":11.0,"median":13.0,"q3":15.0,"max":16,"mean":12.07,"mean_move":0.07,"values":[3,7,8,11,11,12,12,13,14,14,15,15,15,15,16]},{"pos":13,"n":15,"min":1,"q1":6.5,"median":8.0,"q3":12.0,"max":16,"mean":8.8,"mean_move":-4.2,"values":[1,3,4,6,7,7,7,8,9,10,10,14,15,15,16]},{"pos":14,"n":15,"min":4,"q1":8.5,"median":11.0,"q3":14.0,"max":16,"mean":10.73,"mean_move":-3.27,"values":[4,5,6,8,9,9,10,11,11,13,14,14,15,16,16]},{"pos":15,"n":15,"min":2,"q1":6.5,"median":10.0,"q3":12.5,"max":16,"mean":9.53,"mean_move":-5.47,"values":[2,3,6,6,7,9,9,10,10,12,12,13,14,14,16]},{"pos":16,"n":15,"min":1,"q1":6.0,"median":11.0,"q3":13.0,"max":16,"mean":9.8,"mean_move":-6.2,"values":[1,2,5,6,6,9,10,11,11,12,12,14,16,16,16]}]}}}</script>
+<script>
+const DATA = JSON.parse(document.getElementById('data').textContent);
+const ORDER = ['NFL','NBA','MLB','EPL','AFL','NRL'];
+const CLR = {NFL:'var(--s-nfl)',NBA:'var(--s-nba)',MLB:'var(--s-mlb)',
+             EPL:'var(--s-epl)',AFL:'var(--s-afl)',NRL:'var(--s-nrl)'};
+const SVGNS='http://www.w3.org/2000/svg';
+const el=(n,a={})=>{const e=document.createElementNS(SVGNS,n);for(const k in a)e.setAttribute(k,a[k]);return e;};
+
+/* ---------- persistence strip ---------- */
+(function(){
+  const host=document.getElementById('prows');
+  const rows=ORDER.map(k=>({k,...DATA.leagues[k].persistence,name:DATA.leagues[k].name}))
+                  .sort((a,b)=>b.r-a.r);
+  for(const r of rows){
+    const div=document.createElement('div');div.className='prow';
+    div.innerHTML=`<div class="pname"><span class="dot" style="background:${CLR[r.k]}"></span>${r.k}</div>
+      <div class="meter"><span style="width:${(r.r*100).toFixed(1)}%;background:${CLR[r.k]}"></span></div>
+      <div class="pval tnum"><b>${r.r.toFixed(2)}</b> &nbsp;<span>r&sup2;=${r.r2.toFixed(2)}</span></div>`;
+    host.appendChild(div);
+  }
+})();
+
+/* ---------- panels ---------- */
+const TT=document.getElementById('tt');
+function showTT(html,x,y){TT.innerHTML=html;TT.style.opacity=1;
+  const r=TT.getBoundingClientRect();let nx=x+14,ny=y+14;
+  if(nx+r.width>innerWidth-8)nx=x-r.width-14;
+  if(ny+r.height>innerHeight-8)ny=y-r.height-14;
+  TT.style.left=nx+'px';TT.style.top=ny+'px';}
+function hideTT(){TT.style.opacity=0;}
+
+function panel(key){
+  const d=DATA.leagues[key];
+  const maxPos=Math.max(d.size,...d.positions.map(p=>p.pos));
+  const N=maxPos;
+  const W=520,H=380,ml=40,mr=16,mt=26,mb=38;
+  const pw=W-ml-mr,ph=H-mt-mb;
+  const X=p=>ml+(p-0.5)/N*pw;
+  const Y=v=>mt+(v-0.5)/N*ph;
+  const band=pw/N;
+  const bw=Math.min(band*0.62,26);
+
+  const svg=el('svg',{class:'chart',viewBox:`0 0 ${W} ${H}`,
+    preserveAspectRatio:'xMidYMid meet',role:'img',
+    'aria-label':`${d.name}: next-season finishing position by this-season finish`});
+
+  // finals band (top) + relegation band (bottom)
+  if(d.finals_cut){
+    svg.appendChild(el('rect',{x:ml,y:Y(0.5),width:pw,height:Y(d.finals_cut+0.5)-Y(0.5),
+      fill:'var(--good-band)'}));
+    svg.appendChild(el('line',{x1:ml,x2:ml+pw,y1:Y(d.finals_cut+0.5),y2:Y(d.finals_cut+0.5),
+      stroke:'var(--good)','stroke-width':1.5,'stroke-dasharray':'4 3','stroke-opacity':.8}));
+    const fl=el('text',{x:ml+pw-2,y:Y(0.5)+11,'text-anchor':'end',
+      'font-size':10.5,fill:'var(--good)','font-weight':600});
+    fl.textContent=d.finals_label;svg.appendChild(fl);
+  }
+  if(d.relegation_cut){
+    svg.appendChild(el('rect',{x:ml,y:Y(d.relegation_cut-0.5),width:pw,
+      height:Y(N+0.5)-Y(d.relegation_cut-0.5),fill:'var(--crit-band)'}));
+    const rl=el('text',{x:ml+pw-2,y:Y(N+0.5)-4,'text-anchor':'end',
+      'font-size':10.5,fill:'var(--crit)','font-weight':600});
+    rl.textContent=d.relegation_label;svg.appendChild(rl);
+  }
+
+  // gridlines + y ticks
+  const yticks=[1];for(let v=5;v<=N;v+=5)yticks.push(v);
+  if(N-yticks[yticks.length-1]>=2)yticks.push(N);  // avoid crowding the last ×5 tick
+  for(const v of yticks){
+    svg.appendChild(el('line',{x1:ml,x2:ml+pw,y1:Y(v),y2:Y(v),stroke:'var(--grid)','stroke-width':1}));
+    const t=el('text',{x:ml-7,y:Y(v)+3.5,'text-anchor':'end','font-size':10,fill:'var(--muted)',
+      'font-variant-numeric':'tabular-nums'});t.textContent=v;svg.appendChild(t);
+  }
+  // x axis baseline + ticks
+  svg.appendChild(el('line',{x1:ml,x2:ml+pw,y1:mt+ph,y2:mt+ph,stroke:'var(--axis)','stroke-width':1}));
+  const step=N>16?2:1;
+  for(let p=1;p<=N;p++){
+    if(p%step!==0 && p!==1 && p!==N)continue;
+    const t=el('text',{x:X(p),y:mt+ph+14,'text-anchor':'middle','font-size':10,fill:'var(--muted)',
+      'font-variant-numeric':'tabular-nums'});t.textContent=p;svg.appendChild(t);
+  }
+
+  // diagonal "finished where it started"
+  svg.appendChild(el('line',{x1:X(1),y1:Y(1),x2:X(N),y2:Y(N),stroke:'var(--diag)','stroke-width':2,
+    'stroke-dasharray':'4 4'}));
+
+  // raw points (behind boxes), median trend
+  const ptsG=el('g',{class:'pts'});
+  const trendPts=[];
+  const boxesG=el('g',{});
+  for(const p of d.positions){
+    const cx=X(p.pos);
+    // jittered points
+    let seed=p.pos*97.13;
+    for(const v of p.values){
+      seed=(seed*9301+49297)%233280;const j=(seed/233280-0.5)*band*0.5;
+      ptsG.appendChild(el('circle',{cx:cx+j,cy:Y(v),r:1.7,fill:CLR[key]}));
+    }
+    // whisker
+    boxesG.appendChild(el('line',{x1:cx,x2:cx,y1:Y(p.min),y2:Y(p.max),
+      stroke:CLR[key],'stroke-width':1.4,'stroke-opacity':.85}));
+    boxesG.appendChild(el('line',{x1:cx-4,x2:cx+4,y1:Y(p.min),y2:Y(p.min),stroke:CLR[key],'stroke-width':1.4}));
+    boxesG.appendChild(el('line',{x1:cx-4,x2:cx+4,y1:Y(p.max),y2:Y(p.max),stroke:CLR[key],'stroke-width':1.4}));
+    // box q1..q3
+    boxesG.appendChild(el('rect',{x:cx-bw/2,y:Y(p.q1),width:bw,height:Math.max(Y(p.q3)-Y(p.q1),1.5),
+      rx:2.5,fill:CLR[key],'fill-opacity':.42,stroke:CLR[key],'stroke-width':1.5}));
+    // median
+    boxesG.appendChild(el('line',{x1:cx-bw/2,x2:cx+bw/2,y1:Y(p.median),y2:Y(p.median),
+      stroke:'var(--ink)','stroke-width':2}));
+    // mean diamond
+    const m=Y(p.mean);
+    boxesG.appendChild(el('path',{d:`M${cx} ${m-4} L${cx+4} ${m} L${cx} ${m+4} L${cx-4} ${m} Z`,
+      fill:'var(--ink)',stroke:'var(--surface)','stroke-width':1}));
+    trendPts.push([cx,Y(p.median)]);
+    // hover hit area
+    const hit=el('rect',{x:cx-band/2,y:mt,width:band,height:ph,fill:'transparent'});
+    const mv=(p.mean_move>0?'+':'')+p.mean_move;
+    hit.addEventListener('mousemove',e=>showTT(
+      `<b>${key} &middot; finished ${p.pos}${suf(p.pos)}</b><hr>`+
+      `<div class="row"><span class="k">Next year median</span><b>${p.median}${suf(Math.round(p.median))}</b></div>`+
+      `<div class="row"><span class="k">Middle 50%</span><b>${p.q1}&ndash;${p.q3}</b></div>`+
+      `<div class="row"><span class="k">Full range</span><b>${p.min}&ndash;${p.max}</b></div>`+
+      `<div class="row"><span class="k">Mean move</span><b>${mv} places</b></div>`+
+      `<div class="row"><span class="k">Seasons</span><b>${p.n}</b></div>`,e.clientX,e.clientY));
+    hit.addEventListener('mouseleave',hideTT);
+    boxesG.appendChild(hit);
+  }
+  // trend polyline through medians
+  const tr=el('polyline',{class:'mtrend',fill:'none',stroke:CLR[key],'stroke-width':2,
+    'stroke-opacity':.55,'stroke-dasharray':'1 5','stroke-linecap':'round',
+    points:trendPts.map(p=>p.join(',')).join(' ')});
+
+  svg.appendChild(ptsG);svg.appendChild(tr);svg.appendChild(boxesG);
+
+  // axis titles
+  const ax=el('text',{x:ml+pw/2,y:H-2,'text-anchor':'middle','font-size':10.5,fill:'var(--ink-2)'});
+  ax.textContent='Finishing position  ▶';svg.appendChild(ax);
+
+  // wrapper
+  const wrap=document.createElement('div');wrap.className='panel';
+  const fr={conference:'per conference',division:'per division',league:'single table'}[d.grouped_by];
+  wrap.innerHTML=`<div class="phead">
+      <div class="ptitle"><span class="dot" style="background:${CLR[key]}"></span>${d.name}</div>
+      <div class="pmeta tnum">${d.window[0]}&ndash;${d.window[1]} &middot; ${d.n_transitions} moves<br>${d.size} teams ${fr}</div>
+    </div>
+    <p class="psub">r = <b>${d.persistence.r.toFixed(2)}</b> &middot; ${verdict(d.persistence.r)}</p>`;
+  wrap.appendChild(svg);
+  // y-axis caption
+  const cap=document.createElement('div');
+  cap.style.cssText='font-size:10.5px;color:var(--muted);margin:-2px 0 4px 2px';
+  cap.innerHTML='▲ next-season finish (1st at top)';
+  wrap.insertBefore(cap,svg);
+  return wrap;
+}
+function suf(n){n=Math.round(n);const s=['th','st','nd','rd'],v=n%100;return (s[(v-20)%10]||s[v]||s[0]);}
+function verdict(r){return r>=0.6?'order tends to persist':r>=0.45?'moderate carry-over':
+  r>=0.38?'strong pull to the middle':'very strong regression to the mean';}
+
+const grid=document.getElementById('grid');
+ORDER.forEach(k=>grid.appendChild(panel(k)));
+
+/* ---------- data table ---------- */
+(function(){
+  const w=document.getElementById('tablewrap');
+  let h='<table><thead><tr><th>League</th><th>Finish</th><th>Seasons</th><th>Next: min</th>'+
+    '<th>Q1</th><th>Median</th><th>Q3</th><th>max</th><th>Mean</th><th>Mean move</th></tr></thead><tbody>';
+  for(const k of ORDER){for(const p of DATA.leagues[k].positions){
+    const mv=(p.mean_move>0?'+':'')+p.mean_move;
+    h+=`<tr><td>${k}</td><td class="tnum">${p.pos}</td><td class="tnum">${p.n}</td>`+
+       `<td class="tnum">${p.min}</td><td class="tnum">${p.q1}</td><td class="tnum">${p.median}</td>`+
+       `<td class="tnum">${p.q3}</td><td class="tnum">${p.max}</td><td class="tnum">${p.mean}</td>`+
+       `<td class="tnum">${mv}</td></tr>`;
+  }}
+  w.innerHTML=h+'</tbody></table>';
+})();
+
+/* ---------- controls ---------- */
+const root=document.documentElement, grEl=document.getElementById('grid');
+function toggle(btn,cls,host){const on=btn.getAttribute('aria-pressed')!=='true';
+  btn.setAttribute('aria-pressed',on);host.classList.toggle(cls,on);}
+document.getElementById('tgPts').onclick=e=>toggle(e.currentTarget,'show-pts',grEl);
+const trendBtn=document.getElementById('tgTrend');grEl.classList.add('show-trend');
+trendBtn.onclick=e=>toggle(e.currentTarget,'show-trend',grEl);
+document.getElementById('tgTable').onclick=e=>{const on=e.currentTarget.getAttribute('aria-pressed')!=='true';
+  e.currentTarget.setAttribute('aria-pressed',on);document.getElementById('tablewrap').classList.toggle('show',on);};
+document.getElementById('tgTheme').onclick=()=>{
+  const cur=root.getAttribute('data-theme');
+  const sysDark=matchMedia('(prefers-color-scheme:dark)').matches;
+  const now=cur?cur:(sysDark?'dark':'light');
+  root.setAttribute('data-theme',now==='dark'?'light':'dark');};
+</script>
