@@ -152,7 +152,8 @@ tbody tr:hover{background:var(--surface-2)}
       where the <b>same club</b> lands the following year &mdash; so you can see how strongly the ladder
       pulls everyone back toward the middle, and which leagues resist it.</p>
     <p class="byline">Post-season excluded. Each panel is a league's <b>modern, stable-size era</b>;
-      positions are read within the frame teams actually compete in (conference, division, or a single table).</p>
+      positions are read within the frame teams actually compete in (conference, single table, or &mdash; for
+      MLB &mdash; the whole 30-club league by win&ndash;loss&nbsp;%).</p>
   </header>
 
   <section class="thesis" id="thesis">
@@ -178,7 +179,7 @@ tbody tr:hover{background:var(--surface-2)}
     <span class="li"><svg width="18" height="14"><path d="M9 2 L15 7 L9 12 L3 7 Z" fill="var(--ink)"/></svg>mean</span>
     <span class="li"><svg width="30" height="14"><line x1="2" y1="12" x2="28" y2="2" stroke="var(--diag)" stroke-width="2" stroke-dasharray="3 3"/></svg>finished where it started</span>
     <span class="li"><svg width="16" height="14"><rect width="16" height="14" fill="var(--good-band)"/><line x1="0" y1="13" x2="16" y2="13" stroke="var(--good)" stroke-width="2" stroke-dasharray="3 2"/></svg>finals / playoffs zone</span>
-    <span class="li"><svg width="16" height="14"><rect width="16" height="14" fill="var(--crit-band)"/></svg>relegation (EPL)</span>
+    <span class="li"><svg width="18" height="14"><rect x="6" y="2" width="8" height="10" rx="2" fill="var(--s-epl)" fill-opacity=".4" stroke="var(--s-epl)" stroke-width="1.3"/></svg>&ldquo;PROM&rdquo; = where promoted clubs land (EPL)</span>
   </div>
 
   <div class="grid" id="grid"></div>
@@ -193,17 +194,23 @@ tbody tr:hover{background:var(--surface-2)}
       <p>If finishing order carried over perfectly, every box would sit on the dashed diagonal. Instead the
         boxes bend toward mid-table: top finishers slide down, strugglers climb. That bend <b>is</b>
         regression to the mean.</p>
+      <p>The EPL panel adds a <b>PROM</b> column on the right: where clubs <b>promoted</b> from the
+        Championship finish their first season up. The relegated bottom three simply leave, so they have no
+        column of their own.</p>
     </div>
     <div class="note">
       <h3>Method</h3>
       <ul>
         <li>Regular season only; play-offs and finals excluded.</li>
-        <li>Position is ranked within the competitive frame: <b>conference</b> (NFL, NBA), <b>division</b>
-          (MLB), or a <b>single table</b> (EPL, AFL, NRL).</li>
+        <li>Position is ranked within the competitive frame: <b>conference</b> (NFL, NBA), a
+          <b>single table</b> (EPL, AFL, NRL), or &mdash; for <b>MLB</b> &mdash; the <b>whole league</b> of
+          30 clubs ranked by win&ndash;loss&nbsp;% (a 162-game record is a stable season-to-season signal;
+          tie-break on run differential).</li>
         <li>Each league is limited to a recent era with a stable team count so a given position means the
-          same thing every year (shown per panel).</li>
-        <li>A club must appear in both seasons to count. In the EPL the bottom three are relegated, so
-          positions 18&ndash;20 have essentially no "next year" in the top flight &mdash; the shaded band.</li>
+          same thing every year (shown per panel). NRL added a 17th club in 2023.</li>
+        <li>A club must appear in both seasons to count. In the EPL the bottom three are relegated and leave
+          the division, so they have no "next year"; the incoming promoted clubs are shown separately in the
+          <b>PROM</b> column.</li>
         <li>EPL / AFL / NRL tables are recomputed from match results (points, then goal-difference /
           percentage); administrative points deductions are not applied.</li>
       </ul>
@@ -212,7 +219,9 @@ tbody tr:hover{background:var(--surface-2)}
       <h3>Data sources</h3>
       <ul>
         <li>NFL &mdash; <a href="https://github.com/nflverse/nfldata">nflverse/nfldata</a></li>
-        <li>NBA &mdash; <a href="https://github.com/fivethirtyeight/data/tree/master/nba-elo">FiveThirtyEight nba-elo</a></li>
+        <li>NBA &mdash; <a href="https://github.com/fivethirtyeight/data/tree/master/nba-elo">FiveThirtyEight</a>
+          (2005&ndash;15) &middot; <a href="https://github.com/sportsdataverse/hoopR-data">hoopR / ESPN</a>
+          (2016&ndash;23) &middot; <a href="https://www.basketball-reference.com/leagues/">Basketball-Reference</a> (2024&ndash;26)</li>
         <li>MLB &mdash; <a href="https://github.com/chadwickbureau/baseballdatabank">Chadwick Baseball Databank</a></li>
         <li>EPL &mdash; <a href="https://github.com/footballcsv/england">footballcsv</a> + <a href="https://github.com/openfootball/england">openfootball</a></li>
         <li>AFL &mdash; <a href="https://github.com/HashenAbey/afl-data-update">afl-data-update</a></li>
@@ -223,7 +232,8 @@ tbody tr:hover{background:var(--surface-2)}
 
   <p class="foot">Built from public regular-season records. Finals/playoff cut-off lines are the standard
     qualification count for each league's era; NFL playoffs expanded from 6 to 7 per conference in 2020, and
-    MLB's second and third-place clubs frequently reach the post-season via wild cards.</p>
+    MLB's playoff field grew from 8 to 10 to 12 clubs over this window &mdash; the shaded band marks a
+    representative top&nbsp;10 of 30.</p>
 </div>
 
 <div class="tt" id="tt" role="tooltip"></div>
@@ -264,6 +274,7 @@ function panel(key){
   const d=DATA.leagues[key];
   const maxPos=Math.max(d.size,...d.positions.map(p=>p.pos));
   const N=maxPos;
+  const lastReal=Math.max(...d.positions.map(p=>p.pos));  // last real ladder slot (< N when promoted col is shown)
   const W=520,H=380,ml=40,mr=16,mt=26,mb=38;
   const pw=W-ml-mr,ph=H-mt-mb;
   const X=p=>ml+(p-0.5)/N*pw;
@@ -303,57 +314,74 @@ function panel(key){
   }
   // x axis baseline + ticks
   svg.appendChild(el('line',{x1:ml,x2:ml+pw,y1:mt+ph,y2:mt+ph,stroke:'var(--axis)','stroke-width':1}));
-  const step=N>16?2:1;
-  for(let p=1;p<=N;p++){
-    if(p%step!==0 && p!==1 && p!==N)continue;
+  const step=lastReal>16?2:1;
+  for(let p=1;p<=lastReal;p++){
+    if(p%step!==0 && p!==1 && p!==lastReal)continue;
     const t=el('text',{x:X(p),y:mt+ph+14,'text-anchor':'middle','font-size':10,fill:'var(--muted)',
       'font-variant-numeric':'tabular-nums'});t.textContent=p;svg.appendChild(t);
   }
 
-  // diagonal "finished where it started"
-  svg.appendChild(el('line',{x1:X(1),y1:Y(1),x2:X(N),y2:Y(N),stroke:'var(--diag)','stroke-width':2,
-    'stroke-dasharray':'4 4'}));
+  // diagonal "finished where it started" (only across the real ladder positions)
+  svg.appendChild(el('line',{x1:X(1),y1:Y(1),x2:X(lastReal),y2:Y(lastReal),stroke:'var(--diag)',
+    'stroke-width':2,'stroke-dasharray':'4 4'}));
 
   // raw points (behind boxes), median trend
   const ptsG=el('g',{class:'pts'});
   const trendPts=[];
   const boxesG=el('g',{});
-  for(const p of d.positions){
-    const cx=X(p.pos);
-    // jittered points
-    let seed=p.pos*97.13;
+  const drawPoints=(cx,p,seed0)=>{
+    let seed=seed0*97.13+11;
     for(const v of p.values){
       seed=(seed*9301+49297)%233280;const j=(seed/233280-0.5)*band*0.5;
       ptsG.appendChild(el('circle',{cx:cx+j,cy:Y(v),r:1.7,fill:CLR[key]}));
     }
-    // whisker
+  };
+  const drawGlyph=(cx,p)=>{
     boxesG.appendChild(el('line',{x1:cx,x2:cx,y1:Y(p.min),y2:Y(p.max),
       stroke:CLR[key],'stroke-width':1.4,'stroke-opacity':.85}));
     boxesG.appendChild(el('line',{x1:cx-4,x2:cx+4,y1:Y(p.min),y2:Y(p.min),stroke:CLR[key],'stroke-width':1.4}));
     boxesG.appendChild(el('line',{x1:cx-4,x2:cx+4,y1:Y(p.max),y2:Y(p.max),stroke:CLR[key],'stroke-width':1.4}));
-    // box q1..q3
     boxesG.appendChild(el('rect',{x:cx-bw/2,y:Y(p.q1),width:bw,height:Math.max(Y(p.q3)-Y(p.q1),1.5),
       rx:2.5,fill:CLR[key],'fill-opacity':.42,stroke:CLR[key],'stroke-width':1.5}));
-    // median
     boxesG.appendChild(el('line',{x1:cx-bw/2,x2:cx+bw/2,y1:Y(p.median),y2:Y(p.median),
       stroke:'var(--ink)','stroke-width':2}));
-    // mean diamond
     const m=Y(p.mean);
     boxesG.appendChild(el('path',{d:`M${cx} ${m-4} L${cx+4} ${m} L${cx} ${m+4} L${cx-4} ${m} Z`,
       fill:'var(--ink)',stroke:'var(--surface)','stroke-width':1}));
-    trendPts.push([cx,Y(p.median)]);
-    // hover hit area
+  };
+  const hitArea=(cx,p,title,extraRows)=>{
     const hit=el('rect',{x:cx-band/2,y:mt,width:band,height:ph,fill:'transparent'});
-    const mv=(p.mean_move>0?'+':'')+p.mean_move;
     hit.addEventListener('mousemove',e=>showTT(
-      `<b>${key} &middot; finished ${p.pos}${suf(p.pos)}</b><hr>`+
+      `<b>${title}</b><hr>`+
       `<div class="row"><span class="k">Next year median</span><b>${p.median}${suf(Math.round(p.median))}</b></div>`+
       `<div class="row"><span class="k">Middle 50%</span><b>${p.q1}&ndash;${p.q3}</b></div>`+
       `<div class="row"><span class="k">Full range</span><b>${p.min}&ndash;${p.max}</b></div>`+
-      `<div class="row"><span class="k">Mean move</span><b>${mv} places</b></div>`+
+      extraRows+
       `<div class="row"><span class="k">Seasons</span><b>${p.n}</b></div>`,e.clientX,e.clientY));
     hit.addEventListener('mouseleave',hideTT);
     boxesG.appendChild(hit);
+  };
+  for(const p of d.positions){
+    const cx=X(p.pos);
+    drawPoints(cx,p,p.pos); drawGlyph(cx,p);
+    trendPts.push([cx,Y(p.median)]);
+    const mv=(p.mean_move>0?'+':'')+p.mean_move;
+    hitArea(cx,p,`${key} &middot; finished ${p.pos}${suf(p.pos)}`,
+      `<div class="row"><span class="k">Mean move</span><b>${mv} places</b></div>`);
+  }
+  // promoted column (EPL): clubs that came up this season and have no prior
+  // top-flight rank -- the inflow that mirrors relegation. Set apart on the right.
+  if(d.promoted){
+    const pcx=X(N), divx=(X(lastReal)+pcx)/2;
+    svg.appendChild(el('line',{x1:divx,x2:divx,y1:mt,y2:mt+ph,stroke:'var(--axis)',
+      'stroke-width':1,'stroke-dasharray':'2 3','stroke-opacity':.6}));
+    drawPoints(pcx,d.promoted,0.7); drawGlyph(pcx,d.promoted);
+    const back=d.promoted.values.filter(v=>v>=d.size-2).length;
+    const pct=Math.round(100*back/d.promoted.n);
+    hitArea(pcx,d.promoted,`${key} &middot; newly promoted`,
+      `<div class="row"><span class="k">Straight back down</span><b>${pct}%</b></div>`);
+    const t=el('text',{x:pcx,y:mt+ph+14,'text-anchor':'middle','font-size':9.5,
+      fill:CLR[key],'font-weight':700});t.textContent='PROM';svg.appendChild(t);
   }
   // trend polyline through medians
   const tr=el('polyline',{class:'mtrend',fill:'none',stroke:CLR[key],'stroke-width':2,
@@ -368,7 +396,7 @@ function panel(key){
 
   // wrapper
   const wrap=document.createElement('div');wrap.className='panel';
-  const fr={conference:'per conference',division:'per division',league:'single table'}[d.grouped_by];
+  const fr=d.frame_label||{conference:'per conference',division:'per division',league:'single table'}[d.grouped_by];
   wrap.innerHTML=`<div class="phead">
       <div class="ptitle"><span class="dot" style="background:${CLR[key]}"></span>${d.name}</div>
       <div class="pmeta tnum">${d.window[0]}&ndash;${d.window[1]} &middot; ${d.n_transitions} moves<br>${d.size} teams ${fr}</div>

@@ -29,27 +29,30 @@ os.makedirs(OUT, exist_ok=True)
 # structure are stable, making an absolute finishing position comparable YoY.
 LEAGUE_META = {
     "NFL": {"name": "NFL (American football)", "grouped_by": "conference",
-            "size": 16, "window": (2002, 2025),
+            "frame_label": "per conference", "size": 16, "window": (2002, 2025),
             "finals_cut": 7, "finals_label": "Playoffs (top 7)",
             "relegation_cut": None},
     "NBA": {"name": "NBA (basketball)", "grouped_by": "conference",
-            "size": 15, "window": (2005, 2015),
+            "frame_label": "per conference", "size": 15, "window": (2005, 2026),
             "finals_cut": 8, "finals_label": "Playoffs (top 8)",
             "relegation_cut": None},
-    "MLB": {"name": "MLB (baseball)", "grouped_by": "division",
-            "size": 5, "window": (1995, 2021),
-            "finals_cut": 1, "finals_label": "Division title (1st)",
+    # MLB: ranked league-wide (all 30 teams) by win-loss %, not by division.
+    # 162 games make W-L% a stable season-to-season signal across the whole league.
+    "MLB": {"name": "MLB (baseball)", "grouped_by": "league",
+            "frame_label": "whole league, by W–L%", "size": 30, "window": (1998, 2021),
+            "finals_cut": 10, "finals_label": "Playoffs (top ≈10)",
             "relegation_cut": None},
     "EPL": {"name": "EPL (English football)", "grouped_by": "league",
-            "size": 20, "window": (1996, 2025),
+            "frame_label": "single table", "size": 20, "window": (1996, 2025),
             "finals_cut": 4, "finals_label": "Champions League (top 4)",
-            "relegation_cut": 18, "relegation_label": "Relegation (18-20)"},
+            "relegation_cut": None, "has_promoted": True},
     "AFL": {"name": "AFL (Australian rules)", "grouped_by": "league",
-            "size": 18, "window": (2012, 2024),
+            "frame_label": "single table", "size": 18, "window": (2012, 2024),
             "finals_cut": 8, "finals_label": "Finals (top 8)",
             "relegation_cut": None},
+    # NRL expanded from 16 to 17 clubs in 2023 (Dolphins); size is the current 17.
     "NRL": {"name": "NRL (rugby league)", "grouped_by": "league",
-            "size": 16, "window": (2007, 2022),
+            "frame_label": "single table", "size": 17, "window": (2007, 2025),
             "finals_cut": 8, "finals_label": "Finals (top 8)",
             "relegation_cut": None},
 }
@@ -105,52 +108,132 @@ def build_nfl():
     return out
 
 # =====================  NBA  ===============================================
-NBA_CONF = {  # fran_id -> conference (stable 2005-2015)
+# FiveThirtyEight's Elo dataset (fran_id names) ends in 2015 -- 538 shut down
+# sports coverage after its ABC/Disney acquisition. From 2016 on we compute the
+# same win-loss standings from ESPN game results mirrored by sportsdataverse
+# (hoopR), and 2024-2026 from a small manually-entered Basketball-Reference
+# standings file (that site is blocked by this environment's egress policy).
+NBA_CONF = {  # 538 fran_id -> conference (stable 2005-2015)
     **{k:"East" for k in ["Bucks","Bulls","Cavaliers","Celtics","Hawks","Heat",
         "Hornets","Knicks","Magic","Nets","Pacers","Pistons","Raptors","Sixers","Wizards"]},
     **{k:"West" for k in ["Clippers","Grizzlies","Jazz","Kings","Lakers","Mavericks",
         "Nuggets","Pelicans","Rockets","Spurs","Suns","Thunder","Timberwolves",
         "Trailblazers","Warriors"]},
 }
-def build_nba():
+# ESPN/hoopR abbreviation -> conference (stable 30-team league, 2016-)
+NBA_ABBR_CONF = {
+    **{k:"East" for k in ["ATL","BKN","BOS","CHA","CHI","CLE","DET","IND",
+        "MIA","MIL","NY","ORL","PHI","TOR","WSH"]},
+    **{k:"West" for k in ["DAL","DEN","GS","HOU","LAC","LAL","MEM","MIN",
+        "NO","OKC","PHX","POR","SA","SAC","UTAH"]},
+}
+
+# Map 538 franchise names to the ESPN abbreviation so a club keeps ONE identity
+# across the 538 -> hoopR -> manual source boundaries (otherwise the year-over-year
+# link at each boundary, e.g. 2015->2016, would be lost).
+NBA_FRAN_ABBR = {
+    "Bucks":"MIL","Bulls":"CHI","Cavaliers":"CLE","Celtics":"BOS","Hawks":"ATL",
+    "Heat":"MIA","Hornets":"CHA","Knicks":"NY","Magic":"ORL","Nets":"BKN",
+    "Pacers":"IND","Pistons":"DET","Raptors":"TOR","Sixers":"PHI","Wizards":"WSH",
+    "Clippers":"LAC","Grizzlies":"MEM","Jazz":"UTAH","Kings":"SAC","Lakers":"LAL",
+    "Mavericks":"DAL","Nuggets":"DEN","Pelicans":"NO","Rockets":"HOU","Spurs":"SA",
+    "Suns":"PHX","Thunder":"OKC","Timberwolves":"MIN","Trailblazers":"POR","Warriors":"GS",
+}
+
+def _nba_from_538():
     rec=defaultdict(lambda:{"w":0,"l":0,"pd":0})
     with open(os.path.join(RAW,"nba_allelo.csv")) as f:
         for r in csv.DictReader(f):
             if r["lg_id"]!="NBA" or r["is_playoffs"]!="0": continue
             s=int(r["year_id"])
             if not (2005<=s<=2015): continue  # window where NBA_CONF map is valid
-            fr=r["fran_id"]
+            ab=NBA_FRAN_ABBR[r["fran_id"]]
             pf=int(r["pts"]); pa=int(r["opp_pts"])
-            d=rec[(s,fr)]; d["pd"]+=pf-pa
+            d=rec[(s,ab)]; d["pd"]+=pf-pa
             if r["game_result"]=="W": d["w"]+=1
             else: d["l"]+=1
     by=defaultdict(list)
-    for (s,fr),d in rec.items():
+    for (s,ab),d in rec.items():
         g=d["w"]+d["l"]; wp=d["w"]/g if g else 0
-        conf=NBA_CONF[fr]
-        by[(s,conf)].append({"team":fr,"wp":wp,"pd":d["pd"]})
+        by[(s,NBA_ABBR_CONF[ab])].append({"team":ab,"wp":wp,"pd":d["pd"]})
+    return by
+
+def _nba_from_hoopr():
+    """2016-2023 game results (ESPN via hoopR) -> conference standings."""
+    rec=defaultdict(lambda:{"w":0,"l":0,"pd":0})
+    path=os.path.join(RAW,"nba_hoopr_games.csv")
+    if not os.path.exists(path): return {}
+    with open(path) as f:
+        for r in csv.DictReader(f):
+            s=int(r["season"]); hs=int(r["home_score"]); as_=int(r["away_score"])
+            for team,pf,pa in ((r["home"],hs,as_),(r["away"],as_,hs)):
+                d=rec[(s,team)]; d["pd"]+=pf-pa
+                if pf>pa: d["w"]+=1
+                else: d["l"]+=1
+    by=defaultdict(list)
+    for (s,ab),d in rec.items():
+        g=d["w"]+d["l"]; wp=d["w"]/g if g else 0
+        by[(s,NBA_ABBR_CONF[ab])].append({"team":ab,"wp":wp,"pd":d["pd"]})
+    return by
+
+def _nba_from_manual():
+    """2024-2026 final W-L from Basketball-Reference, entered by hand.
+    CSV columns: season,conf,team,W,L[,pd]  (conf = East/West)."""
+    path=os.path.join(RAW,"nba_bbref_manual.csv")
+    by=defaultdict(list)
+    if not os.path.exists(path): return by
+    with open(path) as f:
+        for r in csv.DictReader(f):
+            s=int(r["season"]); W=int(r["W"]); L=int(r["L"])
+            wp=W/(W+L) if W+L else 0
+            pd=int(r["pd"]) if r.get("pd") not in (None,"") else 0
+            by[(s,r["conf"].strip().title())].append(
+                {"team":r["team"].strip(),"wp":wp,"pd":pd})
+    return by
+
+def build_nba():
+    by=defaultdict(list)
+    for src in (_nba_from_538(), _nba_from_hoopr(), _nba_from_manual()):
+        for k,rows in src.items(): by[k].extend(rows)
+    # Keep only the seasons contiguous from the earliest one. If the manual
+    # 2024-2026 file is partially filled (e.g. only 2026 present), this drops the
+    # orphaned seasons so the series never has a hole -- and auto-extends as soon
+    # as the missing middle seasons are added.
+    seasons=sorted({s for s,_ in by}); keep=set(); prev=None
+    for s in seasons:
+        if prev is None or s==prev+1: keep.add(s); prev=s
+        else: break
     out=[]
     for (s,conf),rows in by.items():
+        if s not in keep: continue
         for row,pos in rank_group(rows,key=lambda x:(x["wp"],x["pd"])):
             out.append(("NBA",s,conf,row["team"],pos,len(rows),round(row["wp"],4)))
     return out
 
 # =====================  MLB  ===============================================
+# Ranked across the WHOLE league (all 30 clubs) by regular-season win-loss %,
+# tie-broken on run differential (R - RA). This replaces the old divisional Rank:
+# a 162-game record is a stable proxy, and a single 1..30 ladder shows the pull
+# to the mean far more clearly than five-team divisions do.
 def build_mlb():
     out=[]
     by=defaultdict(list)
     with open(os.path.join(RAW,"mlb_teams.csv")) as f:
         for r in csv.DictReader(f):
             y=int(r["yearID"])
-            if y<1995: continue
-            if not r["divID"]: continue
-            g=f'{r["lgID"]}-{r["divID"]}'
-            by[(y,g)].append(r)
-    for (y,g),rows in by.items():
+            if y<1998: continue                 # 30-team era -> stable ladder size
+            if r["lgID"] not in ("AL","NL"): continue
+            by[y].append(r)
+    for y,rows in by.items():
         n=len(rows)
-        for r in rows:
-            out.append(("MLB",y,g,r["franchID"],int(r["Rank"]),n,
-                        round(int(r["W"])/(int(r["W"])+int(r["L"])),4)))
+        def key(r):
+            W,L=int(r["W"]),int(r["L"])
+            wp=W/(W+L) if W+L else 0
+            return (wp, int(r["R"])-int(r["RA"]))
+        for r,pos in rank_group(rows, key=key):
+            W,L=int(r["W"]),int(r["L"])
+            wp=round(W/(W+L),4) if W+L else 0
+            out.append(("MLB",y,"MLB",r["franchID"],pos,n,wp))
     return out
 
 # =====================  EPL  ===============================================
@@ -294,6 +377,12 @@ def main():
     for lg,s,g,team,pos,n,wp in long_rows:
         pos_idx[(lg,team)][s]=(g,pos,n)
 
+    # presence index: league -> season -> {team: pos}. Used to find promoted clubs
+    # (in season s but absent in s-1, where s-1 is itself inside the data window).
+    present=defaultdict(lambda:defaultdict(dict))
+    for lg,s,g,team,pos,n,wp in long_rows:
+        present[lg][s][team]=pos
+
     # transitions: consecutive seasons for same team
     trans=[]
     for (lg,team),bys in pos_idx.items():
@@ -337,23 +426,53 @@ def main():
         r=sxy/((sxx*syy)**0.5) if sxx and syy else 0.0
         return {"n":n,"r":round(r,3),"slope":round(slope,3),"r2":round(r*r,3)}
 
+    def boxstats(vals, start=None):
+        """Five-number summary + mean over a list of next-season positions.
+        start = originating position (for mean_move); None for the promoted box."""
+        vals=sorted(vals)
+        d={"n":len(vals),
+           "min":vals[0], "q1":round(quantile(vals,0.25),2),
+           "median":round(quantile(vals,0.5),2),
+           "q3":round(quantile(vals,0.75),2), "max":vals[-1],
+           "mean":round(statistics.fmean(vals),2), "values":vals}
+        if start is not None:
+            d["mean_move"]=round(statistics.fmean([v-start for v in vals]),2)
+        return d
+
+    # EPL: where do newly-promoted clubs land? A club counts as promoted in
+    # season s if it is present in s but was absent in s-1 (and s-1 is in the
+    # window, so it's a genuine promotion rather than the start of the data).
+    def promoted_finishes(lg):
+        seasons=sorted(present[lg]); out=[]
+        for s in seasons:
+            if s-1 not in present[lg]: continue
+            prev=set(present[lg][s-1])
+            for team,pos in present[lg][s].items():
+                if team not in prev: out.append(pos)
+        return out
+
+    # actual season extent per league (data may stop short of the configured cap,
+    # e.g. NBA before the manual 2024-2026 file is added).
+    extent={}
+    for lg,s,g,team,pos,n,wp in long_rows:
+        lo,hi=extent.get(lg,(s,s)); extent[lg]=(min(lo,s),max(hi,s))
+
     viz={"leagues":{}}
     for lg,meta in LEAGUE_META.items():
+        # EPL: clubs in the relegation zone (bottom 3) leave the division, so as a
+        # START position they have no top-flight "next year" -- drop them. (A lone
+        # artifact can appear at 18 because tables are recomputed ignoring points
+        # deductions; that too belongs to the relegation zone.)
+        releg_start = meta["size"]-2 if meta.get("has_promoted") else None
         positions=[]
         for p in sorted(per[lg]):
-            vals=sorted(per[lg][p])
-            positions.append({
-                "pos":p, "n":len(vals),
-                "min":vals[0], "q1":round(quantile(vals,0.25),2),
-                "median":round(quantile(vals,0.5),2),
-                "q3":round(quantile(vals,0.75),2), "max":vals[-1],
-                "mean":round(statistics.fmean(vals),2),
-                "mean_move":round(statistics.fmean([v-p for v in vals]),2),
-                "values":vals,
-            })
-        viz["leagues"][lg]={
+            if releg_start and p>=releg_start: continue
+            d=boxstats(per[lg][p], start=p); d["pos"]=p
+            positions.append(d)
+        entry={
             "name":meta["name"], "grouped_by":meta["grouped_by"],
-            "size":meta["size"], "window":meta["window"],
+            "frame_label":meta.get("frame_label"),
+            "size":meta["size"], "window":list(extent.get(lg, meta["window"])),
             "finals_cut":meta["finals_cut"], "finals_label":meta["finals_label"],
             "relegation_cut":meta.get("relegation_cut"),
             "relegation_label":meta.get("relegation_label"),
@@ -363,6 +482,10 @@ def main():
                  for p0 in [pp0]], meta["size"]),
             "positions":positions,
         }
+        if meta.get("has_promoted"):
+            pf=promoted_finishes(lg)
+            if pf: entry["promoted"]=boxstats(pf)
+        viz["leagues"][lg]=entry
     with open(os.path.join(OUT,"viz_data.json"),"w") as f:
         json.dump(viz,f,indent=1)
     print("\nWrote standings_long.csv, transitions.csv, viz_data.json")
