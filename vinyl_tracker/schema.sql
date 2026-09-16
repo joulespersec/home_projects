@@ -61,3 +61,42 @@ CREATE TABLE IF NOT EXISTS records (
 
 CREATE INDEX IF NOT EXISTS idx_records_spotify_id ON records (spotify_id);
 CREATE INDEX IF NOT EXISTS idx_records_notable ON records (notable);
+
+-- ---------------------------------------------------------------------------
+-- Stage 3: Last.fm complement engine (suggestions)
+-- ---------------------------------------------------------------------------
+
+-- A recomputed snapshot of artists to explore next: artists similar to your
+-- active ones that you don't already listen to. Rebuilt each `recommend.py`
+-- run (the table is cleared first), so it always reflects the current DB.
+CREATE TABLE IF NOT EXISTS suggestions (
+    name TEXT PRIMARY KEY,          -- suggested (new) artist name
+    mbid TEXT,                      -- MusicBrainz id, when Last.fm provides one
+    url TEXT,                       -- Last.fm page
+    score REAL,                     -- aggregated match-weighted score
+    seed_count INTEGER,             -- how many of your artists point here
+    reasons TEXT,                   -- "because you listen to ..." seed names
+    computed_at TEXT
+);
+
+CREATE INDEX IF NOT EXISTS idx_suggestions_score ON suggestions (score DESC);
+
+-- Optional: notable records for suggested artists (populated by
+-- `recommend.py --with-records`). Kept separate from `records` because
+-- suggested artists are not in the `artists` table.
+CREATE TABLE IF NOT EXISTS suggested_records (
+    master_id INTEGER PRIMARY KEY,
+    suggestion_name TEXT,           -- which suggested artist this belongs to
+    discogs_artist_id INTEGER,
+    title TEXT,
+    year INTEGER,
+    formats TEXT,
+    thumb TEXT,
+    resource_url TEXT,
+    have INTEGER,
+    want INTEGER,
+    notable INTEGER DEFAULT 0,
+    pulled_at TEXT
+);
+
+CREATE INDEX IF NOT EXISTS idx_suggested_records_name ON suggested_records (suggestion_name);

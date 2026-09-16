@@ -21,8 +21,10 @@ scripts. Secrets (`.env`) and the DB are git-ignored.
 2. `cp .env.example .env` and fill in your client ID/secret.
 3. `pip install -r requirements.txt`
 
-For Stage 2 you also need a Discogs token (see `.env.example`):
-Discogs -> Settings -> Developers -> generate a personal token.
+For Stage 2 you also need a Discogs token, and for Stage 3 a Last.fm API key
+(both in `.env.example`):
+- Discogs -> Settings -> Developers -> generate a personal token.
+- Last.fm -> https://www.last.fm/api/account/create.
 
 ## Run
 
@@ -50,6 +52,21 @@ them with Discogs community `have`/`want` counts. Records clearing a `have`
 floor -- or ranking in an artist's top few -- are flagged `notable`. Tune the
 thresholds with `--top-n` / `--min-have`.
 
+### Stage 3 -- Last.fm suggestions
+```
+python recommend.py                   # rebuild the ranked suggestion list
+python recommend.py --top 25          # keep/show the top 25
+python recommend.py --seed-limit 30   # seed only from your top 30 artists
+python recommend.py --with-records    # also pull Discogs records for top suggestions
+```
+
+Seeds from your `active_artists`, asks Last.fm for each seed's similar artists,
+and aggregates them into a ranked list: a suggestion scores higher when several
+of your artists -- or a top-ranked one -- point to it. Anything already in your
+library or exclusion list is filtered out. `--with-records` then pulls notable
+Discogs records for the top suggestions, so you get concrete records to hunt for,
+not just artist names. The list is a snapshot: each run clears and rebuilds it.
+
 ## What's stored
 
 - `artists` -- every artist pulled, across all three Spotify time windows
@@ -60,6 +77,9 @@ thresholds with `--top-n` / `--min-have`.
   confidence (cached, so re-runs don't re-search)
 - `records` -- notable master releases per active artist, with community
   stats and the `notable` flag
+- `suggestions` -- ranked artists to explore next (rebuilt each run)
+- `suggested_records` -- notable records for suggested artists
+  (`recommend.py --with-records`)
 
 ## Tests
 
@@ -84,5 +104,5 @@ python -m unittest discover -s tests
 - `popularity` may come back null -- Spotify stripped it from some artist
   responses; the code treats it as optional.
 - No related-artists/recommendations access for new apps (killed Nov 2024,
-  no replacement) -- that's why the complement engine is being built on
-  Last.fm instead, in the next stage.
+  no replacement) -- that's why the Stage 3 complement engine runs on Last.fm
+  (`artist.getSimilar`) instead.

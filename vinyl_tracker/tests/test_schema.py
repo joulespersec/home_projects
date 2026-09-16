@@ -64,6 +64,22 @@ class SchemaTests(unittest.TestCase):
         row = self.conn.execute("SELECT have, want, pulled_at FROM records WHERE master_id=10").fetchone()
         self.assertEqual((row["have"], row["want"], row["pulled_at"]), (5000, 300, "t2"))
 
+    def test_suggestions_tables_exist_and_order(self):
+        self.conn.executemany(
+            "INSERT INTO suggestions (name, score, seed_count, computed_at) VALUES (?, ?, ?, 't')",
+            [("Low", 1.0, 1), ("High", 9.0, 3), ("Mid", 5.0, 2)],
+        )
+        ordered = [r["name"] for r in self.conn.execute("SELECT name FROM suggestions ORDER BY score DESC")]
+        self.assertEqual(ordered, ["High", "Mid", "Low"])
+        # suggested_records table is present and writable
+        self.conn.execute(
+            "INSERT INTO suggested_records (master_id, suggestion_name, title, notable, pulled_at) "
+            "VALUES (1, 'High', 'Debut', 1, 't')"
+        )
+        self.assertEqual(
+            self.conn.execute("SELECT COUNT(*) FROM suggested_records").fetchone()[0], 1
+        )
+
 
 if __name__ == "__main__":
     unittest.main()
