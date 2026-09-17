@@ -1,0 +1,12 @@
+# Secrets & local auth state
+.env
+.spotify_token.json
+
+# Local database
+*.db
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
